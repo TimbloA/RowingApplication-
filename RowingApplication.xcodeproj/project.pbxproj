@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C94CA45D2C922BA1007FB662 /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA45C2C922BA1007FB662 /* Athlete.swift */; };
+		C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA45E2C922D3D007FB662 /* currentAthletes.swift */; };
+		C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */; };
+		C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4662C92317B007FB662 /* NewAthleteView.swift */; };
 		C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */; };
-		C9BC729D2C91DD4400E1256A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC729C2C91DD4400E1256A /* ContentView.swift */; };
+		C9BC729D2C91DD4400E1256A /* AthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC729C2C91DD4400E1256A /* AthleteView.swift */; };
 		C9BC729F2C91DD4600E1256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BC729E2C91DD4600E1256A /* Assets.xcassets */; };
 		C9BC72A22C91DD4600E1256A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BC72A12C91DD4600E1256A /* Preview Assets.xcassets */; };
 		C9BC72AC2C91DD4700E1256A /* RowingApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC72AB2C91DD4700E1256A /* RowingApplicationTests.swift */; };
@@ -34,9 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C94CA45C2C922BA1007FB662 /* Athlete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
+		C94CA45E2C922D3D007FB662 /* currentAthletes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentAthletes.swift; sourceTree = "<group>"; };
+		C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthletesViewModel.swift; sourceTree = "<group>"; };
+		C94CA4662C92317B007FB662 /* NewAthleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAthleteView.swift; sourceTree = "<group>"; };
 		C9BC72972C91DD4400E1256A /* RowingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RowingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingApplicationApp.swift; sourceTree = "<group>"; };
-		C9BC729C2C91DD4400E1256A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C9BC729C2C91DD4400E1256A /* AthleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AthleteView.swift; path = ../AthleteView.swift; sourceTree = "<group>"; };
 		C9BC729E2C91DD4600E1256A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9BC72A12C91DD4600E1256A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9BC72A72C91DD4700E1256A /* RowingApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RowingApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +79,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C94CA45B2C922B80007FB662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C94CA45C2C922BA1007FB662 /* Athlete.swift */,
+				C94CA45E2C922D3D007FB662 /* currentAthletes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C94CA4602C922ECD007FB662 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C94CA4632C92310E007FB662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C9BC729C2C91DD4400E1256A /* AthleteView.swift */,
+				C94CA4662C92317B007FB662 /* NewAthleteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C9BC728E2C91DD4400E1256A = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +128,10 @@
 		C9BC72992C91DD4400E1256A /* RowingApplication */ = {
 			isa = PBXGroup;
 			children = (
+				C94CA4632C92310E007FB662 /* View */,
+				C94CA4602C922ECD007FB662 /* ViewModel */,
+				C94CA45B2C922B80007FB662 /* Model */,
 				C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */,
-				C9BC729C2C91DD4400E1256A /* ContentView.swift */,
 				C9BC729E2C91DD4600E1256A /* Assets.xcassets */,
 				C9BC72A02C91DD4600E1256A /* Preview Content */,
 			);
@@ -257,7 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9BC729D2C91DD4400E1256A /* ContentView.swift in Sources */,
+				C9BC729D2C91DD4400E1256A /* AthleteView.swift in Sources */,
+				C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */,
+				C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */,
+				C94CA45D2C922BA1007FB662 /* Athlete.swift in Sources */,
+				C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */,
 				C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

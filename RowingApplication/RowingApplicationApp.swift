@@ -11,7 +11,7 @@ import SwiftUI
 struct RowingApplicationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AthleteView(athlete: Athlete(name: "Ed Slack", side: athleteSide.BowSide, weight: 73.3, height: 187.5))
         }
     }
 }
