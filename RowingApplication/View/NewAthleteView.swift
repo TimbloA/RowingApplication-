@@ -14,35 +14,39 @@ struct NewAthleteView: View {
     
             VStack{
                 Text("Enter New Athlete").frame(maxWidth: .infinity,alignment:.center).font(.title2)
-                TextField("Name",text: $athletesViewModel.athleteName)
-                Section{
-                    //                    Stepper(
-                    //                        value: $athletesViewModel.athleteWeight,
-                    //                        in: athletesViewModel.range,
-                    //                        step: athletesViewModel.step
-                    //                    ) {
-                    //                        Text("Quantity: \(athletesViewModel.athleteWeight) ")
-                    //                    }
-                    //                Stepper(
-                    //                    value: $athletesViewModel.athleteHeight,
-                    //                    in: athletesViewModel.range,
-                    //                    step: athletesViewModel.step
-                    //                ) {
-                    //                    Text("Quantity: \(athletesViewModel.athleteGeight) ")
-                    //                }
-                    
-                    Picker("Side:",selection: $athletesViewModel.athleteSide) {
-                        Text("Bow Side").tag(athleteSide.BowSide)
-                        Text("Stroke Side").tag(athleteSide.StrokeSide)
-                        Text("Both").tag(athleteSide.Both)
-                        
-                    }
-                    
+                
+                Form{
+                    TextField("Name",text: $athletesViewModel.athleteName)
                     DatePicker(
-                        "Expiry Date:",
+                        "DOB:",
                         selection: $athletesViewModel.athleteDOB,
                         displayedComponents: [.date]
                     )
+                    Stepper(
+                                value: $athletesViewModel.athleteWeight,
+                                in: athletesViewModel.range1,
+                                step: athletesViewModel.step1
+                            ) {
+                                Text("Weight: \(athletesViewModel.athleteWeight) ")
+                            }
+                    
+                    Stepper(
+                            value: $athletesViewModel.athleteHeight,
+                            in: athletesViewModel.range2,
+                            step: athletesViewModel.step2
+                        ) {
+                            Text("Height: \(athletesViewModel.athleteHeight) ")
+                        }
+                    
+                    Picker("Side:",selection: $athletesViewModel.athleteSide) {
+                        Text("Bow Side").tag(athleteSide.Bow)
+                        Text("Stroke Side").tag(athleteSide.Stroke)
+                        Text("Both").tag(athleteSide.Both)
+                        Text("Cox").tag(athleteSide.Cox)
+                        
+                    }
+                    
+                    
                 }
                 
                 
@@ -53,7 +57,7 @@ struct NewAthleteView: View {
         Section{
             Button(athletesViewModel.submitName, action: {
                 if athletesViewModel.athleteName != "" {
-                    athletesViewModel.addNewIngredient()
+                    athletesViewModel.addNewAthlete()
                 }
             }).font(.title2)
             

@@ -9,9 +9,10 @@ import Foundation
 
 
 enum athleteSide: String, CaseIterable, Identifiable {
-    case BowSide
-    case StrokeSide
+    case Bow
+    case Stroke
     case Both
+    case Cox
     var id: Self { self }
 }
 
@@ -19,8 +20,8 @@ struct Athlete {
     let name: String
     var side: athleteSide
     var DOB = Date()
-    var weight: Double
-    var height: Double
+    var weight: Int
+    var height: Int
     
     func formatDate() -> String {
             let formatter = DateFormatter()
@@ -34,9 +35,9 @@ struct Athlete {
             return"""
                   Name: \(name)
                   Side: \(side)
-                  Weight: \(weight)
-                  Height: \(height)
-                  Expiry Date: \(formatDate())
+                  Weight: \(weight) kg
+                  Height: \(height) cm
+                  DOB: \(formatDate())
                   """
         }
 }

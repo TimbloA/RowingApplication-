@@ -11,6 +11,7 @@
 		C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA45E2C922D3D007FB662 /* currentAthletes.swift */; };
 		C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */; };
 		C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4662C92317B007FB662 /* NewAthleteView.swift */; };
+		C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A550C2C92E65000EDC4DC /* AthleteListView.swift */; };
 		C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */; };
 		C9BC729D2C91DD4400E1256A /* AthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC729C2C91DD4400E1256A /* AthleteView.swift */; };
 		C9BC729F2C91DD4600E1256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BC729E2C91DD4600E1256A /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		C94CA45E2C922D3D007FB662 /* currentAthletes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentAthletes.swift; sourceTree = "<group>"; };
 		C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthletesViewModel.swift; sourceTree = "<group>"; };
 		C94CA4662C92317B007FB662 /* NewAthleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAthleteView.swift; sourceTree = "<group>"; };
+		C96A550C2C92E65000EDC4DC /* AthleteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteListView.swift; sourceTree = "<group>"; };
 		C9BC72972C91DD4400E1256A /* RowingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RowingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingApplicationApp.swift; sourceTree = "<group>"; };
 		C9BC729C2C91DD4400E1256A /* AthleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AthleteView.swift; path = ../AthleteView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				C9BC729C2C91DD4400E1256A /* AthleteView.swift */,
 				C94CA4662C92317B007FB662 /* NewAthleteView.swift */,
+				C96A550C2C92E65000EDC4DC /* AthleteListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				C94CA45D2C922BA1007FB662 /* Athlete.swift in Sources */,
 				C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */,
 				C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */,
+				C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,11 +12,13 @@ class AthletesViewModel: ObservableObject{
     static let shared = AthletesViewModel()
     var currAthletes: [Athlete]
     var athleteName = ""
-    var athleteWeight: Double = 0
-    var athleteHeight: Double = 0
+    var athleteWeight: Int = 70
+    var athleteHeight: Int = 180
     var newAthlete: Bool = false
-    let range = 20..<200
-    let step:Double = 0.5
+    let range1 = 20...200
+    let step1:Int = 1
+    let range2 = 100...250
+    let step2:Int = 1
 
 //    enum athleteSide: String, CaseIterable, Identifiable {
 //        case BowSide, StrokeSide, Both
@@ -32,7 +34,7 @@ class AthletesViewModel: ObservableObject{
         currAthletes = currentAthletes.examples
     }
     
-    func addNewIngredient() {
+    func addNewAthlete() {
        currAthletes.append(Athlete(name: athleteName, side: athleteSide, DOB: athleteDOB, weight: athleteWeight, height: athleteHeight))
        submitName = "Submitted!"
        
@@ -41,10 +43,11 @@ class AthletesViewModel: ObservableObject{
     }
     func resetDisplay() {
         athleteName = ""
-        athleteWeight = 0
-        athleteHeight = 0
+        athleteWeight = 70
+        athleteHeight = 180
         athleteSide = .Both
         athleteDOB = Date()
         submitName = "Submit Athlete"
     }
+    
 }

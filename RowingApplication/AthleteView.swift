@@ -15,11 +15,12 @@ struct AthleteView: View {
             Form{
                 Text("\(athlete.displayAthlete())")
                         }
+            Spacer()
         }
         .padding()
     }
 }
 
 #Preview {
-    AthleteView(athlete: Athlete(name: "Ed Slack", side: athleteSide.BowSide, weight: 73.3, height: 187.5))
+    AthleteView(athlete: Athlete(name: "Ed Slack", side: athleteSide.Stroke, weight: 73, height: 187))
 }
