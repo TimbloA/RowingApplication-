@@ -15,7 +15,7 @@ struct NewAthleteView: View {
             VStack{
                 Text("Enter New Athlete").frame(maxWidth: .infinity,alignment:.center).font(.title2)
                 
-                Form{
+                Section{
                     TextField("Name",text: $athletesViewModel.athleteName)
                     DatePicker(
                         "DOB:",

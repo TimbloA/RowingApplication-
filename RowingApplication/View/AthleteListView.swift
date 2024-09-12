@@ -17,7 +17,6 @@ struct AthleteListView: View {
             return athleteViewModel.currAthletes.filter { $0.name.contains(searchText)}
         }
     }
-    
     var body: some View {
         VStack{
             NavigationStack {
@@ -26,14 +25,26 @@ struct AthleteListView: View {
                         NavigationLink(destination: AthleteView(athlete: athlete)){
                             Text("\(athlete.name)")
                         }
-                        
                     }
-                }.navigationTitle("Athletes")
+                    .onDelete(perform: deleteItems)
+                    Button("Add New Athlete"){
+                        athleteViewModel.newAthlete.toggle()
+                    }
+                }
+                .navigationTitle("Athletes")
+                .sheet(isPresented: $athleteViewModel.newAthlete){
+                    Form{
+                        NewAthleteView()
+                            .presentationDetents([.medium, .large])
+                    }
+                }
             }
             .searchable(text: $searchText)
         }
     }
-   
+    func deleteItems(at offsets: IndexSet) {
+          athleteViewModel.currAthletes.remove(atOffsets: offsets)
+      }
 }
 
 #Preview {
