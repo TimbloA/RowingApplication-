@@ -32,15 +32,15 @@ struct Athlete {
             
             return display
         }
-    func updateErgs()-> [ErgData]{
-        var tempErgs:String = []
-        for item in currentErgData.examples {
-            if item.athlete.name == name{
-                tempErgs.append(item.title)
-            }
-        }
-        
-    }
+//    func updateErgs()-> [ErgData]{
+//        var tempErgs:String = []
+//        for item in currentErgData.examples {
+//            if item.athlete.name == name{
+//                tempErgs.append(item.title)
+//            }
+//        }
+//        
+//    }
     func displayAthlete()-> String {
             return"""
                   Name: \(name)
