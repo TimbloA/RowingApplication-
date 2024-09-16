@@ -22,6 +22,7 @@ struct Athlete {
     var DOB = Date()
     var weight: Int
     var height: Int
+    var ergs: [String] = []
     
     func formatDate() -> String {
             let formatter = DateFormatter()
@@ -31,6 +32,15 @@ struct Athlete {
             
             return display
         }
+    func updateErgs()-> [ErgData]{
+        var tempErgs:String = []
+        for item in currentErgData.examples {
+            if item.athlete.name == name{
+                tempErgs.append(item.title)
+            }
+        }
+        
+    }
     func displayAthlete()-> String {
             return"""
                   Name: \(name)

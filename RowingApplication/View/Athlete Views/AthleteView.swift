@@ -14,7 +14,7 @@ struct AthleteView: View {
             
             Form{
                 Text("\(athlete.displayAthlete())")
-                        }
+            }
             Spacer()
         }
         .padding()
