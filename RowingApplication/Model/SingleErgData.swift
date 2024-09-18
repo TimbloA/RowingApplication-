@@ -28,7 +28,10 @@ struct SingleErgData {
         let minutes = totalSeconds / 60
         let seconds = totalSeconds % 60
         let remainingTenths = tenths % 10
-        return ("\(minutes):\(seconds).\(remainingTenths)")
+        return ("\(formatToTwoDigits(minutes)):\(formatToTwoDigits(seconds)).\(remainingTenths)")
+    }
+    func formatToTwoDigits(_ number: Int) -> String {
+        return String(format: "%02d", number)
     }
     func displayData()-> String {
             return"""

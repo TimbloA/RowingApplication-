@@ -10,6 +10,7 @@
 		C937A1D42C9B31E5006692FC /* DataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1D32C9B31E5006692FC /* DataListView.swift */; };
 		C937A1D62C9B31FA006692FC /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1D52C9B31FA006692FC /* DataViewModel.swift */; };
 		C937A1DB2C9B3412006692FC /* AddDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1DA2C9B3412006692FC /* AddDataView.swift */; };
+		C940DF082C9B5BBF0016695D /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C940DF072C9B5BBF0016695D /* RootTabView.swift */; };
 		C94CA45D2C922BA1007FB662 /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA45C2C922BA1007FB662 /* Athlete.swift */; };
 		C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA45E2C922D3D007FB662 /* currentAthletes.swift */; };
 		C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */; };
@@ -48,6 +49,7 @@
 		C937A1D32C9B31E5006692FC /* DataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListView.swift; sourceTree = "<group>"; };
 		C937A1D52C9B31FA006692FC /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		C937A1DA2C9B3412006692FC /* AddDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataView.swift; sourceTree = "<group>"; };
+		C940DF072C9B5BBF0016695D /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		C94CA45C2C922BA1007FB662 /* Athlete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
 		C94CA45E2C922D3D007FB662 /* currentAthletes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentAthletes.swift; sourceTree = "<group>"; };
 		C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthletesViewModel.swift; sourceTree = "<group>"; };
@@ -123,12 +125,13 @@
 		C94CA4632C92310E007FB662 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C940DF072C9B5BBF0016695D /* RootTabView.swift */,
 				C9BC729C2C91DD4400E1256A /* AthleteView.swift */,
 				C94CA4662C92317B007FB662 /* NewAthleteView.swift */,
 				C96A550C2C92E65000EDC4DC /* AthleteListView.swift */,
 				C9780B722C9855A9002C0CA9 /* ErgDataView.swift */,
-				C937A1D32C9B31E5006692FC /* DataListView.swift */,
 				C937A1DA2C9B3412006692FC /* AddDataView.swift */,
+				C937A1D32C9B31E5006692FC /* DataListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C940DF082C9B5BBF0016695D /* RootTabView.swift in Sources */,
 				C937A1D42C9B31E5006692FC /* DataListView.swift in Sources */,
 				C9780B6B2C98502E002C0CA9 /* SingleErgData.swift in Sources */,
 				C9BC729D2C91DD4400E1256A /* AthleteView.swift in Sources */,

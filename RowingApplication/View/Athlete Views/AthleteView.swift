@@ -9,27 +9,23 @@ import SwiftUI
 
 struct AthleteView: View {
     @State var athlete: Athlete
-    
+    @StateObject var dataViewModel: DataViewModel = DataViewModel.shared
     var body: some View {
         
         VStack {
-            NavigationStack{ 
+            NavigationStack{
                 Form{
                     Text("\(athlete.displayAthlete())")
-                    
-                }
-                Form{
-                    ForEach(athlete.ergs,id: \.self.title) { erg in
-                        NavigationLink(destination: ErgDataView(ErgData: erg)){
-                            Text("\(erg.title)")
-                        }
+                    NavigationLink(destination:DataListView(Single: true,SingleAthlete: athlete.name)){
+                        Text("Athlete Data")
                     }
                 }
+                
             }
         }
         .padding()
         .onAppear {
-            athlete.updateErgs(with: currentErgData.singleExamples)
+            athlete.updateErgs(with: dataViewModel.currErgData)
         }
     }
 }

@@ -34,8 +34,9 @@ struct Athlete {
         }
     
     mutating func updateErgs(with currentErgData: [SingleErgData]) {
+        ergs = []
           for item in currentErgData {
-              if item.athlete == name {
+              if item.athlete == name  {
                   ergs.append(item)
               }
           }
