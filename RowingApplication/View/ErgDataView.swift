@@ -22,5 +22,5 @@ struct ErgDataView: View {
 }
 
 #Preview {
-    ErgDataView(ErgData: SingleErgData(title: "2k", athlete:"Ed Slack", distance: 2000))
+    ErgDataView(ErgData: SingleErgData(title: "2k", athlete:"Ed Slack",distance: 2000, time: 4121))
 }

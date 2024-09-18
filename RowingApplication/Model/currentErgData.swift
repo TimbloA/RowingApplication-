@@ -16,12 +16,7 @@ struct currentErgData {
          
         ]
     }
-    static var multipleExamples: [MultipleErgData] {
-        [MultipleErgData(title: "2K", athletes:["Ed Slack","Richard Oliverson"], distance: 2000),
-         MultipleErgData(title: "5K", athletes:["Ed Slack","Adi Timblo"], distance: 5000)
-         
-        ]
-    }
+
 
     #endif
 }

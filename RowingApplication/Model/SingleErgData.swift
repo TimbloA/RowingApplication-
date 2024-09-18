@@ -12,7 +12,7 @@ struct SingleErgData {
     var athlete: String
     var date = Date()
     var distance: Int
-    var timeComponents = DateComponents()
+    var time:Int = 0
 
    
     func formatDate() -> String {
@@ -23,12 +23,19 @@ struct SingleErgData {
             
             return display
         }
+    func convertTenthsOfSeconds(_ tenths: Int) -> String {
+        let totalSeconds = tenths / 10
+        let minutes = totalSeconds / 60
+        let seconds = totalSeconds % 60
+        let remainingTenths = tenths % 10
+        return ("\(minutes):\(seconds).\(remainingTenths)")
+    }
     func displayData()-> String {
             return"""
                   Name: \(title)
                   Athlete: \(athlete)
                   Distance: \(distance)m
-                  Time: \(String(describing: timeComponents.minute)):\(String(describing: timeComponents.second)):\(String(describing: timeComponents.nanosecond))
+                  Time: \(convertTenthsOfSeconds(time))
                   Date: \(formatDate())
                   """
         }
