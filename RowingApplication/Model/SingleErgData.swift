@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ErgData {
+struct SingleErgData {
     var title: String
-    var athlete: Athlete
+    var athlete: String
     var date = Date()
     var distance: Int
     var timeComponents = DateComponents()
@@ -26,7 +26,7 @@ struct ErgData {
     func displayData()-> String {
             return"""
                   Name: \(title)
-                  Athlete: \(athlete.name)
+                  Athlete: \(athlete)
                   Distance: \(distance)m
                   Time: \(String(describing: timeComponents.minute)):\(String(describing: timeComponents.second)):\(String(describing: timeComponents.nanosecond))
                   Date: \(formatDate())

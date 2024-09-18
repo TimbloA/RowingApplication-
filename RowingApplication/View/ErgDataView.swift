@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ErgDataView: View {
-    let ErgData: ErgData
+    let ErgData: SingleErgData
     var body: some View {
         VStack {
             
@@ -22,5 +22,5 @@ struct ErgDataView: View {
 }
 
 #Preview {
-    ErgDataView(ErgData: ErgData(title: "2k", athlete:currentAthletes.examples[0], distance: 2000))
+    ErgDataView(ErgData: SingleErgData(title: "2k", athlete:"Ed Slack", distance: 2000))
 }

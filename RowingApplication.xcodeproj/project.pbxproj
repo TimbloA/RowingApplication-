@@ -12,7 +12,7 @@
 		C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */; };
 		C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4662C92317B007FB662 /* NewAthleteView.swift */; };
 		C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A550C2C92E65000EDC4DC /* AthleteListView.swift */; };
-		C9780B6B2C98502E002C0CA9 /* ErgData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9780B6A2C98502E002C0CA9 /* ErgData.swift */; };
+		C9780B6B2C98502E002C0CA9 /* SingleErgData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9780B6A2C98502E002C0CA9 /* SingleErgData.swift */; };
 		C9780B712C98548E002C0CA9 /* currentErgData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9780B702C98548E002C0CA9 /* currentErgData.swift */; };
 		C9780B732C9855A9002C0CA9 /* ErgDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9780B722C9855A9002C0CA9 /* ErgDataView.swift */; };
 		C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */; };
@@ -22,6 +22,8 @@
 		C9BC72AC2C91DD4700E1256A /* RowingApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC72AB2C91DD4700E1256A /* RowingApplicationTests.swift */; };
 		C9BC72B62C91DD4700E1256A /* RowingApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC72B52C91DD4700E1256A /* RowingApplicationUITests.swift */; };
 		C9BC72B82C91DD4700E1256A /* RowingApplicationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC72B72C91DD4700E1256A /* RowingApplicationUITestsLaunchTests.swift */; };
+		C9D13BFF2C9B1BDC00C6E3EA /* ErgListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D13BFE2C9B1BDC00C6E3EA /* ErgListView.swift */; };
+		C9D13C012C9B1CDC00C6E3EA /* MultipleErgData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D13C002C9B1CDC00C6E3EA /* MultipleErgData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +49,7 @@
 		C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthletesViewModel.swift; sourceTree = "<group>"; };
 		C94CA4662C92317B007FB662 /* NewAthleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAthleteView.swift; sourceTree = "<group>"; };
 		C96A550C2C92E65000EDC4DC /* AthleteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteListView.swift; sourceTree = "<group>"; };
-		C9780B6A2C98502E002C0CA9 /* ErgData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgData.swift; sourceTree = "<group>"; };
+		C9780B6A2C98502E002C0CA9 /* SingleErgData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleErgData.swift; sourceTree = "<group>"; };
 		C9780B702C98548E002C0CA9 /* currentErgData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentErgData.swift; sourceTree = "<group>"; };
 		C9780B722C9855A9002C0CA9 /* ErgDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgDataView.swift; sourceTree = "<group>"; };
 		C9BC72972C91DD4400E1256A /* RowingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RowingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +62,8 @@
 		C9BC72B12C91DD4700E1256A /* RowingApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RowingApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BC72B52C91DD4700E1256A /* RowingApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingApplicationUITests.swift; sourceTree = "<group>"; };
 		C9BC72B72C91DD4700E1256A /* RowingApplicationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingApplicationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C9D13BFE2C9B1BDC00C6E3EA /* ErgListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgListView.swift; sourceTree = "<group>"; };
+		C9D13C002C9B1CDC00C6E3EA /* MultipleErgData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleErgData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +96,8 @@
 			children = (
 				C94CA45C2C922BA1007FB662 /* Athlete.swift */,
 				C94CA45E2C922D3D007FB662 /* currentAthletes.swift */,
-				C9780B6A2C98502E002C0CA9 /* ErgData.swift */,
+				C9780B6A2C98502E002C0CA9 /* SingleErgData.swift */,
+				C9D13C002C9B1CDC00C6E3EA /* MultipleErgData.swift */,
 				C9780B702C98548E002C0CA9 /* currentErgData.swift */,
 			);
 			path = Model;
@@ -113,6 +118,7 @@
 				C94CA4662C92317B007FB662 /* NewAthleteView.swift */,
 				C96A550C2C92E65000EDC4DC /* AthleteListView.swift */,
 				C9780B722C9855A9002C0CA9 /* ErgDataView.swift */,
+				C9D13BFE2C9B1BDC00C6E3EA /* ErgListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,13 +311,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9780B6B2C98502E002C0CA9 /* ErgData.swift in Sources */,
+				C9780B6B2C98502E002C0CA9 /* SingleErgData.swift in Sources */,
 				C9BC729D2C91DD4400E1256A /* AthleteView.swift in Sources */,
 				C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */,
 				C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */,
+				C9D13C012C9B1CDC00C6E3EA /* MultipleErgData.swift in Sources */,
 				C94CA45D2C922BA1007FB662 /* Athlete.swift in Sources */,
 				C9780B712C98548E002C0CA9 /* currentErgData.swift in Sources */,
 				C9780B732C9855A9002C0CA9 /* ErgDataView.swift in Sources */,
+				C9D13BFF2C9B1BDC00C6E3EA /* ErgListView.swift in Sources */,
 				C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */,
 				C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */,
 				C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */,

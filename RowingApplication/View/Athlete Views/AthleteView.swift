@@ -8,16 +8,29 @@
 import SwiftUI
 
 struct AthleteView: View {
-    let athlete: Athlete
+    @State var athlete: Athlete
+    
     var body: some View {
+        
         VStack {
-            
-            Form{
-                Text("\(athlete.displayAthlete())")
+            NavigationStack{ 
+                Form{
+                    Text("\(athlete.displayAthlete())")
+                    
+                }
+                Form{
+                    ForEach(athlete.ergs,id: \.self.title) { erg in
+                        NavigationLink(destination: ErgDataView(ErgData: erg)){
+                            Text("\(erg.title)")
+                        }
+                    }
+                }
             }
-            Spacer()
         }
         .padding()
+        .onAppear {
+            athlete.updateErgs(with: currentErgData.singleExamples)
+        }
     }
 }
 
