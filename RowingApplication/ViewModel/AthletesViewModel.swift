@@ -14,16 +14,14 @@ class AthletesViewModel: ObservableObject{
     var athleteName = ""
     var athleteWeight: Int = 70
     var athleteHeight: Int = 180
+    var athleteCrew = ""
     var newAthlete: Bool = false
     let range1 = 20...200
     let step1:Int = 1
     let range2 = 100...250
     let step2:Int = 1
 
-//    enum athleteSide: String, CaseIterable, Identifiable {
-//        case BowSide, StrokeSide, Both
-//        var id: Self { self }
-//    }
+
     var athleteSide: athleteSide = .Both
 
     var athleteDOB = Date()
@@ -35,7 +33,7 @@ class AthletesViewModel: ObservableObject{
     }
     
     func addNewAthlete() {
-       currAthletes.append(Athlete(name: athleteName, side: athleteSide, DOB: athleteDOB, weight: athleteWeight, height: athleteHeight))
+        currAthletes.append(Athlete(name: athleteName, side: athleteSide, DOB: athleteDOB, weight: athleteWeight, height: athleteHeight))
        submitName = "Submitted!"
        
         resetDisplay()

@@ -22,6 +22,7 @@ struct NewAthleteView: View {
                         selection: $athletesViewModel.athleteDOB,
                         displayedComponents: [.date]
                     )
+                    TextField("Crew",text: $athletesViewModel.athleteCrew)
                     Stepper(
                                 value: $athletesViewModel.athleteWeight,
                                 in: athletesViewModel.range1,

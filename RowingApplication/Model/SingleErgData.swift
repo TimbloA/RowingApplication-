@@ -14,34 +14,15 @@ struct SingleErgData {
     var distance: Int
     var time:Int = 0
 
-   
-    func formatDate() -> String {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .short
-            formatter.locale = Locale(identifier: "en_GB")
-            let display = formatter.string(from: date)
-            
-            return display
-        }
-    func convertTenthsOfSeconds(_ tenths: Int) -> String {
-        let totalSeconds = tenths / 10
-        let minutes = totalSeconds / 60
-        let seconds = totalSeconds % 60
-        let remainingTenths = tenths % 10
-        return ("\(formatToTwoDigits(minutes)):\(formatToTwoDigits(seconds)).\(remainingTenths)")
+   func displayData()-> String {
+        return"""
+              Title: \(title)
+              Athlete: \(athlete)
+              Distance: \(distance)m
+              Time: \(time.convertTenthsOfSeconds(time))
+              Date: \(date.formatDate(date:date))
+              """
     }
-    func formatToTwoDigits(_ number: Int) -> String {
-        return String(format: "%02d", number)
-    }
-    func displayData()-> String {
-            return"""
-                  Name: \(title)
-                  Athlete: \(athlete)
-                  Distance: \(distance)m
-                  Time: \(convertTenthsOfSeconds(time))
-                  Date: \(formatDate())
-                  """
-        }
 }
 
 

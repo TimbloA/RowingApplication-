@@ -23,15 +23,8 @@ struct Athlete {
     var weight: Int
     var height: Int
     var ergs: [SingleErgData] = []
+
     
-    func formatDate() -> String {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .short
-            formatter.locale = Locale(identifier: "en_GB")
-            let display = formatter.string(from: DOB)
-            
-            return display
-        }
     
     mutating func updateErgs(with currentErgData: [SingleErgData]) {
         ergs = []
@@ -47,7 +40,7 @@ struct Athlete {
                   Side: \(side)
                   Weight: \(weight) kg
                   Height: \(height) cm
-                  DOB: \(formatDate())
+                  DOB: \(DOB.formatDate(date:DOB))
                   """
         }
 }

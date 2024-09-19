@@ -15,7 +15,7 @@ struct RootTabView: View {
                           Image(systemName: "carrot")
                           Text("Athletes")
                       }
-                  DataListView(Single:false, SingleAthlete: "")
+                  ErgDataListView(Single:false, SingleAthlete: "")
                       .tabItem {
                           Image(systemName: "fork.knife")
                           Text("Data")

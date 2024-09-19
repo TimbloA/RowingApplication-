@@ -16,7 +16,7 @@ struct AthleteView: View {
             NavigationStack{
                 Form{
                     Text("\(athlete.displayAthlete())")
-                    NavigationLink(destination:DataListView(Single: true,SingleAthlete: athlete.name)){
+                    NavigationLink(destination:ErgDataListView(Single: true,SingleAthlete: athlete.name)){
                         Text("Athlete Data")
                     }
                 }

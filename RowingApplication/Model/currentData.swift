@@ -7,14 +7,18 @@
 
 import Foundation
 
-struct currentErgData {
+struct currentData {
     
     #if DEBUG
-    static var singleExamples: [SingleErgData] {
+    static var ergExamples: [SingleErgData] {
         [SingleErgData(title: "2K", athlete:"Ed Slack", distance: 2000),
          SingleErgData(title: "5K", athlete:"Ed Slack", distance: 5000)
          
         ]
+        
+    }
+    static var trainingExamples: [TrainingData] {
+        [TrainingData(title: "12K UT2", crew: "2nd VIII", distance: 12000,time: 12033,notes:"Slight easterly breeze.")]
     }
 
 

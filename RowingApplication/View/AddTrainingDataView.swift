@@ -1,21 +1,21 @@
 //
-//  AddDataView.swift
+//  AddTrainingDataView.swift
 //  RowingApplication
 //
-//  Created by Timblo, Adi (WING) on 18/09/2024.
+//  Created by Timblo, Adi (WING) on 19/09/2024.
 //
 
 import SwiftUI
 
-struct AddDataView: View {
+struct AddTrainingDataView: View {
     @StateObject var dataViewModel: DataViewModel = DataViewModel.shared
 
     var body: some View{
         VStack{
         
-            Text("Enter New Data").frame(maxWidth: .infinity,alignment:.center).font(.title2)
+            Text("Enter New Session").frame(maxWidth: .infinity,alignment:.center).font(.title2)
             TextField("Title",text: $dataViewModel.title)
-            TextField("Athlete",text: $dataViewModel.athlete)
+            TextField("Crew",text: $dataViewModel.crew)
             DatePicker(
                 "Date:",
                 selection: $dataViewModel.dataDate,
@@ -28,26 +28,31 @@ struct AddDataView: View {
                 Text("m")
             }
             HStack {
+                TextField("Hour",text: $dataViewModel.hours)
+                    .keyboardType(.numberPad)
+                    .frame(width: 80)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Text(":")
                 TextField("Minute",text: $dataViewModel.minutes)
                     .keyboardType(.numberPad)
-                    .frame(width: 100)
+                    .frame(width: 80)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Text(":")
                 TextField("Second",text: $dataViewModel.seconds)
                     .keyboardType(.numberPad)
-                    .frame(width: 100)
+                    .frame(width: 80)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Text(".")
                 TextField("Tenths",text: $dataViewModel.tenths)
                     .keyboardType(.numberPad)
-                    .frame(width: 100)
+                    .frame(width: 80)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
         
             Section{
-                Button(dataViewModel.submitErg, action: {
+                Button(dataViewModel.submitEntry, action: {
                     if dataViewModel.title != "" {
-                        dataViewModel.addNewErg()
+                        dataViewModel.addNewTraining()
                     }
                 }).font(.title2)
                 
@@ -60,5 +65,5 @@ struct AddDataView: View {
 }
 
 #Preview {
-    AddDataView()
+    AddTrainingDataView()
 }

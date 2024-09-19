@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DataListView: View {
+struct ErgDataListView: View {
     @StateObject var dataViewModel: DataViewModel = DataViewModel.shared
     @State private var searchText: String = ""
     @State var Single: Bool
@@ -38,7 +38,7 @@ struct DataListView: View {
                 .navigationTitle("Erg Data")
                 .sheet(isPresented: $dataViewModel.newErg){
                     Form{
-                        AddDataView()
+                        AddErgDataView()
                             .presentationDetents([.medium, .large])
                     }
                 }
@@ -54,5 +54,5 @@ struct DataListView: View {
 
 
 #Preview {
-    DataListView(Single:false, SingleAthlete: "")
+    ErgDataListView(Single:false, SingleAthlete: "")
 }
