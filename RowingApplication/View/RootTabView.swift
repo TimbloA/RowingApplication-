@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RootTabView: View {
+    
     var body: some View {
         TabView {
                   AthleteListView()
@@ -15,7 +16,7 @@ struct RootTabView: View {
                           Image(systemName: "carrot")
                           Text("Athletes")
                       }
-                  ErgDataListView(Single:false, SingleAthlete: "")
+                  RootDataView()
                       .tabItem {
                           Image(systemName: "fork.knife")
                           Text("Data")

@@ -46,15 +46,8 @@ struct NewAthleteView: View {
                         Text("Cox").tag(athleteSide.Cox)
                         
                     }
-                    
-                    
                 }
-                
-                
             }
-        
-        
- 
         Section{
             Button(athletesViewModel.submitName, action: {
                 if athletesViewModel.athleteName != "" {
