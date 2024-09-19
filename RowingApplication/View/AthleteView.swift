@@ -7,12 +7,29 @@
 
 import SwiftUI
 
-struct Athleteiew: View {
+struct AthleteView: View {
+    @State var athlete: Athlete
+    @StateObject var dataViewModel: DataViewModel = DataViewModel.shared
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            NavigationStack{
+                Form{
+                    Text("\(athlete.displayAthlete())")
+                    NavigationLink(destination:ErgDataListView(Single: true,SingleAthlete: athlete.name)){
+                        Text("Athlete Data")
+                    }
+                }
+                
+            }
+        }
+        .padding()
+        .onAppear {
+            athlete.updateErgs(with: dataViewModel.currErgData)
+        }
     }
 }
 
 #Preview {
-    AthleteView()
+    AthleteView(athlete: Athlete(name: "Ed Slack", side: athleteSide.Stroke, weight: 73, height: 187))
 }
