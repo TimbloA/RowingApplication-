@@ -16,7 +16,7 @@ struct AthleteView: View {
             NavigationStack{
                 Form{
                     Text("\(athlete.displayAthlete())")
-                    NavigationLink(destination:ErgDataListView(Single: true,SingleAthlete: athlete.name)){
+                    NavigationLink(destination:RootDataView(single: true, singleAthlete: athlete.name)){
                         Text("Athlete Data")
                     }
                 }
@@ -24,9 +24,9 @@ struct AthleteView: View {
             }
         }
         .padding()
-        .onAppear {
-            athlete.updateErgs(with: dataViewModel.currErgData)
-        }
+//        .onAppear {
+//            athlete.updateErgs(with: dataViewModel.currErgData)
+//        }
     }
 }
 

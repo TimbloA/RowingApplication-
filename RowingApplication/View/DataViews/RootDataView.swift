@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RootDataView: View {
+    var single: Bool
+    var singleAthlete: String
     enum dataType:String, CaseIterable, Identifiable{
         case Training
         case Erg
@@ -23,7 +25,7 @@ struct RootDataView: View {
             if dataChoice == .Training{
                 TrainingDataListView()
             }else if dataChoice == .Erg{
-                ErgDataListView(Single: false, SingleAthlete: "")
+                ErgDataListView(Single: single, SingleAthlete: singleAthlete)
             }
         }
         
@@ -34,5 +36,5 @@ struct RootDataView: View {
 }
 
 #Preview {
-    RootDataView()
+    RootDataView(single: false, singleAthlete: "")
 }

@@ -16,7 +16,7 @@ struct RootTabView: View {
                           Image(systemName: "carrot")
                           Text("Athletes")
                       }
-                  RootDataView()
+            RootDataView(single:false, singleAthlete: "")
                       .tabItem {
                           Image(systemName: "fork.knife")
                           Text("Data")

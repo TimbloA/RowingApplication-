@@ -12,8 +12,8 @@ struct currentData {
     #if DEBUG
     static var ergExamples: [SingleErgData] {
         [SingleErgData(title: "2K", athlete:"Ed Slack", distance: 2000),
-         SingleErgData(title: "5K", athlete:"Ed Slack", distance: 5000)
-         
+         SingleErgData(title: "5K", athlete:"Ed Slack", distance: 5000),
+         SingleErgData(title: "4K", athlete:"Adi Timblo", distance: 5000)
         ]
         
     }

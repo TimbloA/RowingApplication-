@@ -22,18 +22,18 @@ struct Athlete {
     var DOB = Date()
     var weight: Int
     var height: Int
-    var ergs: [SingleErgData] = []
+//    var ergs: [SingleErgData] = []
 
     
     
-    mutating func updateErgs(with currentErgData: [SingleErgData]) {
-        ergs = []
-          for item in currentErgData {
-              if item.athlete == name  {
-                  ergs.append(item)
-              }
-          }
-      }
+//    mutating func updateErgs(with currentErgData: [SingleErgData]) {
+//        ergs = []
+//          for item in currentErgData {
+//              if item.athlete == name  {
+//                  ergs.append(item)
+//              }
+//          }
+//      }
     func displayAthlete()-> String {
             return"""
                   Name: \(name)
