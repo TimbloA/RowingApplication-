@@ -24,7 +24,7 @@ class DataViewModel: ObservableObject{
     var tenths: String = ""
     var athlete: String = ""
     var submitEntry: String = "Submit Entry"
-    
+    var Notes: String = ""
     private init() {
         currErgData = currentData.ergExamples
         currTrainingData = currentData.trainingExamples
@@ -48,7 +48,7 @@ class DataViewModel: ObservableObject{
         let intSeconds = Int(seconds) ?? 0
         let intTenths = Int(tenths) ?? 0
         let time = convertToTenths(hours: intHours,minutes: intMinutes,  seconds: intSeconds, tenths: intTenths)
-        currTrainingData.append(TrainingData(title: title, date: dataDate, crew: crew, distance: intDistance, time: time))
+        currTrainingData.append(TrainingData(title: title, date: dataDate, crew: crew, distance: intDistance, time: time,notes: Notes))
         submitEntry = "Submitted!"
         resetDisplay()
     }

@@ -48,6 +48,10 @@ struct AddTrainingDataView: View {
                     .frame(width: 80)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
+            TextField("Notes",text: $dataViewModel.Notes, axis: .vertical)
+                .frame(width: 400)
+                .lineLimit(5, reservesSpace: true)
+                .textFieldStyle(.roundedBorder)
         
             Section{
                 Button(dataViewModel.submitEntry, action: {
