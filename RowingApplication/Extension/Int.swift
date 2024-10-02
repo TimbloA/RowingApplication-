@@ -19,5 +19,16 @@ extension Int {
     func formatToTwoDigits(_ number: Int) -> String {
         return String(format: "%02d", number)
     }
-
+    
+    func compareTwoTimes(_ crew1: String, _ crew2:String,_ time1: Int, _ time2:Int) -> String {
+        let difference = time1 - time2
+        if difference>0 {
+            return "\(crew1) beat \(crew2) by \(difference)"
+        }else if difference<0 {
+            return "\(crew2) beat \(crew1) by \(difference)"
+        }else {
+            return "\(crew1) drew \(crew2) "
+        }
+        
+    }
 }
