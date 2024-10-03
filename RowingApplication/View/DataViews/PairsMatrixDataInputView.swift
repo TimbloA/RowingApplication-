@@ -18,21 +18,29 @@ struct PairsMatrixDataInputView: View {
     @State private var noOfWaves: String = ""
     @State private var noOfCrews: String = ""
     @State private var wavesData: [[PairsCrewInput]] = []
-    @State private var crewsData: [[(AthletePair, AthletePair, Int)]] = [] 
     var body: some View {
         VStack {
             // Text fields to input number of waves and crews
-            Section{
+            Text("Pairs Data")
+                .font(.title)
+                .bold()
+            HStack{
+                Text("    Title:")
                 TextField("Title",text: $selectionDataViewModel.dataTitle)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            HStack{
+                Text("Waves:")
                 TextField("Enter number of waves", text: $noOfWaves)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
+            }
+            HStack{
+                Text("Crews:")
                 TextField("Enter number of crews per wave", text: $noOfCrews)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
             }
-            .padding()
             
             // Button to generate input fields
             Button(action: {
@@ -72,43 +80,47 @@ struct PairsMatrixDataInputView: View {
             }
             
             // Button to calculate results
-            Button(action: {
-                selectionDataViewModel.calculateRankings(wavesData)
-            }) {
-                Text("Calculate Rankings")
-                    .padding()
-                    .foregroundColor(.green)
-                    .cornerRadius(8)
-            }
-            .padding(.top)
+            
             
             // Display the crew rankings
-            List {
+            ScrollView {
                 ForEach(0..<selectionDataViewModel.crewsData.count, id: \.self) { waveIndex in
                     Section(header: Text("Wave \(waveIndex + 1) Rankings")) {
                         ForEach(0..<selectionDataViewModel.crewsData[waveIndex].count, id: \.self) { crewIndex in
                             let crew = selectionDataViewModel.crewsData[waveIndex][crewIndex]
                             HStack {
-                                Text("Bow: \(crew.0.name) (Points: \(crew.0.points))")
+                                Text("B: \(crew.0.name) \n Points: \(crew.0.points)")
                                 Spacer()
-                                Text("Stroke: \(crew.1.name) (Points: \(crew.1.points))")
+                                Text("S: \(crew.1.name) \n Points: \(crew.1.points)")
                                 Spacer()
-                                Text("Time: \(crew.2)")
+                                Text("Time: \(crew.2.convertTenthsOfSeconds(crew.2))")
                             }
                         }
                     }
                 }
             }
             Button(action: {
-                selectionDataViewModel.addPairsMatrix()
-            }){
-                Text("Submit Entry")
+                selectionDataViewModel.calculateRankings(wavesData)
+            }) {
+                Text("Calculate Rankings")
+                    .padding()
+                    .foregroundColor(.blue)
+                    .cornerRadius(8)
+            }
+            .padding(.top)
+            if !selectionDataViewModel.crewsData.isEmpty {
+                Button(action: {
+                    selectionDataViewModel.addPairsMatrix()
+                }){
+                    Text("Submit Entry")
+                }
             }
         }
         .padding()
     }
     // Function to generate input fields dynamically based on noOfWaves and noOfCrews
     func generateInputFields() {
+        wavesData = []
         guard let waves = Int(noOfWaves), let crews = Int(noOfCrews) else {
             return
         }

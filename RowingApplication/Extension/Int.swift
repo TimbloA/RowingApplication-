@@ -8,6 +8,7 @@
 import Foundation
 
 extension Int {
+//    Function that takes a time in tenths of a second and outputs it in HH:MM:SS:T form
     func convertTenthsOfSeconds(_ tenths: Int) -> String {
         let totalSeconds = tenths / 10
         let hours = totalSeconds / 3600
@@ -17,6 +18,7 @@ extension Int {
     return ("\(formatToTwoDigits(hours)):\(formatToTwoDigits(minutes)):\(formatToTwoDigits(seconds)).\(remainingTenths)")
     }
     func formatToTwoDigits(_ number: Int) -> String {
+//        Since the function above would would nine as 9 and not 09, as seen on a clock, forcing the time to output 
         return String(format: "%02d", number)
     }
     

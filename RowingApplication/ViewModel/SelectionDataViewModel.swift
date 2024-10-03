@@ -63,4 +63,24 @@ class SelectionDataViewModel: ObservableObject{
             crewsData.append(runData)
         }
     }
+    func rankBowAndStrokeAthletes() -> ([AthletePair], [AthletePair]){
+        var bowAthletes: [AthletePair] = []
+        var strokeAthletes: [AthletePair] = []
+        
+        // Collect bow and stroke athletes from crewsData
+        for wave in crewsData {
+            for crew in wave {
+                bowAthletes.append(crew.0)   // Bow athlete
+                strokeAthletes.append(crew.1) // Stroke athlete
+            }
+        }
+        // Sort bow athletes by points (from least to most points)
+        let rankedBowAthletes = bowAthletes.sorted(by: { $0.points < $1.points })
+        
+        // Sort stroke athletes by points (from least to most points)
+        let rankedStrokeAthletes = strokeAthletes.sorted(by: { $0.points < $1.points })
+        
+        return (rankedBowAthletes, rankedStrokeAthletes)
+    }
+
 }
