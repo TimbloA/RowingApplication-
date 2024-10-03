@@ -22,16 +22,17 @@ struct PairsMatrixDataInputView: View {
     var body: some View {
         VStack {
             // Text fields to input number of waves and crews
-            TextField("Title",text: $selectionDataViewModel.dataTitle)
-            TextField("Enter number of waves", text: $noOfWaves)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .keyboardType(.numberPad)
-            
-            TextField("Enter number of crews per wave", text: $noOfCrews)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .keyboardType(.numberPad)
+            Section{
+                TextField("Title",text: $selectionDataViewModel.dataTitle)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("Enter number of waves", text: $noOfWaves)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                TextField("Enter number of crews per wave", text: $noOfCrews)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+            }
+            .padding()
             
             // Button to generate input fields
             Button(action: {
@@ -98,7 +99,11 @@ struct PairsMatrixDataInputView: View {
                     }
                 }
             }
-           
+            Button(action: {
+                selectionDataViewModel.addPairsMatrix()
+            }){
+                Text("Submit Entry")
+            }
         }
         .padding()
     }

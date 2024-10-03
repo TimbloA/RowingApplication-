@@ -9,18 +9,19 @@ import SwiftUI
 
 struct PairsDataView: View {
     @StateObject var selectionDataViewModel: SelectionDataViewModel = SelectionDataViewModel.shared
+    @State var pairsData: PairsMatrix
     var body: some View {
         List {
-            ForEach(0..<selectionDataViewModel.crewsData.count, id: \.self) { waveIndex in
+            ForEach(0..<pairsData.data.count, id: \.self) { waveIndex in
                 Section(header: Text("Wave \(waveIndex + 1) Rankings")) {
-                    ForEach(0..<selectionDataViewModel.crewsData[waveIndex].count, id: \.self) { crewIndex in
-                        let crew = selectionDataViewModel.crewsData[waveIndex][crewIndex]
+                    ForEach(0..<pairsData.data[waveIndex].count, id: \.self) { crewIndex in
+                        let crew = pairsData.data[waveIndex][crewIndex]
                         HStack {
-                            Text("Bow: \(crew.0.name) (Points: \(crew.0.points))")
+                            Text("B: \(crew.0.name) \n Points: \(crew.0.points)")
                             Spacer()
-                            Text("Stroke: \(crew.1.name) (Points: \(crew.1.points))")
+                            Text("S: \(crew.1.name) \n Points: \(crew.1.points)")
                             Spacer()
-                            Text("Time: \(crew.2)")
+                            Text("Time: \(crew.2.convertTenthsOfSeconds(crew.2))")
                         }
                     }
                 }
@@ -30,5 +31,5 @@ struct PairsDataView: View {
 }
 
 #Preview {
-    PairsDataView()
+    PairsDataView(pairsData:currentData.pairsMatrixExamples[0])
 }
