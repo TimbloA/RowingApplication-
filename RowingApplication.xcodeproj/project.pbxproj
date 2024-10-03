@@ -19,7 +19,9 @@
 		C9780B6B2C98502E002C0CA9 /* SingleErgData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9780B6A2C98502E002C0CA9 /* SingleErgData.swift */; };
 		C9780B712C98548E002C0CA9 /* currentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9780B702C98548E002C0CA9 /* currentData.swift */; };
 		C9780B732C9855A9002C0CA9 /* ErgDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9780B722C9855A9002C0CA9 /* ErgDataView.swift */; };
-		C9955EB22CAD8B29008C1EE6 /* PairsMatrixDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9955EB12CAD8B29008C1EE6 /* PairsMatrixDataView.swift */; };
+		C9933AB92CAE926F007976CA /* SelectionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9933AB82CAE926F007976CA /* SelectionDataViewModel.swift */; };
+		C9933ABB2CAE9D42007976CA /* PairsDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9933ABA2CAE9D42007976CA /* PairsDataView.swift */; };
+		C9955EB22CAD8B29008C1EE6 /* PairsMatrixDataInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9955EB12CAD8B29008C1EE6 /* PairsMatrixDataInputView.swift */; };
 		C9955EB62CAD8EB6008C1EE6 /* PairsMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9955EB52CAD8EB6008C1EE6 /* PairsMatrix.swift */; };
 		C99C0FBD2C9C1DA60065B018 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C0FBC2C9C1DA60065B018 /* TrainingData.swift */; };
 		C99C0FBF2C9C1F620065B018 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C0FBE2C9C1F620065B018 /* Date.swift */; };
@@ -67,7 +69,9 @@
 		C9780B6A2C98502E002C0CA9 /* SingleErgData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleErgData.swift; sourceTree = "<group>"; };
 		C9780B702C98548E002C0CA9 /* currentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentData.swift; sourceTree = "<group>"; };
 		C9780B722C9855A9002C0CA9 /* ErgDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgDataView.swift; sourceTree = "<group>"; };
-		C9955EB12CAD8B29008C1EE6 /* PairsMatrixDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsMatrixDataView.swift; sourceTree = "<group>"; };
+		C9933AB82CAE926F007976CA /* SelectionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionDataViewModel.swift; sourceTree = "<group>"; };
+		C9933ABA2CAE9D42007976CA /* PairsDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsDataView.swift; sourceTree = "<group>"; };
+		C9955EB12CAD8B29008C1EE6 /* PairsMatrixDataInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsMatrixDataInputView.swift; sourceTree = "<group>"; };
 		C9955EB52CAD8EB6008C1EE6 /* PairsMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsMatrix.swift; sourceTree = "<group>"; };
 		C99C0FBC2C9C1DA60065B018 /* TrainingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingData.swift; sourceTree = "<group>"; };
 		C99C0FBE2C9C1F620065B018 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			children = (
 				C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */,
 				C937A1D52C9B31FA006692FC /* DataViewModel.swift */,
+				C9933AB82CAE926F007976CA /* SelectionDataViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -174,7 +179,8 @@
 				C937A1D32C9B31E5006692FC /* ErgDataListView.swift */,
 				C99C0FC42C9C23450065B018 /* TrainingDataListView.swift */,
 				C99C0FCC2C9C2C990065B018 /* RootDataView.swift */,
-				C9955EB12CAD8B29008C1EE6 /* PairsMatrixDataView.swift */,
+				C9955EB12CAD8B29008C1EE6 /* PairsMatrixDataInputView.swift */,
+				C9933ABA2CAE9D42007976CA /* PairsDataView.swift */,
 			);
 			path = DataViews;
 			sourceTree = "<group>";
@@ -371,11 +377,13 @@
 				C99C0FD02C9C2DBF0065B018 /* AthleteView.swift in Sources */,
 				C940DF082C9B5BBF0016695D /* RootTabView.swift in Sources */,
 				C937A1D42C9B31E5006692FC /* ErgDataListView.swift in Sources */,
+				C9933AB92CAE926F007976CA /* SelectionDataViewModel.swift in Sources */,
 				C99C0FCB2C9C29700065B018 /* AddTrainingDataView.swift in Sources */,
 				C9780B6B2C98502E002C0CA9 /* SingleErgData.swift in Sources */,
 				C99C0FBF2C9C1F620065B018 /* Date.swift in Sources */,
+				C9933ABB2CAE9D42007976CA /* PairsDataView.swift in Sources */,
 				C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */,
-				C9955EB22CAD8B29008C1EE6 /* PairsMatrixDataView.swift in Sources */,
+				C9955EB22CAD8B29008C1EE6 /* PairsMatrixDataInputView.swift in Sources */,
 				C99C0FC32C9C22140065B018 /* TrainingDataView.swift in Sources */,
 				C99C0FC12C9C20830065B018 /* Int.swift in Sources */,
 				C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */,
