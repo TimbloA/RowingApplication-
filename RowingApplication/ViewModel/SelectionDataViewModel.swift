@@ -35,7 +35,7 @@ class SelectionDataViewModel: ObservableObject{
             var runData: [(AthletePair, AthletePair, Int)] = []
             
             for crewInput in wavesData[waveIndex] {
-                // Parse input times
+                // Input input times
                 guard let startTime = Int(crewInput.startTime), let finishTime = Int(crewInput.finishTime) else {
                     continue
                 }
