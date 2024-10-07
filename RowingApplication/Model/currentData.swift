@@ -24,15 +24,15 @@ struct currentData {
         [PairsMatrix(title:"VIII Pairs",data:[
             // Wave 1
             [
-                (AthletePair(name: "Bow A1", points: 1), AthletePair(name: "Stroke A1", points: 1), 4000), // Crew time: 50 - 10
-                (AthletePair(name: "Bow A2", points: 2), AthletePair(name: "Stroke A2", points: 2), 4030), // Crew time: 55 - 12
-                (AthletePair(name: "Bow A3", points: 3), AthletePair(name: "Stroke A3", points: 3), 4050)  // Crew time: 60 - 15
+                (AthletePair(name: "Athlete A", points: 1), AthletePair(name: "Athlete Z", points: 1), 40), // 50 - 10
+                (AthletePair(name: "Athlete B", points: 2), AthletePair(name: "Athlete Y", points: 2), 40), // 51 - 11
+                (AthletePair(name: "Athlete C", points: 3), AthletePair(name: "Athlete X", points: 3), 41)  // 53 - 12
             ],
             // Wave 2
             [
-                (AthletePair(name: "Bow B1", points: 1), AthletePair(name: "Stroke B1", points: 1), 4000), // Crew time: 49 - 9
-                (AthletePair(name: "Bow B2", points: 2), AthletePair(name: "Stroke B2", points: 2), 4030), // Crew time: 54 - 11
-                (AthletePair(name: "Bow B3", points: 3), AthletePair(name: "Stroke B3", points: 3), 4070)  // Crew time: 61 - 14
+                (AthletePair(name: "Athlete B", points: 1), AthletePair(name: "Athlete Z", points: 1), 42), // 52 - 10
+                (AthletePair(name: "Athlete C", points: 2), AthletePair(name: "Athlete Y", points: 2), 42), // 55 - 13
+                (AthletePair(name: "Athlete A", points: 3), AthletePair(name: "Athlete X", points: 3), 42)  // 56 - 14
             ]
         ])]
 

@@ -40,6 +40,7 @@ struct ErgDataListView: View {
                     Form{
                         AddErgDataView()
                             .presentationDetents([.medium, .large])
+                        
                     }
                 }
             }

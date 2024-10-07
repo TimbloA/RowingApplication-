@@ -13,6 +13,7 @@ struct RootDataView: View {
     enum dataType:String, CaseIterable, Identifiable{
         case Training
         case Erg
+        case Pairs
         var id: Self { self }
     }
     @State private var dataChoice:dataType = .Training
@@ -21,11 +22,14 @@ struct RootDataView: View {
             Picker("DataType:",selection: $dataChoice) {
                 Text("Training").tag(dataType.Training)
                 Text("Erg").tag(dataType.Erg)
+                Text("Pairs Matrix").tag(dataType.Pairs)
             }
             if dataChoice == .Training{
                 TrainingDataListView()
             }else if dataChoice == .Erg{
                 ErgDataListView(Single: single, SingleAthlete: singleAthlete)
+            }else if dataChoice == .Pairs{
+                PairsMatrixDataInputView()
             }
         }
         

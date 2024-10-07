@@ -47,6 +47,7 @@ struct NewAthleteView: View {
                     }
                 }
             }
+            .padding()
         Section{
             Button(athletesViewModel.submitName, action: {
                 if athletesViewModel.athleteName != "" {
