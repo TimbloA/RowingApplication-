@@ -37,11 +37,9 @@ struct ErgDataListView: View {
                 }
                 .navigationTitle("Erg Data")
                 .sheet(isPresented: $dataViewModel.newErg){
-                    Form{
                         AddErgDataView()
                             .presentationDetents([.medium, .large])
-                        
-                    }
+                   
                 }
             }
                 .searchable(text: $searchText)

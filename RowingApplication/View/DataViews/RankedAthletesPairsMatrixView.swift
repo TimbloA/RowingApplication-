@@ -15,24 +15,10 @@ struct RankedAthletesPairsMatrixView: View {
     @State var rankedStrokeAthletes:[AthletePair] = []
     var body: some View {
         VStack {
-                    // Button to calculate rankings
-                    Button(action: {
-                        let (bowAthletes, strokeAthletes) = selectionDataViewModel.rankBowAndStrokeAthletes(crewsData: PairsData.data)
-                        rankedBowAthletes = bowAthletes
-                        rankedStrokeAthletes = strokeAthletes
-                    }) {
-                        Text("Calculate Rankings")
-                            .padding()
-                            .foregroundColor(.blue)
-                            .cornerRadius(8)
-                    }
-                    .padding(.bottom, 20)
-                    
                     // Output Ranked Bow Athletes Section
                     VStack(alignment: .leading) {
-                        Text("Ranked Bow Athletes")
+                        Text("Ranked Bow Side Athletes")
                             .font(.headline)
-                            .padding(.bottom, 10)
                         
                         List(rankedBowAthletes, id: \.name) { athlete in
                             HStack {
@@ -49,9 +35,8 @@ struct RankedAthletesPairsMatrixView: View {
                     
                     // Output Ranked Stroke Athletes Section
                     VStack(alignment: .leading) {
-                        Text("Ranked Stroke Athletes")
+                        Text("Ranked Stroke Side Athletes")
                             .font(.headline)
-                            .padding(.bottom, 10)
                         
                         List(rankedStrokeAthletes, id: \.name) { athlete in
                             HStack {
@@ -64,8 +49,16 @@ struct RankedAthletesPairsMatrixView: View {
                             }
                         }
                     }
+            Spacer()
                 }
                 .padding()
+                .onAppear(perform: {
+                    // to calculate rankings
+                   
+                    let (bowAthletes, strokeAthletes) = selectionDataViewModel.rankBowAndStrokeAthletes(crewsData: PairsData.data)
+                    rankedBowAthletes = bowAthletes
+                    rankedStrokeAthletes = strokeAthletes
+                })
             }
 }
 

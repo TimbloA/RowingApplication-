@@ -79,8 +79,6 @@ struct PairsMatrixDataInputView: View {
                 }
             }
             
-            // Button to calculate results
-            
             
             // Display the crew rankings
             ScrollView {
@@ -99,6 +97,8 @@ struct PairsMatrixDataInputView: View {
                     }
                 }
             }
+            // Button to calculate results
+        
             Button(action: {
                 selectionDataViewModel.calculateRankings(wavesData)
             }) {

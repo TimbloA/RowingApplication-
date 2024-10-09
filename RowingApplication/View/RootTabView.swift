@@ -13,12 +13,12 @@ struct RootTabView: View {
         TabView {
                   AthleteListView()
                       .tabItem {
-                          Image(systemName: "carrot")
+                          Image(systemName: "person.3")
                           Text("Athletes")
                       }
             RootDataView(single:false, singleAthlete: "")
                       .tabItem {
-                          Image(systemName: "fork.knife")
+                          Image(systemName: "line.horizontal.3.decrease.circle.fill")
                           Text("Data")
                       }
               }

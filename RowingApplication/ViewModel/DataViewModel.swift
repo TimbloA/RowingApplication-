@@ -70,6 +70,7 @@ class DataViewModel: ObservableObject{
         tenths = ""
         athlete = ""
         submitEntry = "Submit Entry"
+        newTraining = false
         
     }
 }

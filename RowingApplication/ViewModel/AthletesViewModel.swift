@@ -46,6 +46,7 @@ class AthletesViewModel: ObservableObject{
         athleteSide = .Both
         athleteDOB = Date()
         submitName = "Submit Athlete"
+        newAthlete = false
     }
     
 }
