@@ -13,7 +13,7 @@ class SelectionDataViewModel: ObservableObject{
     var dataTitle: String = ""
     var strokeSideAthletes: [String] = []
     var bowSideAthletes: [String] = []
-    var date = Date()
+    var dataDate = Date()
     var bowRanking: [String] = []
     var strokeRanking: [String] = []
     var crewsData:[[(AthletePair, AthletePair, Int)]] = []
