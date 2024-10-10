@@ -63,14 +63,10 @@ struct PairsMatrixDataInputView: View {
                                     
                                     TextField("Stroke Name", text: $wavesData[waveIndex][crewIndex].strokeName)
                                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    
-                                    TextField("Start Time", text: $wavesData[waveIndex][crewIndex].startTime)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .keyboardType(.numberPad)
-                                    
-                                    TextField("Finish Time", text: $wavesData[waveIndex][crewIndex].finishTime)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .keyboardType(.numberPad)
+                                    Text("Start Time")
+                                    TimeInputView(timeTenths: $wavesData[waveIndex][crewIndex].startTime)
+                                    Text("Finish Time")
+                                    TimeInputView(timeTenths: $wavesData[waveIndex][crewIndex].finishTime)
                                 }
                                 .padding(.bottom)
                             }

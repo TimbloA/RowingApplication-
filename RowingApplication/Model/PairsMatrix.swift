@@ -11,6 +11,7 @@ struct PairsMatrix {
     var title: String
     var date = Date()
     var data: [[(AthletePair, AthletePair, Int)]]
+    var athletes: [String] = []
 }
 struct AthletePair {
     var name: String

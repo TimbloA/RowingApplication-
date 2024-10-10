@@ -11,11 +11,16 @@ struct PairsMatrixListView: View {
     @StateObject var selectionDataViewModel: SelectionDataViewModel = SelectionDataViewModel.shared
     @State private var searchText: String = ""
     @State var showInputView = false
+    @State var SingleAthlete:String
+    @State var Single:Bool
     var searchResults: [PairsMatrix] {
-        if searchText.isEmpty{
+        if searchText.isEmpty && Single == false{
             return selectionDataViewModel.currPairsData
-        }else{
-            return selectionDataViewModel.currPairsData.filter {  $0.title.contains(searchText)}
+        }else if Single == true {
+            return selectionDataViewModel.currPairsData.filter {  $0.title.contains(searchText) || $0.athletes.contains(SingleAthlete)}
+        }
+        else{
+            return selectionDataViewModel.currPairsData.filter {  $0.title.contains(searchText) || $0.athletes.contains(searchText)}
         }
     }
     var body: some View {
@@ -52,5 +57,5 @@ struct PairsMatrixListView: View {
 }
 
 #Preview {
-    PairsMatrixListView()
+    PairsMatrixListView(SingleAthlete: "", Single: false)
 }

@@ -33,4 +33,15 @@ extension Int {
         }
         
     }
+    func convertToTenths(hours: String,minutes: String, seconds: String, tenths: String) -> Int {
+        let intHours = Int(hours) ?? 0
+        let intMinutes = Int(minutes) ?? 0
+        let intSeconds = Int(seconds) ?? 0
+        let intTenths = Int(tenths) ?? 0
+        let tenthsFromHours = intHours * 36000
+        let tenthsFromMinutes = intMinutes * 600
+        let tenthsFromSeconds = intSeconds * 10
+        let totalTenths = tenthsFromHours + tenthsFromMinutes + tenthsFromSeconds + intTenths
+        return totalTenths
+    }
 }

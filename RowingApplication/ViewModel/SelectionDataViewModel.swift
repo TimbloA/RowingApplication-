@@ -11,6 +11,7 @@ import Foundation
 class SelectionDataViewModel: ObservableObject{
     static let shared = SelectionDataViewModel()
     var dataTitle: String = ""
+    var athletes:[String] = []
     var strokeSideAthletes: [String] = []
     var bowSideAthletes: [String] = []
     var dataDate = Date()
@@ -24,13 +25,13 @@ class SelectionDataViewModel: ObservableObject{
     }
     
     func addPairsMatrix() {
-        currPairsData.append(PairsMatrix(title: dataTitle, data: crewsData))
+        currPairsData.append(PairsMatrix(title: dataTitle, data: crewsData,athletes: athletes))
     }
     
     
     func calculateRankings(_ wavesData: [[PairsCrewInput]]) {
         crewsData = []
-        
+        athletes = []
         // Dictionary to track athletes by name
         var athletesDict: [String: AthletePair] = [:]
         
@@ -45,25 +46,33 @@ class SelectionDataViewModel: ObservableObject{
                 
                 let crewTime = finishTime - startTime
                 
-                // Reuse existing bow or create a new one
-                let bow: AthletePair
-                if let existingBow = athletesDict[crewInput.bowName] {
-                    bow = existingBow
-                } else {
-                    let newBow = AthletePair(name: crewInput.bowName, points: 0)
-                    athletesDict[crewInput.bowName] = newBow
-                    bow = newBow
-                }
-                
-                // Reuse existing stroke or create a new one
+                // Reuse existing stroke seat or create a new one
                 let stroke: AthletePair
                 if let existingStroke = athletesDict[crewInput.strokeName] {
-                    stroke = existingStroke
-                } else {
-                    let newStroke = AthletePair(name: crewInput.strokeName, points: 0)
-                    athletesDict[crewInput.strokeName] = newStroke
-                    stroke = newStroke
-                }
+                               stroke = existingStroke
+                           } else {
+                               let newStroke = AthletePair(name: crewInput.strokeName, points: 0)
+                               athletesDict[crewInput.strokeName] = newStroke
+                               stroke = newStroke
+                               // Append the stroke's name to the athletes array if not already present
+                               if !athletes.contains(crewInput.strokeName) {
+                                   athletes.append(crewInput.strokeName)
+                               }
+                           }
+                
+                // Reuse existing seat or create a new one
+                let bow: AthletePair
+                if let existingBow = athletesDict[crewInput.bowName] {
+                              bow = existingBow
+                          } else {
+                              let newBow = AthletePair(name: crewInput.bowName, points: 0)
+                              athletesDict[crewInput.bowName] = newBow
+                              bow = newBow
+                              // Append the bow's name to the athletes array if not already present
+                              if !athletes.contains(crewInput.bowName) {
+                                  athletes.append(crewInput.bowName)
+                              }
+                          }
                 
                 runData.append((bow, stroke, crewTime))
             }

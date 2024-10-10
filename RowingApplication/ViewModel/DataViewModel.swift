@@ -32,33 +32,19 @@ class DataViewModel: ObservableObject{
     
     func addNewErg() {
         let intDistance = Int(distance) ?? 0
-        let intHours = Int(hours) ?? 0
-        let intMinutes = Int(minutes) ?? 0
-        let intSeconds = Int(seconds) ?? 0
-        let intTenths = Int(tenths) ?? 0
-        let time = convertToTenths(hours: intHours,minutes: intMinutes,  seconds: intSeconds, tenths: intTenths)
+        let time = 1.convertToTenths(hours: hours,minutes: minutes,  seconds: seconds, tenths: tenths)
         currErgData.append(SingleErgData(title: title, athlete: athlete, date: dataDate, distance: intDistance, time: time))
         submitEntry = "Submitted!"
         resetDisplay()
     }
     func addNewTraining() {
         let intDistance = Int(distance) ?? 0
-        let intHours = Int(hours) ?? 0
-        let intMinutes = Int(minutes) ?? 0
-        let intSeconds = Int(seconds) ?? 0
-        let intTenths = Int(tenths) ?? 0
-        let time = convertToTenths(hours: intHours,minutes: intMinutes,  seconds: intSeconds, tenths: intTenths)
+        let time = 1.convertToTenths(hours: hours,minutes: minutes,  seconds: seconds, tenths: tenths)
         currTrainingData.append(TrainingData(title: title, date: dataDate, crew: crew, distance: intDistance, time: time,notes: Notes))
         submitEntry = "Submitted!"
         resetDisplay()
     }
-    func convertToTenths(hours: Int,minutes: Int, seconds: Int, tenths: Int) -> Int {
-        let tenthsFromHours = hours * 36000
-        let tenthsFromMinutes = minutes * 600
-        let tenthsFromSeconds = seconds * 10
-        let totalTenths = tenthsFromHours + tenthsFromMinutes + tenthsFromSeconds + tenths
-        return totalTenths
-    }
+    
     func resetDisplay() {
         title = ""
         distance = ""
