@@ -42,6 +42,7 @@ struct PairsMatrixDataInputView: View {
                 }
                 
                 // Button to generate input fields
+                
                 Button(action: {
                     generateInputFields()
                 }) {
@@ -50,29 +51,7 @@ struct PairsMatrixDataInputView: View {
                         .foregroundColor(.blue)
                     
                 }
-                ScrollView {
-                    ForEach(0..<wavesData.count, id: \.self) { waveIndex in
-                        VStack(alignment: .leading) {
-                            Text("Wave \(waveIndex + 1)").font(.headline).padding(.top)
-                            ForEach(0..<wavesData[waveIndex].count, id: \.self) { crewIndex in
-                                VStack(alignment: .leading) {
-                                    Text("Crew \(crewIndex + 1)")
-                                    
-                                    TextField("Bow Name", text: $wavesData[waveIndex][crewIndex].bowName)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    
-                                    TextField("Stroke Name", text: $wavesData[waveIndex][crewIndex].strokeName)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    Text("Start Time")
-                                    TimeInputView(timeTenths: $wavesData[waveIndex][crewIndex].startTime)
-                                    Text("Finish Time")
-                                    TimeInputView(timeTenths: $wavesData[waveIndex][crewIndex].finishTime)
-                                }
-                                .padding(.bottom)
-                            }
-                        }
-                    }
-                }
+                NavigationLink("Data Entry",destination: PairsMatrixRunInputView(wavesData: $wavesData))
                 
                 
                 // Display the crew rankings
@@ -116,7 +95,6 @@ struct PairsMatrixDataInputView: View {
     }
     // Function to generate input fields dynamically based on noOfWaves and noOfCrews
     func generateInputFields() {
-        wavesData = []
         guard let waves = Int(noOfWaves), let crews = Int(noOfCrews) else {
             return
         }
