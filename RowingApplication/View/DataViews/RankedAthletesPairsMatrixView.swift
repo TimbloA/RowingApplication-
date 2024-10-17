@@ -68,5 +68,23 @@ struct RankedAthletesPairsMatrixView: View {
 }
 
 #Preview {
-    RankedAthletesPairsMatrixView(PairsData: currentData.pairsMatrixExamples[0])
+    RankedAthletesPairsMatrixView(PairsData: PairsMatrix(title: "VIII Pairs", data: [
+        [
+            CrewData(bow: AthletePair(name: "Henry Clarke", points: 1), stroke: AthletePair(name: "Ed Slack", points: 1), time: 40),
+            CrewData(bow: AthletePair(name: "Nikolai Rybin", points: 2), stroke: AthletePair(name: "Richard Oliverson", points: 2), time: 40),
+            CrewData(bow: AthletePair(name: "George Konig", points: 3), stroke: AthletePair(name: "Charlie Bowker", points: 3), time: 41)
+        ],
+        [
+            CrewData(bow: AthletePair(name: "Nikolai Rybin", points: 1), stroke: AthletePair(name: "Ed Slack", points: 1), time: 42),
+            CrewData(bow: AthletePair(name: "George Konig", points: 2), stroke: AthletePair(name: "Richard Oliverson", points: 2), time: 42),
+            CrewData(bow: AthletePair(name: "Henry Clarke", points: 3), stroke: AthletePair(name: "Charlie Bowker", points: 3), time: 42)
+        ]
+    ], athletes: [
+        "Ed Slack",
+        "Richard Oliverson",
+        "Charlie Bowker",
+        "Henry Clarke",
+        "Nikolai Rybin",
+        "George Konig"
+    ]))
 }
