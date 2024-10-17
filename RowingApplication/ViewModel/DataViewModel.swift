@@ -33,16 +33,19 @@ class DataViewModel: ObservableObject{
     func addNewErg() {
         let intDistance = Int(distance) ?? 0
         let time = 1.convertToTenths(hours: hours,minutes: minutes,  seconds: seconds, tenths: tenths)
-        currErgData.append(SingleErgData(title: title, athlete: athlete, date: dataDate, distance: intDistance, time: time))
+        DataManager.shared.ergData.append(SingleErgData(title: title, athlete: athlete, date: dataDate, distance: intDistance, time: time))
         submitEntry = "Submitted!"
         resetDisplay()
+        DataManager.shared.saveData()
     }
     func addNewTraining() {
         let intDistance = Int(distance) ?? 0
         let time = 1.convertToTenths(hours: hours,minutes: minutes,  seconds: seconds, tenths: tenths)
-        currTrainingData.append(TrainingData(title: title, date: dataDate, crew: crew, distance: intDistance, time: time,notes: Notes))
+        DataManager.shared.trainingData.append(TrainingData(title: title, date: dataDate, crew: crew, distance: intDistance, time: time,notes: Notes))
         submitEntry = "Submitted!"
         resetDisplay()
+        
+        DataManager.shared.saveData()
     }
     
     func resetDisplay() {

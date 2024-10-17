@@ -31,5 +31,5 @@ struct AthleteView: View {
 }
 
 #Preview {
-    AthleteView(athlete: Athlete(name: "Ed Slack", side: athleteSide.Stroke, weight: 73, height: 187))
+    AthleteView(athlete: Athlete(name: "Ed Slack", side: athleteSide.Stroke, DOB: Date(), weight: 73, height: 187))
 }

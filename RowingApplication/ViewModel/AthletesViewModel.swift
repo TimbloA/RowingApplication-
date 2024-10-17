@@ -33,10 +33,11 @@ class AthletesViewModel: ObservableObject{
     }
     
     func addNewAthlete() {
-        currAthletes.append(Athlete(name: athleteName, side: athleteSide, DOB: athleteDOB, weight: athleteWeight, height: athleteHeight))
+        DataManager.shared.athletes.append(Athlete(name: athleteName, side: athleteSide, DOB: athleteDOB, weight: athleteWeight, height: athleteHeight))
        submitName = "Submitted!"
        
         resetDisplay()
+        DataManager.shared.saveData()
         
     }
     func resetDisplay() {

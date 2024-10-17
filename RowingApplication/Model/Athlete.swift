@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum athleteSide: String, CaseIterable, Identifiable {
+enum athleteSide: String, CaseIterable, Identifiable, Codable { // Conform to Codable
     case Bow
     case Stroke
     case Both
@@ -16,11 +16,11 @@ enum athleteSide: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
-struct Athlete: Identifiable {
+struct Athlete: Identifiable, Codable {
     var id = UUID() // Unique identifier
     let name: String
     var side: athleteSide
-    var DOB = Date()
+    var DOB: Date
     var weight: Int
     var height: Int
 

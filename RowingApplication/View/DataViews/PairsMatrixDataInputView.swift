@@ -13,67 +13,69 @@ struct PairsMatrixDataInputView: View {
     @State private var noOfCrews: String = ""
     @State private var wavesData: [[PairsCrewInput]] = []
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             VStack {
                 // Text fields to input number of waves and crews
                 Text("Pairs Data")
                     .font(.title)
                     .bold()
-                HStack{
+                
+                HStack {
                     Text("    Title:")
-                    TextField("Title",text: $selectionDataViewModel.dataTitle)
+                    TextField("Title", text: $selectionDataViewModel.dataTitle)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
-                HStack{
-                    DatePicker("     Date:",selection:$selectionDataViewModel.dataDate,displayedComponents: [.date])
+
+                HStack {
+                    DatePicker("     Date:", selection: $selectionDataViewModel.dataDate, displayedComponents: [.date])
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
-                HStack{
+
+                HStack {
                     Text("Waves:")
                     TextField("Enter number of waves", text: $noOfWaves)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.numberPad)
                 }
-                HStack{
+
+                HStack {
                     Text("Crews:")
                     TextField("Enter number of crews per wave", text: $noOfCrews)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.numberPad)
                 }
-                
+
                 // Button to generate input fields
-                
                 Button(action: {
                     generateInputFields()
                 }) {
                     Text("Enter Data")
                         .padding()
                         .foregroundColor(.blue)
-                    
                 }
-                NavigationLink("Data Entry",destination: PairsMatrixRunInputView(wavesData: $wavesData))
-                
-                
+
+                NavigationLink("Data Entry", destination: PairsMatrixRunInputView(wavesData: $wavesData))
+
                 // Display the crew rankings
-               
                 ScrollView {
                     ForEach(0..<selectionDataViewModel.crewsData.count, id: \.self) { waveIndex in
                         Section(header: Text("Wave \(waveIndex + 1) Rankings")) {
                             ForEach(0..<selectionDataViewModel.crewsData[waveIndex].count, id: \.self) { crewIndex in
-                                let crew = selectionDataViewModel.crewsData[waveIndex][crewIndex]
+                                let crew = selectionDataViewModel.crewsData[waveIndex][crewIndex] // Accessing CrewData
+
                                 HStack {
-                                    Text("B: \(crew.0.name) \n Points: \(crew.0.points)")
+                                    Text("B: \(crew.bow.name) \n Points: \(crew.bow.points)")  // Using CrewData's bow
                                     Spacer()
-                                    Text("S: \(crew.1.name) \n Points: \(crew.1.points)")
+                                    Text("S: \(crew.stroke.name) \n Points: \(crew.stroke.points)")  // Using CrewData's stroke
                                     Spacer()
-                                    Text("Time: \(crew.2.convertTenthsOfSeconds(crew.2))")
+                                    Text("Time: \(crew.time.convertTenthsOfSeconds(crew.time))")  // Using CrewData's time
                                 }
                             }
                         }
                     }
                 }
+
                 // Button to calculate results
-                
                 Button(action: {
                     selectionDataViewModel.calculateRankings(wavesData)
                 }) {
@@ -82,10 +84,11 @@ struct PairsMatrixDataInputView: View {
                         .foregroundColor(.blue)
                 }
                 .padding(.top)
+
                 if !selectionDataViewModel.crewsData.isEmpty {
                     Button(action: {
                         selectionDataViewModel.addPairsMatrix()
-                    }){
+                    }) {
                         Text("Submit Entry")
                     }
                 }
@@ -93,6 +96,7 @@ struct PairsMatrixDataInputView: View {
             .padding()
         }
     }
+
     // Function to generate input fields dynamically based on noOfWaves and noOfCrews
     func generateInputFields() {
         guard let waves = Int(noOfWaves), let crews = Int(noOfCrews) else {

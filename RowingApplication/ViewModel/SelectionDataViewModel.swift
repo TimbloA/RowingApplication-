@@ -25,7 +25,8 @@ class SelectionDataViewModel: ObservableObject{
     }
     
     func addPairsMatrix() {
-        currPairsData.append(PairsMatrix(title: dataTitle, data: crewsData,athletes: athletes))
+        DataManager.shared.pairsData.append(PairsMatrix(title: dataTitle, data: crewsData,athletes: athletes))
+        DataManager.shared.saveData()
     }
     
     

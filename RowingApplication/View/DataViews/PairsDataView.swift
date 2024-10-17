@@ -15,19 +15,20 @@ struct PairsDataView: View {
             ForEach(0..<pairsData.data.count, id: \.self) { waveIndex in
                 Section(header: Text("Wave \(waveIndex + 1) Rankings")) {
                     ForEach(0..<pairsData.data[waveIndex].count, id: \.self) { crewIndex in
-                        let crew = pairsData.data[waveIndex][crewIndex]
+                        let crew = pairsData.data[waveIndex][crewIndex] // crew is of type CrewData now
                         HStack {
-                            Text("B: \(crew.0.name) \n Points: \(crew.0.points)")
+                            Text("B: \(crew.bow.name) \n Points: \(crew.bow.points)")
                             Spacer()
-                            Text("S: \(crew.1.name) \n Points: \(crew.1.points)")
+                            Text("S: \(crew.stroke.name) \n Points: \(crew.stroke.points)")
                             Spacer()
-                            Text("Time: \(crew.2.convertTenthsOfSeconds(crew.2))")
+                            Text("Time: \(crew.time.convertTenthsOfSeconds(crew.time))")
                         }
                     }
                 }
             }
         }
     }
+
 }
 
 #Preview {

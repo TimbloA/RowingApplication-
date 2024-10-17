@@ -4,11 +4,10 @@
 //
 //  Created by Timblo, Adi (WING) on 16/09/2024.
 //
-
 import Foundation
 
 struct currentData {
-    
+    #if DEBUG
     static var ergExamples: [SingleErgData] {
         return DataManager.shared.ergData.isEmpty ? [
             SingleErgData(id: UUID(), title: "2K", athlete: "Ed Slack", distance: 2000),
@@ -46,11 +45,5 @@ struct currentData {
             ])
         ] : DataManager.shared.pairsData
     }
-
-    static var crewExamples: [CrewData] {
-        return DataManager.shared.crewData.isEmpty ? [
-            CrewData(bow: AthletePair(name: "Henry Clarke", points: 0), stroke: AthletePair(name: "Ed Slack", points: 0), time: 100),
-            CrewData(bow: AthletePair(name: "Nikolai Rybin", points: 0), stroke: AthletePair(name: "Richard Oliverson", points: 0), time: 150)
-        ] : DataManager.shared.crewData
-    }
+    #endif
 }
