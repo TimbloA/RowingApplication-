@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  currentData.swift
 //  RowingApplication
 //
 //  Created by Timblo, Adi (WING) on 16/09/2024.
@@ -9,34 +9,48 @@ import Foundation
 
 struct currentData {
     
-    #if DEBUG
     static var ergExamples: [SingleErgData] {
-        [SingleErgData(title: "2K", athlete:"Ed Slack", distance: 2000),
-         SingleErgData(title: "5K", athlete:"Ed Slack", distance: 5000),
-         SingleErgData(title: "4K", athlete:"Adi Timblo", distance: 5000)
-        ]
-        
+        return DataManager.shared.ergData.isEmpty ? [
+            SingleErgData(id: UUID(), title: "2K", athlete: "Ed Slack", distance: 2000),
+            SingleErgData(id: UUID(), title: "5K", athlete: "Ed Slack", distance: 5000),
+            SingleErgData(id: UUID(), title: "5K", athlete: "Adi Timblo", distance: 5000)
+        ] : DataManager.shared.ergData
     }
+    
     static var trainingExamples: [TrainingData] {
-        [TrainingData(title: "12K UT2", crew: "2nd VIII", distance: 12000,time: 12033,notes:"Slight easterly breeze.")]
+        return DataManager.shared.trainingData.isEmpty ? [
+            TrainingData(id: UUID(), title: "12K UT2", crew: "2nd VIII", distance: 12000, time: 12033, notes: "Slight easterly breeze.")
+        ] : DataManager.shared.trainingData
     }
+    
     static var pairsMatrixExamples: [PairsMatrix] {
-        [PairsMatrix(title:"VIII Pairs",data:[
-            // Wave 1
-            [
-                (AthletePair(name: "Henry Clarke", points: 1), AthletePair(name: "Ed Slack", points: 1), 40), // 50 - 10
-                (AthletePair(name: "Nikolai Rybin", points: 2), AthletePair(name: "Richard Oliverson", points: 2), 40), // 51 - 11
-                (AthletePair(name: "George Konig", points: 3), AthletePair(name: "Charlie Bowker", points: 3), 41)  // 53 - 12
-            ],
-            // Wave 2
-            [
-                (AthletePair(name: "Nikolai Rybin", points: 1), AthletePair(name: "Ed Slack", points: 1), 42), // 52 - 10
-                (AthletePair(name: "George Konig", points: 2), AthletePair(name: "Richard Oliverson", points: 2), 42), // 55 - 13
-                (AthletePair(name: "Henry Clarke", points: 3), AthletePair(name: "Charlie Bowker", points: 3), 42)  // 56 - 14
-            ]
-        ],athletes:["Ed Slack","Richard Oliverson","Charlie Bowker","Henry Clarke","Nikolai Rybin","George Konig"])]
-
+        return DataManager.shared.pairsData.isEmpty ? [
+            PairsMatrix(title: "VIII Pairs", data: [
+                [
+                    CrewData(bow: AthletePair(name: "Henry Clarke", points: 1), stroke: AthletePair(name: "Ed Slack", points: 1), time: 40),
+                    CrewData(bow: AthletePair(name: "Nikolai Rybin", points: 2), stroke: AthletePair(name: "Richard Oliverson", points: 2), time: 40),
+                    CrewData(bow: AthletePair(name: "George Konig", points: 3), stroke: AthletePair(name: "Charlie Bowker", points: 3), time: 41)
+                ],
+                [
+                    CrewData(bow: AthletePair(name: "Nikolai Rybin", points: 1), stroke: AthletePair(name: "Ed Slack", points: 1), time: 42),
+                    CrewData(bow: AthletePair(name: "George Konig", points: 2), stroke: AthletePair(name: "Richard Oliverson", points: 2), time: 42),
+                    CrewData(bow: AthletePair(name: "Henry Clarke", points: 3), stroke: AthletePair(name: "Charlie Bowker", points: 3), time: 42)
+                ]
+            ], athletes: [
+                "Ed Slack",
+                "Richard Oliverson",
+                "Charlie Bowker",
+                "Henry Clarke",
+                "Nikolai Rybin",
+                "George Konig"
+            ])
+        ] : DataManager.shared.pairsData
     }
 
-    #endif
+    static var crewExamples: [CrewData] {
+        return DataManager.shared.crewData.isEmpty ? [
+            CrewData(bow: AthletePair(name: "Henry Clarke", points: 0), stroke: AthletePair(name: "Ed Slack", points: 0), time: 100),
+            CrewData(bow: AthletePair(name: "Nikolai Rybin", points: 0), stroke: AthletePair(name: "Richard Oliverson", points: 0), time: 150)
+        ] : DataManager.shared.crewData
+    }
 }

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct SingleErgData {
+struct SingleErgData: Codable, Identifiable {
+    var id = UUID() // Unique identifier
     var title: String
     var athlete: String
     var date = Date()

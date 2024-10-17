@@ -21,7 +21,7 @@ struct TrainingDataListView: View {
         VStack{
             NavigationStack {
                 List {
-                    ForEach(searchResults,id: \.self.title) { training in
+                    ForEach(searchResults,id: \.self.id) { training in
                         NavigationLink(destination: TrainingDataView(TrainingData:training)){
                             Text("\(training.title) (\(training.crew))")
                         }
@@ -42,7 +42,7 @@ struct TrainingDataListView: View {
         }
     }
     func deleteItems(at offsets: IndexSet) {
-        dataViewModel.currErgData.remove(atOffsets: offsets)
+        dataViewModel.currTrainingData.remove(atOffsets: offsets)
       }
 }
 

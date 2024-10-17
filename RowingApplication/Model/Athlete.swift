@@ -16,24 +16,14 @@ enum athleteSide: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
-struct Athlete {
+struct Athlete: Identifiable {
+    var id = UUID() // Unique identifier
     let name: String
     var side: athleteSide
     var DOB = Date()
     var weight: Int
     var height: Int
-//    var ergs: [SingleErgData] = []
 
-    
-    
-//    mutating func updateErgs(with currentErgData: [SingleErgData]) {
-//        ergs = []
-//          for item in currentErgData {
-//              if item.athlete == name  {
-//                  ergs.append(item)
-//              }
-//          }
-//      }
     func displayAthlete()-> String {
             return"""
                   Name: \(name)

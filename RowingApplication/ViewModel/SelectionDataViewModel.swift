@@ -17,7 +17,7 @@ class SelectionDataViewModel: ObservableObject{
     var dataDate = Date()
     var bowRanking: [String] = []
     var strokeRanking: [String] = []
-    var crewsData:[[(AthletePair, AthletePair, Int)]] = []
+    var crewsData:[[CrewData]] = []
     var currPairsData:[PairsMatrix] = []
     
     private init() {
@@ -30,13 +30,13 @@ class SelectionDataViewModel: ObservableObject{
     
     
     func calculateRankings(_ wavesData: [[PairsCrewInput]]) {
-        crewsData = []
-        athletes = []
+        crewsData = []  // Ensure this is initialized
+        athletes = []   // Initialize athletes array
         // Dictionary to track athletes by name
         var athletesDict: [String: AthletePair] = [:]
         
         for waveIndex in 0..<wavesData.count {
-            var runData: [(AthletePair, AthletePair, Int)] = []
+            var runData: [CrewData] = []  // Use CrewData instead of tuples
             
             for crewInput in wavesData[waveIndex] {
                 // Convert input times
@@ -49,70 +49,78 @@ class SelectionDataViewModel: ObservableObject{
                 // Reuse existing stroke seat or create a new one
                 let stroke: AthletePair
                 if let existingStroke = athletesDict[crewInput.strokeName] {
-                               stroke = existingStroke
-                           } else {
-                               let newStroke = AthletePair(name: crewInput.strokeName, points: 0)
-                               athletesDict[crewInput.strokeName] = newStroke
-                               stroke = newStroke
-                               // Append the stroke's name to the athletes array if not already present
-                               if !athletes.contains(crewInput.strokeName) {
-                                   athletes.append(crewInput.strokeName)
-                               }
-                           }
+                    stroke = existingStroke
+                } else {
+                    let newStroke = AthletePair(name: crewInput.strokeName, points: 0)
+                    athletesDict[crewInput.strokeName] = newStroke
+                    stroke = newStroke
+                    // Append the stroke's name to the athletes array if not already present
+                    if !athletes.contains(crewInput.strokeName) {
+                        athletes.append(crewInput.strokeName)
+                    }
+                }
                 
-                // Reuse existing seat or create a new one
+                // Reuse existing bow seat or create a new one
                 let bow: AthletePair
                 if let existingBow = athletesDict[crewInput.bowName] {
-                              bow = existingBow
-                          } else {
-                              let newBow = AthletePair(name: crewInput.bowName, points: 0)
-                              athletesDict[crewInput.bowName] = newBow
-                              bow = newBow
-                              // Append the bow's name to the athletes array if not already present
-                              if !athletes.contains(crewInput.bowName) {
-                                  athletes.append(crewInput.bowName)
-                              }
-                          }
+                    bow = existingBow
+                } else {
+                    let newBow = AthletePair(name: crewInput.bowName, points: 0)
+                    athletesDict[crewInput.bowName] = newBow
+                    bow = newBow
+                    // Append the bow's name to the athletes array if not already present
+                    if !athletes.contains(crewInput.bowName) {
+                        athletes.append(crewInput.bowName)
+                    }
+                }
                 
-                runData.append((bow, stroke, crewTime))
+                // Create a new CrewData instance for this crew
+                let crewData = CrewData(bow: bow, stroke: stroke, time: crewTime)
+                runData.append(crewData)
             }
             
             // Sort crews by their times
-            let rankedData = runData.sorted(by: { $0.2 < $1.2 })
+            let rankedData = runData.sorted(by: { $0.time < $1.time })
             
             // Assign points based on ranking
             for i in 0..<rankedData.count {
-                var bow = rankedData[i].0
-                var stroke = rankedData[i].1
+                var bow = rankedData[i].bow
+                var stroke = rankedData[i].stroke
                 
+                // Increment points based on their rank
                 bow.points += i + 1
                 stroke.points += i + 1
+                
+                // Update athletesDict to reflect the new points
+                athletesDict[bow.name] = bow
+                athletesDict[stroke.name] = stroke
             }
             
-            crewsData.append(rankedData)
+            crewsData.append(rankedData)  // Append ranked data to crewsData
         }
     }
 
-    func rankBowAndStrokeAthletes(crewsData: [[(AthletePair, AthletePair, Int)]]) -> ([AthletePair], [AthletePair]) {
+
+    func rankBowAndStrokeAthletes(crewsData: [[CrewData]]) -> ([AthletePair], [AthletePair]) {
         var bowAthleteDict: [String: AthletePair] = [:] // To store unique bow athletes by name
         var strokeAthleteDict: [String: AthletePair] = [:] // To store unique stroke athletes by name
 
         // Collect unique bow and stroke athletes from crewsData
         for wave in crewsData {
             for crew in wave {
-                let bow = crew.0
-                let stroke = crew.1
+                let bow = crew.bow
+                let stroke = crew.stroke
                 
                 // Check if the bow athlete already exists, if so, add points
-                if bowAthleteDict[bow.name] != nil {
-                    bowAthleteDict[bow.name]?.points += bow.points // Add points to existing athlete
+                if let existingBow = bowAthleteDict[bow.name] {
+                    bowAthleteDict[bow.name] = AthletePair(name: existingBow.name, points: existingBow.points + bow.points) // Add points to existing athlete
                 } else {
                     bowAthleteDict[bow.name] = bow // Add new athlete
                 }
 
                 // Check if the stroke athlete already exists, if so, add points
-                if strokeAthleteDict[stroke.name] != nil {
-                    strokeAthleteDict[stroke.name]?.points += stroke.points // Add points to existing athlete
+                if let existingStroke = strokeAthleteDict[stroke.name] {
+                    strokeAthleteDict[stroke.name] = AthletePair(name: existingStroke.name, points: existingStroke.points + stroke.points) // Add points to existing athlete
                 } else {
                     strokeAthleteDict[stroke.name] = stroke // Add new athlete
                 }
@@ -131,5 +139,6 @@ class SelectionDataViewModel: ObservableObject{
         
         return (rankedBowAthletes, rankedStrokeAthletes)
     }
+
 
 }

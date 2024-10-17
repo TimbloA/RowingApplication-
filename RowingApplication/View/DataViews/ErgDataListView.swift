@@ -25,7 +25,7 @@ struct ErgDataListView: View {
         VStack{
             NavigationStack {
                 List {
-                    ForEach(searchResults,id: \.self.title) { erg in
+                    ForEach(searchResults,id: \.self.id) { erg in
                         NavigationLink(destination: ErgDataView(ErgData:erg)){
                             Text("\(erg.title) (\(erg.athlete))")
                         }

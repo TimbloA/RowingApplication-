@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct TrainingData {
+struct TrainingData: Codable, Identifiable {
+    var id = UUID() // Unique identifier
     var title: String
     var date = Date()
     var crew: String

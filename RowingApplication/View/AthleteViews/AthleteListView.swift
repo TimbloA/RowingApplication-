@@ -21,7 +21,7 @@ struct AthleteListView: View {
         VStack{
             NavigationStack {
                 List {
-                    ForEach(searchResults,id: \.self.name) { athlete in
+                    ForEach(searchResults,id: \.self.id) { athlete in
                         NavigationLink(destination: AthleteView(athlete: athlete)){
                             Text("\(athlete.name)")
                         }

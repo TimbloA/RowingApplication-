@@ -15,6 +15,7 @@
 		C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA45E2C922D3D007FB662 /* currentAthletes.swift */; };
 		C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */; };
 		C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CA4662C92317B007FB662 /* NewAthleteView.swift */; };
+		C963D6D32CC1156C00B2E876 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C963D6D22CC1156C00B2E876 /* DataManager.swift */; };
 		C9666EA62CB7CDD000E722D3 /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9666EA52CB7CDD000E722D3 /* TimeInputView.swift */; };
 		C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A550C2C92E65000EDC4DC /* AthleteListView.swift */; };
 		C975716D2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C975716C2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift */; };
@@ -69,6 +70,7 @@
 		C94CA45E2C922D3D007FB662 /* currentAthletes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentAthletes.swift; sourceTree = "<group>"; };
 		C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthletesViewModel.swift; sourceTree = "<group>"; };
 		C94CA4662C92317B007FB662 /* NewAthleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAthleteView.swift; sourceTree = "<group>"; };
+		C963D6D22CC1156C00B2E876 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C9666EA52CB7CDD000E722D3 /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
 		C96A550C2C92E65000EDC4DC /* AthleteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteListView.swift; sourceTree = "<group>"; };
 		C975716C2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedAthletesPairsMatrixView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				C94CA45E2C922D3D007FB662 /* currentAthletes.swift */,
 				C9780B6A2C98502E002C0CA9 /* SingleErgData.swift */,
 				C9780B702C98548E002C0CA9 /* currentData.swift */,
+				C963D6D22CC1156C00B2E876 /* DataManager.swift */,
 				C99C0FBC2C9C1DA60065B018 /* TrainingData.swift */,
 				C9955EB52CAD8EB6008C1EE6 /* PairsMatrix.swift */,
 			);
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C99C0FD02C9C2DBF0065B018 /* AthleteView.swift in Sources */,
+				C963D6D32CC1156C00B2E876 /* DataManager.swift in Sources */,
 				C940DF082C9B5BBF0016695D /* RootTabView.swift in Sources */,
 				C937A1D42C9B31E5006692FC /* ErgDataListView.swift in Sources */,
 				C975716F2CB407AA00CE93D7 /* PairsMatrixListView.swift in Sources */,

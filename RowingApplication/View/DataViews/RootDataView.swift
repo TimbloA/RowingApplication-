@@ -1,42 +1,38 @@
-//
-//  RootTrainingView.swift
-//  RowingApplication
-//
-//  Created by Timblo, Adi (WING) on 19/09/2024.
-//
-
 import SwiftUI
 
 struct RootDataView: View {
     var single: Bool
     var singleAthlete: String
-    enum dataType:String, CaseIterable, Identifiable{
-        case Training
-        case Erg
-        case Pairs
+    
+    enum DataType: String, CaseIterable, Identifiable {
+        case training = "Training"
+        case erg = "Erg"
+        case pairsMatrix = "Pairs Matrix"
+        
         var id: Self { self }
     }
-    @State private var dataChoice:dataType = .Training
+    
+    @State private var dataChoice: DataType = .training
+    
     var body: some View {
-        VStack{
-            Picker("DataType:",selection: $dataChoice) {
-                Text("Training").tag(dataType.Training)
-                Text("Erg").tag(dataType.Erg)
-                Text("Pairs Matrix").tag(dataType.Pairs)
+        VStack {
+            Picker("Data Type:", selection: $dataChoice) {
+                ForEach(DataType.allCases) { dataType in
+                    Text(dataType.rawValue).tag(dataType)
+                }
             }
-            if dataChoice == .Training{
+            .pickerStyle(SegmentedPickerStyle()) // Improved style
+            
+            if dataChoice == .training {
                 TrainingDataListView()
-            }else if dataChoice == .Erg{
+            } else if dataChoice == .erg {
                 ErgDataListView(Single: single, SingleAthlete: singleAthlete)
-            }else if dataChoice == .Pairs{
-                PairsMatrixListView(SingleAthlete:singleAthlete,Single:single)
+            } else if dataChoice == .pairsMatrix {
+                PairsMatrixListView(SingleAthlete: singleAthlete, Single: single)
             }
         }
-        
-            
-
+        .padding() // Add padding for better layout
     }
-    
 }
 
 #Preview {

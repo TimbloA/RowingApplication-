@@ -27,7 +27,7 @@ struct PairsMatrixListView: View {
         VStack{
             NavigationStack {
                 List {
-                    ForEach(searchResults,id: \.self.title) { pairsData in
+                    ForEach(searchResults,id: \.self.id) { pairsData in
                         NavigationLink(destination: RankedAthletesPairsMatrixView(PairsData:pairsData)){
                             Text("\(pairsData.title)")
                         }
@@ -53,7 +53,7 @@ struct PairsMatrixListView: View {
     }
     func deleteItems(at offsets: IndexSet) {
         selectionDataViewModel.currPairsData.remove(atOffsets: offsets)
-      }
+    }
 }
 
 #Preview {
