@@ -10,40 +10,46 @@ import SwiftUI
 struct TrainingDataListView: View {
     @StateObject var dataViewModel: DataViewModel = DataViewModel.shared
     @State private var searchText: String = ""
+
     var searchResults: [TrainingData] {
         if searchText.isEmpty {
-            return dataViewModel.currTrainingData
-        }else  {
-            return dataViewModel.currTrainingData.filter { $0.crew.contains(searchText) || $0.title.contains(searchText)}
+            return DataManager.shared.trainingData // Directly use training data from DataManager
+        } else {
+            return DataManager.shared.trainingData.filter {
+                $0.crew.contains(searchText) || $0.title.contains(searchText)
+            }
         }
     }
+
     var body: some View {
-        VStack{
+        VStack {
             NavigationStack {
                 List {
-                    ForEach(searchResults,id: \.self.id) { training in
-                        NavigationLink(destination: TrainingDataView(TrainingData:training)){
+                    ForEach(searchResults, id: \.self.id) { training in
+                        NavigationLink(destination: TrainingDataView(TrainingData: training)) {
                             Text("\(training.title) (\(training.crew))")
                         }
                     }
                     .onDelete(perform: deleteItems)
-                    Button("Add New Entry"){
+                    Button("Add New Entry") {
                         dataViewModel.newTraining.toggle()
                     }
                 }
                 .navigationTitle("Training Data")
-                .sheet(isPresented: $dataViewModel.newTraining){
-                        AddTrainingDataView()
-                            .presentationDetents([.medium, .large])
+                .sheet(isPresented: $dataViewModel.newTraining) {
+                    AddTrainingDataView()
+                        .presentationDetents([.medium, .large])
                 }
             }
-                .searchable(text: $searchText)
-            
+            .searchable(text: $searchText)
         }
     }
+
     func deleteItems(at offsets: IndexSet) {
-        dataViewModel.currTrainingData.remove(atOffsets: offsets)
-      }
+        // Remove the selected training data from DataManager directly
+        DataManager.shared.trainingData.remove(atOffsets: offsets)
+        DataManager.shared.saveData() // Save the updated training data
+    }
 }
 
 #Preview {

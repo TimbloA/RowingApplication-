@@ -28,7 +28,7 @@ struct RootDataView: View {
             } else if dataChoice == .erg {
                 ErgDataListView(Single: single, SingleAthlete: singleAthlete)
             } else if dataChoice == .pairsMatrix {
-                PairsMatrixListView(SingleAthlete: singleAthlete, Single: single)
+                PairsMatrixListView(singleAthlete: singleAthlete, isSingle: single)
             }
         }
         .padding() // Add padding for better layout

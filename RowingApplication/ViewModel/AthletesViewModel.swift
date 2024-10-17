@@ -10,7 +10,6 @@ import Foundation
 @Observable
 class AthletesViewModel: ObservableObject{
     static let shared = AthletesViewModel()
-    var currAthletes: [Athlete]
     var athleteName = ""
     var athleteWeight: Int = 70
     var athleteHeight: Int = 180
@@ -28,9 +27,6 @@ class AthletesViewModel: ObservableObject{
 
     var submitName: String = "Submit Athlete"
     
-    private init() {
-        currAthletes = currentAthletes.examples
-    }
     
     func addNewAthlete() {
         DataManager.shared.athletes.append(Athlete(name: athleteName, side: athleteSide, DOB: athleteDOB, weight: athleteWeight, height: athleteHeight))

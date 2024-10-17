@@ -11,16 +11,23 @@ struct RootTabView: View {
     
     var body: some View {
         TabView {
-                  AthleteListView()
+              AthleteListView()
                       .tabItem {
                           Image(systemName: "person.3")
                           Text("Athletes")
+                      }
+            CalendarView()
+                      .tabItem {
+                          Image(systemName: "calendar")
+                          Text("Calendar")
                       }
             RootDataView(single:false, singleAthlete: "")
                       .tabItem {
                           Image(systemName: "line.horizontal.3.decrease.circle.fill")
                           Text("Data")
+                          
                       }
+            
               }
     }
 }

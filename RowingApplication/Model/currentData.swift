@@ -42,7 +42,7 @@ struct currentData {
                 "Henry Clarke",
                 "Nikolai Rybin",
                 "George Konig"
-            ])
+            ],date:Date())
         ] : DataManager.shared.pairsData
     }
     #endif

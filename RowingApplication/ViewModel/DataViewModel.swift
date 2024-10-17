@@ -10,8 +10,6 @@ import Foundation
 @Observable
 class DataViewModel: ObservableObject{
     static let shared = DataViewModel()
-    var currErgData: [SingleErgData] = []
-    var currTrainingData: [TrainingData] = []
     var newErg: Bool = false
     var crew: String = ""
     var newTraining: Bool = false
@@ -25,10 +23,7 @@ class DataViewModel: ObservableObject{
     var athlete: String = ""
     var submitEntry: String = "Submit Entry"
     var Notes: String = ""
-    private init() {
-        currErgData = currentData.ergExamples
-        currTrainingData = currentData.trainingExamples
-    }
+    
     
     func addNewErg() {
         let intDistance = Int(distance) ?? 0

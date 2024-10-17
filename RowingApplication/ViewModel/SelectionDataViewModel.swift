@@ -18,15 +18,12 @@ class SelectionDataViewModel: ObservableObject{
     var bowRanking: [String] = []
     var strokeRanking: [String] = []
     var crewsData:[[CrewData]] = []
-    var currPairsData:[PairsMatrix] = []
     
-    private init() {
-        currPairsData = currentData.pairsMatrixExamples
-    }
     
     func addPairsMatrix() {
-        DataManager.shared.pairsData.append(PairsMatrix(title: dataTitle, data: crewsData,athletes: athletes))
+        DataManager.shared.pairsData.append(PairsMatrix(title: dataTitle, data: crewsData,athletes: athletes,date:dataDate))
         DataManager.shared.saveData()
+        dataTitle = ""
     }
     
     

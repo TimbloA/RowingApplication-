@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C934A0B12CC1908100FEE009 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C934A0B02CC1908100FEE009 /* CalendarView.swift */; };
 		C937A1D42C9B31E5006692FC /* ErgDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1D32C9B31E5006692FC /* ErgDataListView.swift */; };
 		C937A1D62C9B31FA006692FC /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1D52C9B31FA006692FC /* DataViewModel.swift */; };
 		C937A1DB2C9B3412006692FC /* AddErgDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1DA2C9B3412006692FC /* AddErgDataView.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C934A0B02CC1908100FEE009 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C937A1D32C9B31E5006692FC /* ErgDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgDataListView.swift; sourceTree = "<group>"; };
 		C937A1D52C9B31FA006692FC /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		C937A1DA2C9B3412006692FC /* AddErgDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddErgDataView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				C99C0FD12C9C2F240065B018 /* DataViews */,
 				C99C0FCE2C9C2D2B0065B018 /* AthleteViews */,
 				C940DF072C9B5BBF0016695D /* RootTabView.swift */,
+				C934A0B02CC1908100FEE009 /* CalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				C9933ABB2CAE9D42007976CA /* PairsDataView.swift in Sources */,
 				C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */,
 				C9955EB22CAD8B29008C1EE6 /* PairsMatrixDataInputView.swift in Sources */,
+				C934A0B12CC1908100FEE009 /* CalendarView.swift in Sources */,
 				C99C0FC32C9C22140065B018 /* TrainingDataView.swift in Sources */,
 				C99C0FC12C9C20830065B018 /* Int.swift in Sources */,
 				C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */,
@@ -582,7 +586,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RowingApplication/Preview Content\"";
-				DEVELOPMENT_TEAM = 89VV3248FH;
+				DEVELOPMENT_TEAM = 4H2WP2VFNT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -611,7 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RowingApplication/Preview Content\"";
-				DEVELOPMENT_TEAM = 89VV3248FH;
+				DEVELOPMENT_TEAM = 4H2WP2VFNT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

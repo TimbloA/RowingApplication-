@@ -86,5 +86,5 @@ struct RankedAthletesPairsMatrixView: View {
         "Henry Clarke",
         "Nikolai Rybin",
         "George Konig"
-    ]))
+    ],date:Date()))
 }

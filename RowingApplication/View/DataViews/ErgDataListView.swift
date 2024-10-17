@@ -5,6 +5,8 @@
 //  Created by Timblo, Adi (WING) on 18/09/2024.
 //
 
+
+
 import SwiftUI
 
 struct ErgDataListView: View {
@@ -12,46 +14,53 @@ struct ErgDataListView: View {
     @State private var searchText: String = ""
     @State var Single: Bool
     @State var SingleAthlete: String
+
     var searchResults: [SingleErgData] {
+        let ergData = DataManager.shared.ergData // Directly use the data from DataManager
+        
         if searchText.isEmpty && Single == false {
-            return dataViewModel.currErgData
-        }else if Single == false {
-            return dataViewModel.currErgData.filter { $0.athlete.contains(searchText) || $0.title.contains(searchText)}
-        }else{
-            return dataViewModel.currErgData.filter { $0.athlete.contains(SingleAthlete) || $0.title.contains(searchText)}
+            return ergData
+        } else if Single == false {
+            return ergData.filter { $0.athlete.contains(searchText) || $0.title.contains(searchText) }
+        } else {
+            return ergData.filter { $0.athlete.contains(SingleAthlete) || $0.title.contains(searchText) }
         }
     }
+
     var body: some View {
-        VStack{
+        VStack {
             NavigationStack {
                 List {
-                    ForEach(searchResults,id: \.self.id) { erg in
-                        NavigationLink(destination: ErgDataView(ErgData:erg)){
+                    ForEach(searchResults, id: \.self.id) { erg in
+                        NavigationLink(destination: ErgDataView(ErgData: erg)) {
                             Text("\(erg.title) (\(erg.athlete))")
                         }
                     }
                     .onDelete(perform: deleteItems)
-                    Button("Add New Erg"){
+
+                    Button("Add New Erg") {
                         dataViewModel.newErg.toggle()
                     }
                 }
                 .navigationTitle("Erg Data")
-                .sheet(isPresented: $dataViewModel.newErg){
-                        AddErgDataView()
-                            .presentationDetents([.medium, .large])
-                   
+                .sheet(isPresented: $dataViewModel.newErg) {
+                    AddErgDataView()
+                        .presentationDetents([.medium, .large])
                 }
             }
-                .searchable(text: $searchText)
-            
+            .searchable(text: $searchText)
         }
     }
+
     func deleteItems(at offsets: IndexSet) {
-        dataViewModel.currErgData.remove(atOffsets: offsets)
-      }
+        // Remove from the DataManager's ergData directly
+        DataManager.shared.ergData.remove(atOffsets: offsets)
+        
+        // Save the changes
+        DataManager.shared.saveData()
+    }
 }
 
-
 #Preview {
-    ErgDataListView(Single:false, SingleAthlete: "")
+    ErgDataListView(Single: false, SingleAthlete: "")
 }

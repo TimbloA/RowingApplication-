@@ -24,12 +24,14 @@ struct PairsMatrix: Codable, Identifiable {
     let title: String
     let data: [[CrewData]]  // Use CrewData instead of tuples
     let athletes: [String]
+    let date:Date
 
-    init(title: String, data: [[CrewData]], athletes: [String]) {
+    init(title: String, data: [[CrewData]], athletes: [String],date: Date) {
         self.id = UUID()  // Generate a new UUID for the matrix
         self.title = title
         self.data = data
         self.athletes = athletes
+        self.date = date
     }
 }
 struct AthletePair:Codable {

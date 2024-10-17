@@ -4,9 +4,6 @@
 //
 //  Created by Timblo, Adi (WING) on 17/10/2024.
 //
-
-import Foundation
-
 import Foundation
 
 class DataManager: ObservableObject {
@@ -15,7 +12,7 @@ class DataManager: ObservableObject {
     @Published var ergData: [SingleErgData] = []
     @Published var trainingData: [TrainingData] = []
     @Published var pairsData: [PairsMatrix] = []
-    @Published var athletes: [Athlete] = [] // New array for athletes
+    @Published var athletes: [Athlete] = [] 
 
     private let ergDataFile = "ergData.json"
     private let trainingDataFile = "trainingData.json"
