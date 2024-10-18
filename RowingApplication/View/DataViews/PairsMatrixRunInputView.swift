@@ -4,16 +4,11 @@
 //
 //  Created by Timblo, Adi (WING) on 10/10/2024.
 //
-//
-//  PairsMatrixRunInputView.swift
-//  RowingApplication
 
 import SwiftUI
 
 struct PairsMatrixRunInputView: View {
     @Binding var wavesData: [[PairsCrewInput]]
-    @State private var searchBowText: String = ""
-    @State private var searchStrokeText: String = ""
 
     @FocusState private var bowFieldFocused: Bool // Manage focus state for Bow Name
     @FocusState private var strokeFieldFocused: Bool // Manage focus state for Stroke Name
@@ -36,20 +31,21 @@ struct PairsMatrixRunInputView: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .focused($bowFieldFocused)
                                 .onChange(of: wavesData[waveIndex][crewIndex].bowName) { newValue in
-                                    searchBowText = newValue // Update search text
+                                    // Update the search text for the specific crew
+                                    wavesData[waveIndex][crewIndex].searchBowText = newValue
                                 }
                                 .onSubmit {
                                     bowFieldFocused = false // Dismiss keyboard on submit
-                                    searchBowText = "" // Clear search text on submit
+                                    wavesData[waveIndex][crewIndex].searchBowText = "" // Clear search text on submit
                                 }
 
                             // Suggestions for Bow Names
                             AthleteAutocompleteView(
-                                searchText: $searchBowText,
-                                filteredAthletes: filteredBowAthletes
+                                searchText: $wavesData[waveIndex][crewIndex].searchBowText,
+                                filteredAthletes: filteredBowAthletes(for: waveIndex, crewIndex: crewIndex)
                             ) { selectedAthlete in
                                 wavesData[waveIndex][crewIndex].bowName = selectedAthlete.name // Assign athlete's name to TextField
-                                searchBowText = "" // Clear search text
+                                wavesData[waveIndex][crewIndex].searchBowText = "" // Clear search text
                                 bowFieldFocused = false // Dismiss keyboard
                             }
 
@@ -58,20 +54,21 @@ struct PairsMatrixRunInputView: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .focused($strokeFieldFocused)
                                 .onChange(of: wavesData[waveIndex][crewIndex].strokeName) { newValue in
-                                    searchStrokeText = newValue // Update search text
+                                    // Update the search text for the specific crew
+                                    wavesData[waveIndex][crewIndex].searchStrokeText = newValue
                                 }
                                 .onSubmit {
                                     strokeFieldFocused = false // Dismiss keyboard on submit
-                                    searchStrokeText = "" // Clear search text on submit
+                                    wavesData[waveIndex][crewIndex].searchStrokeText = "" // Clear search text on submit
                                 }
 
                             // Suggestions for Stroke Names
                             AthleteAutocompleteView(
-                                searchText: $searchStrokeText,
-                                filteredAthletes: filteredStrokeAthletes
+                                searchText: $wavesData[waveIndex][crewIndex].searchStrokeText,
+                                filteredAthletes: filteredStrokeAthletes(for: waveIndex, crewIndex: crewIndex)
                             ) { selectedAthlete in
                                 wavesData[waveIndex][crewIndex].strokeName = selectedAthlete.name // Assign athlete's name to TextField
-                                searchStrokeText = "" // Clear search text
+                                wavesData[waveIndex][crewIndex].searchStrokeText = "" // Clear search text
                                 strokeFieldFocused = false // Dismiss keyboard
                             }
 
@@ -87,25 +84,31 @@ struct PairsMatrixRunInputView: View {
         }
         .padding()
         .onTapGesture {
-            // Dismiss keyboard when tapping outside of the text fields
+            // Dismiss keyboard and clear search text when tapping outside of the text fields
             bowFieldFocused = false
             strokeFieldFocused = false
-            searchBowText = "" // Clear the search text when tapping outside
-            searchStrokeText = "" // Clear the search text when tapping outside
+            
+            // Hide suggestions
+            for waveIndex in wavesData.indices {
+                for crewIndex in wavesData[waveIndex].indices {
+                    wavesData[waveIndex][crewIndex].searchBowText = ""
+                    wavesData[waveIndex][crewIndex].searchStrokeText = ""
+                }
+            }
         }
     }
 
     // Filtered list for bow-side athletes
-    private var filteredBowAthletes: [Athlete] {
+    private func filteredBowAthletes(for waveIndex: Int, crewIndex: Int) -> [Athlete] {
         selectedBowSideAthletes.filter { athlete in
-            athlete.name.lowercased().contains(searchBowText.lowercased())
+            athlete.name.lowercased().contains(wavesData[waveIndex][crewIndex].searchBowText.lowercased())
         }
     }
 
     // Filtered list for stroke-side athletes
-    private var filteredStrokeAthletes: [Athlete] {
+    private func filteredStrokeAthletes(for waveIndex: Int, crewIndex: Int) -> [Athlete] {
         selectedStrokeSideAthletes.filter { athlete in
-            athlete.name.lowercased().contains(searchStrokeText.lowercased())
+            athlete.name.lowercased().contains(wavesData[waveIndex][crewIndex].searchStrokeText.lowercased())
         }
     }
 }

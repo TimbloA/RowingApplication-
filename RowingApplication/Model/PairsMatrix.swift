@@ -50,4 +50,8 @@ struct PairsCrewInput {
     var strokeName: String = ""
     var startTime: String = ""
     var finishTime: String = ""
+    
+    // New properties for search text
+    var searchBowText: String = ""
+    var searchStrokeText: String = ""
 }
