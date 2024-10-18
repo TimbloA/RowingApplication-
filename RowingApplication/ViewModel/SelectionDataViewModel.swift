@@ -32,7 +32,7 @@ class SelectionDataViewModel: ObservableObject{
         athletes = []   // Initialize athletes array
         // Dictionary to track athletes by name
         var athletesDict: [String: AthletePair] = [:]
-        
+
         for waveIndex in 0..<wavesData.count {
             var runData: [CrewData] = []  // Use CrewData instead of tuples
             
@@ -77,17 +77,19 @@ class SelectionDataViewModel: ObservableObject{
                 runData.append(crewData)
             }
             
-            // Sort crews by their times
+            // Sort crews by their times (ascending)
             let rankedData = runData.sorted(by: { $0.time < $1.time })
             
             // Assign points based on ranking
             for i in 0..<rankedData.count {
+                // Get the current crew's bow and stroke athletes
                 var bow = rankedData[i].bow
                 var stroke = rankedData[i].stroke
                 
-                // Increment points based on their rank
-                bow.points += i + 1
-                stroke.points += i + 1
+                // Increment points based on their rank (1st place gets 1 point, 2nd place gets 2 points, etc.)
+                // If you want higher ranks to get more points, simply switch to `rankedData.count - i` logic.
+                bow.points += (i + 1) // Points based on rank (1 for first, 2 for second, etc.)
+                stroke.points += (i + 1)
                 
                 // Update athletesDict to reflect the new points
                 athletesDict[bow.name] = bow
@@ -97,6 +99,7 @@ class SelectionDataViewModel: ObservableObject{
             crewsData.append(rankedData)  // Append ranked data to crewsData
         }
     }
+
 
 
     func rankBowAndStrokeAthletes(crewsData: [[CrewData]]) -> ([AthletePair], [AthletePair]) {

@@ -37,6 +37,8 @@
 		C99C0FCD2C9C2C990065B018 /* RootDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C0FCC2C9C2C990065B018 /* RootDataView.swift */; };
 		C99C0FD02C9C2DBF0065B018 /* AthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C0FCF2C9C2DBF0065B018 /* AthleteView.swift */; };
 		C99D5E4E2CB87F290040BB8E /* PairsMatrixRunInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D5E4D2CB87F290040BB8E /* PairsMatrixRunInputView.swift */; };
+		C9A3F2022CC2C99700FF82DD /* AthleteSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A3F2012CC2C99700FF82DD /* AthleteSelectionView.swift */; };
+		C9A3F2042CC2D94F00FF82DD /* AthleteAutocompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A3F2032CC2D94F00FF82DD /* AthleteAutocompleteView.swift */; };
 		C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */; };
 		C9BC729F2C91DD4600E1256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BC729E2C91DD4600E1256A /* Assets.xcassets */; };
 		C9BC72A22C91DD4600E1256A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BC72A12C91DD4600E1256A /* Preview Assets.xcassets */; };
@@ -93,6 +95,8 @@
 		C99C0FCC2C9C2C990065B018 /* RootDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootDataView.swift; sourceTree = "<group>"; };
 		C99C0FCF2C9C2DBF0065B018 /* AthleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthleteView.swift; sourceTree = "<group>"; };
 		C99D5E4D2CB87F290040BB8E /* PairsMatrixRunInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsMatrixRunInputView.swift; sourceTree = "<group>"; };
+		C9A3F2012CC2C99700FF82DD /* AthleteSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteSelectionView.swift; sourceTree = "<group>"; };
+		C9A3F2032CC2D94F00FF82DD /* AthleteAutocompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteAutocompleteView.swift; sourceTree = "<group>"; };
 		C9BC72972C91DD4400E1256A /* RowingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RowingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingApplicationApp.swift; sourceTree = "<group>"; };
 		C9BC729E2C91DD4600E1256A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				C99C0FCF2C9C2DBF0065B018 /* AthleteView.swift */,
 				C94CA4662C92317B007FB662 /* NewAthleteView.swift */,
 				C96A550C2C92E65000EDC4DC /* AthleteListView.swift */,
+				C9A3F2012CC2C99700FF82DD /* AthleteSelectionView.swift */,
 			);
 			path = AthleteViews;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				C975716C2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift */,
 				C9666EA52CB7CDD000E722D3 /* TimeInputView.swift */,
 				C975716E2CB407AA00CE93D7 /* PairsMatrixListView.swift */,
+				C9A3F2032CC2D94F00FF82DD /* AthleteAutocompleteView.swift */,
 			);
 			path = DataViews;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				C99C0FCD2C9C2C990065B018 /* RootDataView.swift in Sources */,
 				C937A1DB2C9B3412006692FC /* AddErgDataView.swift in Sources */,
 				C99C0FC52C9C23450065B018 /* TrainingDataListView.swift in Sources */,
+				C9A3F2042CC2D94F00FF82DD /* AthleteAutocompleteView.swift in Sources */,
 				C9780B712C98548E002C0CA9 /* currentData.swift in Sources */,
 				C99C0FBD2C9C1DA60065B018 /* TrainingData.swift in Sources */,
 				C99D5E4E2CB87F290040BB8E /* PairsMatrixRunInputView.swift in Sources */,
@@ -421,6 +428,7 @@
 				C9955EB62CAD8EB6008C1EE6 /* PairsMatrix.swift in Sources */,
 				C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */,
 				C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */,
+				C9A3F2022CC2C99700FF82DD /* AthleteSelectionView.swift in Sources */,
 				C975716D2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift in Sources */,
 				C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */,
 			);

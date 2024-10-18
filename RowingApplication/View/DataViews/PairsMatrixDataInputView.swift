@@ -14,6 +14,11 @@ struct PairsMatrixDataInputView: View {
     @State private var wavesData: [[PairsCrewInput]] = [] // Stores user-input crew data
     
     @State private var rankingsCalculated = false // Tracks if rankings are calculated
+    @State private var showBowSideSelection = false // Tracks the state of showing the bow side athletes selection
+    @State private var showStrokeSideSelection = false // Tracks the state of showing the stroke side athletes selection
+    
+    @State private var selectedBowSideAthletes: [Athlete] = [] // Store selected bow side athletes
+    @State private var selectedStrokeSideAthletes: [Athlete] = [] // Store selected stroke side athletes
     
     var body: some View {
         NavigationStack {
@@ -48,6 +53,30 @@ struct PairsMatrixDataInputView: View {
                         .keyboardType(.numberPad)
                 }
 
+                // Button to select Bow Side Athletes
+                Button(action: {
+                    showBowSideSelection.toggle() // Toggle the bow side athlete selection list
+                }) {
+                    Text("Select Bow Side Athletes")
+                        .padding()
+                        .foregroundColor(.blue)
+                }
+                .sheet(isPresented: $showBowSideSelection) {
+                    AthleteSelectionView(selectedAthletes: $selectedBowSideAthletes)
+                }
+
+                // Button to select Stroke Side Athletes
+                Button(action: {
+                    showStrokeSideSelection.toggle() // Toggle the stroke side athlete selection list
+                }) {
+                    Text("Select Stroke Side Athletes")
+                        .padding()
+                        .foregroundColor(.blue)
+                }
+                .sheet(isPresented: $showStrokeSideSelection) {
+                    AthleteSelectionView(selectedAthletes: $selectedStrokeSideAthletes)
+                }
+
                 // Button to generate input fields
                 Button(action: {
                     generateInputFields()
@@ -60,7 +89,10 @@ struct PairsMatrixDataInputView: View {
 
                 // Only show this link if wavesData is not empty
                 if !wavesData.isEmpty {
-                    NavigationLink("Data Entry", destination: PairsMatrixRunInputView(wavesData: $wavesData))
+                    NavigationLink("Data Entry", destination: PairsMatrixRunInputView(wavesData: $wavesData,
+                        selectedBowSideAthletes: selectedBowSideAthletes,
+                        selectedStrokeSideAthletes: selectedStrokeSideAthletes))
+
                 }
 
                 // Display the crew rankings
@@ -128,6 +160,8 @@ struct PairsMatrixDataInputView: View {
         noOfCrews = ""
         wavesData.removeAll()
         rankingsCalculated = false
+        selectedBowSideAthletes.removeAll()
+        selectedStrokeSideAthletes.removeAll()
     }
 }
 

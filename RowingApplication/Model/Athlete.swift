@@ -16,7 +16,7 @@ enum athleteSide: String, CaseIterable, Identifiable, Codable { // Conform to Co
     var id: Self { self }
 }
 
-struct Athlete: Identifiable, Codable {
+struct Athlete: Identifiable, Codable, Hashable {
     var id = UUID() // Unique identifier
     let name: String
     var side: athleteSide
