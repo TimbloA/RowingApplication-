@@ -34,9 +34,16 @@ struct PairsMatrix: Codable, Identifiable {
         self.date = date
     }
 }
-struct AthletePair:Codable {
+struct AthletePair: Codable, Identifiable {
+    var id = UUID() // Unique identifier for each athlete
     var name: String
     var points: Int
+
+    // Initializer for the AthletePair
+    init(name: String, points: Int = 0) {
+        self.name = name
+        self.points = points
+    }
 }
 struct PairsCrewInput {
     var bowName: String = ""

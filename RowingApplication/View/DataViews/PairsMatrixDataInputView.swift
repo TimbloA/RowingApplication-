@@ -98,9 +98,9 @@ struct PairsMatrixDataInputView: View {
                 // Display the crew rankings
                 if !selectionDataViewModel.crewsData.isEmpty {
                     ScrollView {
-                        ForEach(0..<selectionDataViewModel.crewsData.count, id: \.self) { waveIndex in
+                        ForEach(selectionDataViewModel.crewsData.indices, id: \.self) { waveIndex in
                             Section(header: Text("Wave \(waveIndex + 1) Rankings")) {
-                                ForEach(0..<selectionDataViewModel.crewsData[waveIndex].count, id: \.self) { crewIndex in
+                                ForEach(selectionDataViewModel.crewsData[waveIndex].indices, id: \.self) { crewIndex in
                                     let crew = selectionDataViewModel.crewsData[waveIndex][crewIndex] // Accessing CrewData
 
                                     HStack {
@@ -116,17 +116,20 @@ struct PairsMatrixDataInputView: View {
                     }
                 }
 
+
                 // Button to calculate results (enabled if wavesData is not empty)
                 Button(action: {
                     selectionDataViewModel.calculateRankings(wavesData)
-                    rankingsCalculated = true // Rankings have been calculated
+                    rankingsCalculated = true // Indicate that rankings have been calculated
                 }) {
                     Text("Calculate Rankings")
-                        .padding()
-                        .foregroundColor(.blue)
+                    .padding()
+                    .foregroundColor(.blue)
                 }
                 .disabled(wavesData.isEmpty) // Disable until wavesData is set
                 .padding(.top)
+
+            
 
                 // Show "Submit Entry" button only after rankings have been calculated
                 if rankingsCalculated && !selectionDataViewModel.crewsData.isEmpty {

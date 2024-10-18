@@ -28,13 +28,12 @@ class SelectionDataViewModel: ObservableObject{
     
     
     func calculateRankings(_ wavesData: [[PairsCrewInput]]) {
-        crewsData = []  // Ensure this is initialized
-        athletes = []   // Initialize athletes array
-        // Dictionary to track athletes by name
-        var athletesDict: [String: AthletePair] = [:]
+        // Reset crews data
+        crewsData = []
+        var athletesDict = [String: AthletePair]() // Initialize a dictionary to track athletes
 
         for waveIndex in 0..<wavesData.count {
-            var runData: [CrewData] = []  // Use CrewData instead of tuples
+            var runData: [CrewData] = [] // Use CrewData for storing crew information
             
             for crewInput in wavesData[waveIndex] {
                 // Convert input times
@@ -49,13 +48,8 @@ class SelectionDataViewModel: ObservableObject{
                 if let existingStroke = athletesDict[crewInput.strokeName] {
                     stroke = existingStroke
                 } else {
-                    let newStroke = AthletePair(name: crewInput.strokeName, points: 0)
-                    athletesDict[crewInput.strokeName] = newStroke
-                    stroke = newStroke
-                    // Append the stroke's name to the athletes array if not already present
-                    if !athletes.contains(crewInput.strokeName) {
-                        athletes.append(crewInput.strokeName)
-                    }
+                    stroke = AthletePair(name: crewInput.strokeName, points: 0)
+                    athletesDict[crewInput.strokeName] = stroke // Add to dictionary
                 }
                 
                 // Reuse existing bow seat or create a new one
@@ -63,13 +57,8 @@ class SelectionDataViewModel: ObservableObject{
                 if let existingBow = athletesDict[crewInput.bowName] {
                     bow = existingBow
                 } else {
-                    let newBow = AthletePair(name: crewInput.bowName, points: 0)
-                    athletesDict[crewInput.bowName] = newBow
-                    bow = newBow
-                    // Append the bow's name to the athletes array if not already present
-                    if !athletes.contains(crewInput.bowName) {
-                        athletes.append(crewInput.bowName)
-                    }
+                    bow = AthletePair(name: crewInput.bowName, points: 0)
+                    athletesDict[crewInput.bowName] = bow // Add to dictionary
                 }
                 
                 // Create a new CrewData instance for this crew
@@ -82,23 +71,30 @@ class SelectionDataViewModel: ObservableObject{
             
             // Assign points based on ranking
             for i in 0..<rankedData.count {
-                // Get the current crew's bow and stroke athletes
                 var bow = rankedData[i].bow
                 var stroke = rankedData[i].stroke
                 
-                // Increment points based on their rank (1st place gets 1 point, 2nd place gets 2 points, etc.)
-                // If you want higher ranks to get more points, simply switch to `rankedData.count - i` logic.
-                bow.points += (i + 1) // Points based on rank (1 for first, 2 for second, etc.)
-                stroke.points += (i + 1)
+                // Points earned in this round (1 for first, 2 for second, etc.)
+                let pointsEarned = (i + 1)
                 
-                // Update athletesDict to reflect the new points
+                // Update bow and stroke points for this round
+                bow.points = pointsEarned // Assign points earned in this round
+                stroke.points = pointsEarned
+                
+                // Update the athletes dictionary with new points
                 athletesDict[bow.name] = bow
                 athletesDict[stroke.name] = stroke
+                
+                // Update crew data with the new points
+                let updatedCrewData = CrewData(bow: bow, stroke: stroke, time: rankedData[i].time)
+                runData[i] = updatedCrewData // Replace with updated crew data
             }
             
-            crewsData.append(rankedData)  // Append ranked data to crewsData
+            crewsData.append(runData) // Append runData for this wave to crewsData
         }
     }
+
+
 
 
 
