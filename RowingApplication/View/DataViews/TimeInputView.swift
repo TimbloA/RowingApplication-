@@ -61,7 +61,6 @@ struct TimeInputView: View {
 
     // Function to convert the time input to tenths of a second and update the binding
     func updateTenths(oldValue: String, newValue: String) {
-        // Assuming 1.convertToTenths is a valid method that takes care of the conversion
         timeTenths = String(1.convertToTenths(hours: hours, minutes: minutes, seconds: seconds, tenths: tenths))
     }
 }

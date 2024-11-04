@@ -52,7 +52,12 @@ struct PairsMatrixDataInputView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.numberPad)
                 }
-
+//                .onChange(of: $noOfCrews, intial:false)  {
+//                    generateInputFields()
+//                }
+//                .onChange(of: $noOfWaves, intial:false)  {
+//                    generateInputFields()
+//                }
                 // Button to select Bow Side Athletes
                 
                 HStack {
@@ -69,7 +74,7 @@ struct PairsMatrixDataInputView: View {
                     }
                     if !selectedBowSideAthletes.isEmpty {
                                         VStack(alignment: .leading, spacing: 4) {
-                                            Text("Selected Stroke Side Athletes")
+                                            Text("Bow Side Athletes")
                                                 .font(.subheadline)
                                                 .foregroundColor(.gray)
                                             ForEach(selectedBowSideAthletes, id: \.id) { athlete in
@@ -96,7 +101,7 @@ struct PairsMatrixDataInputView: View {
                     }
                         if !selectedStrokeSideAthletes.isEmpty {
                                             VStack(alignment: .leading, spacing: 4) {
-                                                Text("Selected Stroke Side Athletes")
+                                                Text("Stroke Side Athletes")
                                                     .font(.subheadline)
                                                     .foregroundColor(.gray)
                                                 ForEach(selectedStrokeSideAthletes, id: \.id) { athlete in
