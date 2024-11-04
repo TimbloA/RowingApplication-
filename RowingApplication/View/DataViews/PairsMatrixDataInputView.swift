@@ -54,29 +54,60 @@ struct PairsMatrixDataInputView: View {
                 }
 
                 // Button to select Bow Side Athletes
-                Button(action: {
-                    showBowSideSelection.toggle() // Toggle the bow side athlete selection list
-                }) {
-                    Text("Select Bow Side Athletes")
-                        .padding()
-                        .foregroundColor(.blue)
+                
+                HStack {
+                    VStack {
+                        Button(action: {
+                            showBowSideSelection.toggle() // Toggle the bow side athlete selection list
+                        }) {
+                            Text("Select Bow Side")
+                                .padding()
+                                .foregroundColor(.blue)
+                        }
+                        .sheet(isPresented: $showBowSideSelection) {
+                            AthleteSelectionView(selectedAthletes: $selectedBowSideAthletes)
+                    }
+                    if !selectedBowSideAthletes.isEmpty {
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text("Selected Stroke Side Athletes")
+                                                .font(.subheadline)
+                                                .foregroundColor(.gray)
+                                            ForEach(selectedBowSideAthletes, id: \.id) { athlete in
+                                                Text(athlete.name)
+                                                    .font(.body)
+                                            }
+                                        }
+                                        .padding(.top, 8)
+                                    }
+                    }
+                    
+                    
+                    // Button to select Stroke Side Athletes
+                    VStack {
+                        Button(action: {
+                            showStrokeSideSelection.toggle() // Toggle the stroke side athlete selection list
+                        }) {
+                            Text("Select Stroke Side")
+                                .padding()
+                                .foregroundColor(.blue)
+                        }
+                        .sheet(isPresented: $showStrokeSideSelection) {
+                            AthleteSelectionView(selectedAthletes: $selectedStrokeSideAthletes)
+                    }
+                        if !selectedStrokeSideAthletes.isEmpty {
+                                            VStack(alignment: .leading, spacing: 4) {
+                                                Text("Selected Stroke Side Athletes")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.gray)
+                                                ForEach(selectedStrokeSideAthletes, id: \.id) { athlete in
+                                                    Text(athlete.name)
+                                                        .font(.body)
+                                                }
+                                            }
+                                            .padding(.top, 8)
+                                        }
+                    }
                 }
-                .sheet(isPresented: $showBowSideSelection) {
-                    AthleteSelectionView(selectedAthletes: $selectedBowSideAthletes)
-                }
-
-                // Button to select Stroke Side Athletes
-                Button(action: {
-                    showStrokeSideSelection.toggle() // Toggle the stroke side athlete selection list
-                }) {
-                    Text("Select Stroke Side Athletes")
-                        .padding()
-                        .foregroundColor(.blue)
-                }
-                .sheet(isPresented: $showStrokeSideSelection) {
-                    AthleteSelectionView(selectedAthletes: $selectedStrokeSideAthletes)
-                }
-
                 // Button to generate input fields
                 Button(action: {
                     generateInputFields()
@@ -117,7 +148,7 @@ struct PairsMatrixDataInputView: View {
                 }
 
 
-                // Button to calculate results (enabled if wavesData is not empty)
+                // Button to calculate results
                 Button(action: {
                     selectionDataViewModel.calculateRankings(wavesData)
                     rankingsCalculated = true // Indicate that rankings have been calculated
