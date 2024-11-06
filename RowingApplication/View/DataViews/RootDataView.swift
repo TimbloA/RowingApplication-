@@ -21,7 +21,7 @@ struct RootDataView: View {
                     Text(dataType.rawValue).tag(dataType)
                 }
             }
-            .pickerStyle(SegmentedPickerStyle()) // Improved style
+            .pickerStyle(SegmentedPickerStyle()) 
             
             if dataChoice == .training {
                 TrainingDataListView()

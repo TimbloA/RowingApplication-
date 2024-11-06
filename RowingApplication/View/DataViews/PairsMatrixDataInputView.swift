@@ -52,14 +52,7 @@ struct PairsMatrixDataInputView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.numberPad)
                 }
-//                .onChange(of: $noOfCrews, intial:false)  {
-//                    generateInputFields()
-//                }
-//                .onChange(of: $noOfWaves, intial:false)  {
-//                    generateInputFields()
-//                }
-                // Button to select Bow Side Athletes
-                
+               
                 HStack {
                     VStack {
                         Button(action: {

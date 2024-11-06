@@ -53,11 +53,11 @@ struct PairsMatrixListView: View {
                     }
                 }
             }
-            .navigationTitle("Pairs Data") // Ensure this is inside NavigationStack
+            .navigationTitle("Pairs Data") 
             .searchable(text: $searchText) // Search bar
             .sheet(isPresented: $showInputView) {
                 PairsMatrixDataInputView()
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.large])
             }
         }
     }
