@@ -10,10 +10,9 @@ import SwiftUI
 struct AthleteListView: View {
     @StateObject var athleteViewModel: AthletesViewModel = AthletesViewModel.shared
     @State private var searchText: String = ""
-    @State private var selectedSide: athleteSide? = nil // State to hold the selected side
+    @State private var selectedSide: athleteSide? = nil 
     
     var searchResults: [Athlete] {
-        // Filter by side if one is selected, otherwise filter by search text or return all
         let filteredAthletes = selectedSide == nil
             ? DataManager.shared.athletes
             : DataManager.shared.athletes.filter { $0.side == selectedSide }

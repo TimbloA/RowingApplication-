@@ -1,8 +1,14 @@
+//
+//  CalendarView.swift
+//  RowingApplication
+//
+//  Created by Timblo, Adi (WING) on 18/10/2024.
+//
 import SwiftUI
 
 struct CalendarView: View {
-    @State private var selectedDate = Date() // Tracks the selected date
-    @ObservedObject var dataManager = DataManager.shared // Observing DataManager for data changes
+    @State private var selectedDate = Date()
+    @ObservedObject var dataManager = DataManager.shared
     
     // Filter erg data based on the selected date
     var filteredErgData: [SingleErgData] {
@@ -22,14 +28,12 @@ struct CalendarView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                // Use a compact style DatePicker for minimal space
                 HStack {
                     DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
-                        .datePickerStyle(CompactDatePickerStyle()) // Compact style takes minimal space
+                        .datePickerStyle(CompactDatePickerStyle())
                         .padding(.horizontal)
                 }
                 
-                // List that shows the relevant data for the selected date
                 List {
                     // Display erg data for the selected date
                     Section(header: Text("Erg Data")) {
@@ -72,7 +76,7 @@ struct CalendarView: View {
                         }
                     }
                 }
-                .listStyle(GroupedListStyle()) // Grouped list style for sections
+                .listStyle(GroupedListStyle())
                 .navigationTitle("Calendar")
             }
             .padding()

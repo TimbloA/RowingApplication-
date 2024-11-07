@@ -26,17 +26,15 @@ struct PairsMatrixRunInputView: View {
                         VStack(alignment: .leading) {
                             Text("Crew \(crewIndex + 1)")
 
-                            // Autocomplete for Bow Name
                             TextField("Bow Name", text: $wavesData[waveIndex][crewIndex].bowName)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .focused($bowFieldFocused)
                                 .onChange(of: wavesData[waveIndex][crewIndex].bowName) { newValue in
-                                    // Update the search text for the specific crew
                                     wavesData[waveIndex][crewIndex].searchBowText = newValue
                                 }
                                 .onSubmit {
-                                    bowFieldFocused = false // Dismiss keyboard on submit
-                                    wavesData[waveIndex][crewIndex].searchBowText = "" // Clear search text on submit
+                                    bowFieldFocused = false
+                                    wavesData[waveIndex][crewIndex].searchBowText = ""
                                 }
 
                             // Suggestions for Bow Names
@@ -44,32 +42,29 @@ struct PairsMatrixRunInputView: View {
                                 searchText: $wavesData[waveIndex][crewIndex].searchBowText,
                                 filteredAthletes: filteredBowAthletes(for: waveIndex, crewIndex: crewIndex)
                             ) { selectedAthlete in
-                                wavesData[waveIndex][crewIndex].bowName = selectedAthlete.name // Assign athlete's name to TextField
-                                wavesData[waveIndex][crewIndex].searchBowText = "" // Clear search text
-                                bowFieldFocused = false // Dismiss keyboard
+                                wavesData[waveIndex][crewIndex].bowName = selectedAthlete.name
+                                wavesData[waveIndex][crewIndex].searchBowText = "" /
+                                bowFieldFocused = false 
                             }
 
-                            // Autocomplete for Stroke Name
                             TextField("Stroke Name", text: $wavesData[waveIndex][crewIndex].strokeName)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .focused($strokeFieldFocused)
                                 .onChange(of: wavesData[waveIndex][crewIndex].strokeName) { newValue in
-                                    // Update the search text for the specific crew
                                     wavesData[waveIndex][crewIndex].searchStrokeText = newValue
                                 }
                                 .onSubmit {
-                                    strokeFieldFocused = false // Dismiss keyboard on submit
-                                    wavesData[waveIndex][crewIndex].searchStrokeText = "" // Clear search text on submit
+                                    strokeFieldFocused = false
+                                    wavesData[waveIndex][crewIndex].searchStrokeText = ""
                                 }
 
-                            // Suggestions for Stroke Names
                             AthleteAutocompleteView(
                                 searchText: $wavesData[waveIndex][crewIndex].searchStrokeText,
                                 filteredAthletes: filteredStrokeAthletes(for: waveIndex, crewIndex: crewIndex)
                             ) { selectedAthlete in
-                                wavesData[waveIndex][crewIndex].strokeName = selectedAthlete.name // Assign athlete's name to TextField
-                                wavesData[waveIndex][crewIndex].searchStrokeText = "" // Clear search text
-                                strokeFieldFocused = false // Dismiss keyboard
+                                wavesData[waveIndex][crewIndex].strokeName = selectedAthlete.name
+                                wavesData[waveIndex][crewIndex].searchStrokeText = ""
+                                strokeFieldFocused = false
                             }
 
                             Text("Start Time")

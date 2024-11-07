@@ -18,11 +18,11 @@ struct AthleteAutocompleteView: View {
         if !searchText.isEmpty && !filteredAthletes.isEmpty {
             List(filteredAthletes, id: \.id) { athlete in
                 Button(action: {
-                    onSelect(athlete) // Pass selected athlete back to the main view
+                    onSelect(athlete)
                 }) {
                     Text(athlete.name)
                 }
-                .buttonStyle(PlainButtonStyle()) // Makes button look like a normal text
+                .buttonStyle(PlainButtonStyle())
             }
             .frame(height: 100)
             .listStyle(PlainListStyle())
