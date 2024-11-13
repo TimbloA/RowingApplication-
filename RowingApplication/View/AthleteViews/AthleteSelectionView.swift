@@ -37,18 +37,14 @@ struct AthleteSelectionView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()
-
-            // List of filtered athletes with selectable rows
             List {
                 ForEach(searchResults, id: \.self.id) { athlete in
                     AthleteRow(athlete: athlete, isSelected: selectedAthletes.contains(athlete)) {
                         toggleSelection(for: athlete)
                     }
                 }
-                .onDelete(perform: deleteAthletes)
             }
 
-            // Button to add a new athlete
             Button(action: {
                 showNewAthleteView.toggle()
             }) {
@@ -63,19 +59,16 @@ struct AthleteSelectionView: View {
         .navigationTitle("Select Athletes")
         .searchable(text: $searchText) // Search bar
     }
-    
-    // Toggles selection of the athlete
+
     private func toggleSelection(for athlete: Athlete) {
         if let index = selectedAthletes.firstIndex(of: athlete) {
-            selectedAthletes.remove(at: index) // Deselect if already selected
+            selectedAthletes.remove(at: index)
         } else {
-            selectedAthletes.append(athlete) // Select the athlete
+            selectedAthletes.append(athlete)
         }
     }
 
-    private func deleteAthletes(at offsets: IndexSet) {
-        // You can implement deletion logic if needed
-    }
+    
 }
 
 struct AthleteRow: View {
