@@ -45,6 +45,7 @@
 		C9BC72AC2C91DD4700E1256A /* RowingApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC72AB2C91DD4700E1256A /* RowingApplicationTests.swift */; };
 		C9BC72B62C91DD4700E1256A /* RowingApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC72B52C91DD4700E1256A /* RowingApplicationUITests.swift */; };
 		C9BC72B82C91DD4700E1256A /* RowingApplicationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC72B72C91DD4700E1256A /* RowingApplicationUITestsLaunchTests.swift */; };
+		C9CC5E752CE51FEA0075B406 /* PairsMatrixCrewInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC5E742CE51FEA0075B406 /* PairsMatrixCrewInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		C9BC72B12C91DD4700E1256A /* RowingApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RowingApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BC72B52C91DD4700E1256A /* RowingApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingApplicationUITests.swift; sourceTree = "<group>"; };
 		C9BC72B72C91DD4700E1256A /* RowingApplicationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingApplicationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C9CC5E742CE51FEA0075B406 /* PairsMatrixCrewInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsMatrixCrewInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				C99C0FCC2C9C2C990065B018 /* RootDataView.swift */,
 				C9955EB12CAD8B29008C1EE6 /* PairsMatrixDataInputView.swift */,
 				C99D5E4D2CB87F290040BB8E /* PairsMatrixRunInputView.swift */,
+				C9CC5E742CE51FEA0075B406 /* PairsMatrixCrewInputView.swift */,
 				C9933ABA2CAE9D42007976CA /* PairsDataView.swift */,
 				C975716C2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift */,
 				C9666EA52CB7CDD000E722D3 /* TimeInputView.swift */,
@@ -415,6 +418,7 @@
 				C99C0FC12C9C20830065B018 /* Int.swift in Sources */,
 				C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */,
 				C94CA45D2C922BA1007FB662 /* Athlete.swift in Sources */,
+				C9CC5E752CE51FEA0075B406 /* PairsMatrixCrewInputView.swift in Sources */,
 				C99C0FCD2C9C2C990065B018 /* RootDataView.swift in Sources */,
 				C937A1DB2C9B3412006692FC /* AddErgDataView.swift in Sources */,
 				C99C0FC52C9C23450065B018 /* TrainingDataListView.swift in Sources */,

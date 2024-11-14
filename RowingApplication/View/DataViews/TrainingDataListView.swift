@@ -36,12 +36,13 @@ struct TrainingDataListView: View {
                     }
                 }
                 .navigationTitle("Training Data")
+                .searchable(text: $searchText)
                 .sheet(isPresented: $dataViewModel.newTraining) {
                     AddTrainingDataView()
                         .presentationDetents([.medium, .large])
                 }
             }
-            .searchable(text: $searchText)
+            
         }
     }
 

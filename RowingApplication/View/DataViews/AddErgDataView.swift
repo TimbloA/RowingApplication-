@@ -26,40 +26,55 @@ struct AddErgDataView: View {
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Text("m")
+                    .onChange(of: dataViewModel.distance, initial: true) {
+                        generateInputFields()
+                    }
             }
-            HStack {
-                TextField("Hour",text: $dataViewModel.hours)
-                    .keyboardType(.numberPad)
-                    .frame(width: 80)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Text(":")
-                TextField("Minute",text: $dataViewModel.minutes)
-                    .keyboardType(.numberPad)
-                    .frame(width: 80)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Text(":")
-                TextField("Second",text: $dataViewModel.seconds)
-                    .keyboardType(.numberPad)
-                    .frame(width: 80)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Text(".")
-                TextField("Tenths",text: $dataViewModel.tenths)
-                    .keyboardType(.numberPad)
-                    .frame(width: 80)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            Text("Intervals \(Int(dataViewModel.noOfIntervals))")
+            Slider(value:$dataViewModel.noOfIntervals,in:1...20,step:1)
+                .onChange(of: dataViewModel.noOfIntervals, initial: true) {
+                    generateInputFields()
+                }
+            
+            ScrollView {
+                ForEach(0..<$dataViewModel.ergTimes.count, id: \.self) { ergIndex in
+                    VStack(alignment: .leading) {
+                        
+                        Text("Interval \(ergIndex + 1)").font(.headline).padding(.top)
+                        VStack {
+                            TimeInputView(timeTenths: $dataViewModel.ergTimes[ergIndex].split)
+                            
+                            HStack {
+                                TextField("Distance",text:$dataViewModel.ergTimes[ergIndex].distance)
+                                    .keyboardType(.numberPad)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                Text("m")
+                                TextField("Rate",text:$dataViewModel.ergTimes[ergIndex].rate)
+                                    .keyboardType(.numberPad)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                Text("spm")
+                            }
+                        }
+                    }
+                }
             }
-        
+           
+
             Section{
                 Button(dataViewModel.submitEntry, action: {
                     if dataViewModel.title != "" {
                         dataViewModel.addNewErg()
                     }
                 }).font(.title2)
-                
             }
-            
         }
         .padding()
+    }
+    func generateInputFields() {
+        let avgDistance = (Int(dataViewModel.distance) ?? 0)/Int(dataViewModel.noOfIntervals) ?? 1
+        
+        dataViewModel.ergTimes = Array(repeating: ErgIntervalData(distance: "\(avgDistance)", split: "", rate: ""), count: Int(dataViewModel.noOfIntervals))
+   
     }
      
 }

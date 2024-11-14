@@ -20,15 +20,24 @@ class DataViewModel: ObservableObject{
     var minutes: String = ""
     var seconds: String = ""
     var tenths: String = ""
+    var ergTimes: [ErgIntervalData] = []
     var athlete: String = ""
     var submitEntry: String = "Submit Entry"
     var Notes: String = ""
-    
+    var noOfIntervals: Double = 4
     
     func addNewErg() {
         let intDistance = Int(distance) ?? 0
-        let time = 1.convertToTenths(hours: hours,minutes: minutes,  seconds: seconds, tenths: tenths)
-        DataManager.shared.ergData.append(SingleErgData(title: title, athlete: athlete, date: dataDate, distance: intDistance, time: time))
+        var time = 0
+        for item in ergTimes {
+            time += Int(item.split) ?? 0
+        }
+        var avgRate:Double = 0.0
+        for item in ergTimes {
+            avgRate += Double(item.rate) ?? 0
+        }
+        avgRate = avgRate/noOfIntervals
+        DataManager.shared.ergData.append(SingleErgData(title: title, athlete: athlete, date: dataDate, distance: intDistance, time: time,ergDataPoints: ergTimes,averageRate: avgRate))
         submitEntry = "Submitted!"
         resetDisplay()
         DataManager.shared.saveData()

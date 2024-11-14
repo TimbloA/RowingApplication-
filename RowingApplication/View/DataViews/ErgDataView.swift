@@ -16,6 +16,26 @@ struct ErgDataView: View {
                 Text("\(ErgData.displayData())")
                         }
             Spacer()
+            ScrollView {
+                ForEach(0..<ErgData.ergDataPoints.count, id: \.self) { ergIndex in
+                    VStack(alignment: .leading) {
+                        
+                        Text("Interval \(ergIndex + 1)").font(.headline).padding(.top)
+                        VStack {
+                            Text("Time")
+                            Text("\(1.convertTenthsOfSeconds(Int(ErgData.ergDataPoints[ergIndex].split) ?? 1))")
+                            HStack{
+                                Text("Distance:")
+                                Text("\(ErgData.ergDataPoints[ergIndex].distance)")
+                                Text("m")
+                                Text("Rate")
+                                Text("\(ErgData.ergDataPoints[ergIndex].rate)")
+                                Text("spm")
+                            }
+                        }
+                    }
+                }
+            }
         }
         .padding()
     }
