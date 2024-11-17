@@ -12,9 +12,10 @@ struct TrainingDataView: View {
     var body: some View {
         VStack {
             
-            Form{
+            Section{
                 Text("\(TrainingData.displayData())")
-                        }
+            }
+            .padding(.vertical)
             Spacer()
         }
         .padding()

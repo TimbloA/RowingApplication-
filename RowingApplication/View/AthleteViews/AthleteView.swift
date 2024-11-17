@@ -13,20 +13,21 @@ struct AthleteView: View {
     var body: some View {
         
         VStack {
+            Spacer()
             NavigationStack{
-                Form{
+                Section{
                     Text("\(athlete.displayAthlete())")
                     NavigationLink(destination:RootDataView(single: true, singleAthlete: athlete.name)){
                         Text("Athlete Data")
                     }
                 }
+                .padding(.vertical)
+                Spacer()
                 
             }
+            
         }
-        .padding()
-//        .onAppear {
-//            athlete.updateErgs(with: dataViewModel.currErgData)
-//        }
+        
     }
 }
 

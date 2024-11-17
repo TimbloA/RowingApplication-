@@ -37,12 +37,15 @@ struct NewAthleteView: View {
                         ) {
                             Text("Height: \(athletesViewModel.athleteHeight) ")
                         }
-                    
-                    Picker("Side:",selection: $athletesViewModel.athleteSide) {
-                        Text("Bow Side").tag(athleteSide.Bow)
-                        Text("Stroke Side").tag(athleteSide.Stroke)
-                        Text("Both").tag(athleteSide.Both)
-                        Text("Cox").tag(athleteSide.Cox)
+                    HStack{
+                        Text("Side:")
+                        Spacer()
+                        Picker("Side:",selection: $athletesViewModel.athleteSide) {
+                            Text("Bow Side").tag(athleteSide.Bow)
+                            Text("Stroke Side").tag(athleteSide.Stroke)
+                            Text("Both").tag(athleteSide.Both)
+                            Text("Cox").tag(athleteSide.Cox)
+                        }
                         
                     }
                 }
@@ -57,7 +60,7 @@ struct NewAthleteView: View {
             
             
         }
-
+        .padding(.horizontal)
     }
     
 }

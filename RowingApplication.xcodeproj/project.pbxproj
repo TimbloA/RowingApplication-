@@ -39,6 +39,11 @@
 		C99D5E4E2CB87F290040BB8E /* PairsMatrixRunInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D5E4D2CB87F290040BB8E /* PairsMatrixRunInputView.swift */; };
 		C9A3F2022CC2C99700FF82DD /* AthleteSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A3F2012CC2C99700FF82DD /* AthleteSelectionView.swift */; };
 		C9A3F2042CC2D94F00FF82DD /* AthleteAutocompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A3F2032CC2D94F00FF82DD /* AthleteAutocompleteView.swift */; };
+		C9BC4D712CEA0ACF0010BA88 /* RateCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC4D702CEA0ACF0010BA88 /* RateCheck.swift */; };
+		C9BC4D732CEA0BBB0010BA88 /* RateCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC4D722CEA0BBB0010BA88 /* RateCheckView.swift */; };
+		C9BC4D752CEA0DDE0010BA88 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC4D742CEA0DDE0010BA88 /* StopWatchView.swift */; };
+		C9BC4D772CEA0E470010BA88 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC4D762CEA0E470010BA88 /* StopWatch.swift */; };
+		C9BC4D792CEA0EC20010BA88 /* TimingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC4D782CEA0EC20010BA88 /* TimingViewModel.swift */; };
 		C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */; };
 		C9BC729F2C91DD4600E1256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BC729E2C91DD4600E1256A /* Assets.xcassets */; };
 		C9BC72A22C91DD4600E1256A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BC72A12C91DD4600E1256A /* Preview Assets.xcassets */; };
@@ -98,6 +103,11 @@
 		C99D5E4D2CB87F290040BB8E /* PairsMatrixRunInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsMatrixRunInputView.swift; sourceTree = "<group>"; };
 		C9A3F2012CC2C99700FF82DD /* AthleteSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteSelectionView.swift; sourceTree = "<group>"; };
 		C9A3F2032CC2D94F00FF82DD /* AthleteAutocompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteAutocompleteView.swift; sourceTree = "<group>"; };
+		C9BC4D702CEA0ACF0010BA88 /* RateCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCheck.swift; sourceTree = "<group>"; };
+		C9BC4D722CEA0BBB0010BA88 /* RateCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCheckView.swift; sourceTree = "<group>"; };
+		C9BC4D742CEA0DDE0010BA88 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
+		C9BC4D762CEA0E470010BA88 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		C9BC4D782CEA0EC20010BA88 /* TimingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingViewModel.swift; sourceTree = "<group>"; };
 		C9BC72972C91DD4400E1256A /* RowingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RowingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BC729A2C91DD4400E1256A /* RowingApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingApplicationApp.swift; sourceTree = "<group>"; };
 		C9BC729E2C91DD4600E1256A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +164,8 @@
 				C963D6D22CC1156C00B2E876 /* DataManager.swift */,
 				C99C0FBC2C9C1DA60065B018 /* TrainingData.swift */,
 				C9955EB52CAD8EB6008C1EE6 /* PairsMatrix.swift */,
+				C9BC4D702CEA0ACF0010BA88 /* RateCheck.swift */,
+				C9BC4D762CEA0E470010BA88 /* StopWatch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +176,7 @@
 				C94CA4612C922EE0007FB662 /* AthletesViewModel.swift */,
 				C937A1D52C9B31FA006692FC /* DataViewModel.swift */,
 				C9933AB82CAE926F007976CA /* SelectionDataViewModel.swift */,
+				C9BC4D782CEA0EC20010BA88 /* TimingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +188,8 @@
 				C99C0FCE2C9C2D2B0065B018 /* AthleteViews */,
 				C940DF072C9B5BBF0016695D /* RootTabView.swift */,
 				C934A0B02CC1908100FEE009 /* CalendarView.swift */,
+				C9BC4D722CEA0BBB0010BA88 /* RateCheckView.swift */,
+				C9BC4D742CEA0DDE0010BA88 /* StopWatchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,6 +426,7 @@
 				C9780B6B2C98502E002C0CA9 /* SingleErgData.swift in Sources */,
 				C99C0FBF2C9C1F620065B018 /* Date.swift in Sources */,
 				C9933ABB2CAE9D42007976CA /* PairsDataView.swift in Sources */,
+				C9BC4D752CEA0DDE0010BA88 /* StopWatchView.swift in Sources */,
 				C94CA4672C92317B007FB662 /* NewAthleteView.swift in Sources */,
 				C9955EB22CAD8B29008C1EE6 /* PairsMatrixDataInputView.swift in Sources */,
 				C934A0B12CC1908100FEE009 /* CalendarView.swift in Sources */,
@@ -419,6 +435,7 @@
 				C94CA45F2C922D3D007FB662 /* currentAthletes.swift in Sources */,
 				C94CA45D2C922BA1007FB662 /* Athlete.swift in Sources */,
 				C9CC5E752CE51FEA0075B406 /* PairsMatrixCrewInputView.swift in Sources */,
+				C9BC4D792CEA0EC20010BA88 /* TimingViewModel.swift in Sources */,
 				C99C0FCD2C9C2C990065B018 /* RootDataView.swift in Sources */,
 				C937A1DB2C9B3412006692FC /* AddErgDataView.swift in Sources */,
 				C99C0FC52C9C23450065B018 /* TrainingDataListView.swift in Sources */,
@@ -426,13 +443,16 @@
 				C9780B712C98548E002C0CA9 /* currentData.swift in Sources */,
 				C99C0FBD2C9C1DA60065B018 /* TrainingData.swift in Sources */,
 				C99D5E4E2CB87F290040BB8E /* PairsMatrixRunInputView.swift in Sources */,
+				C9BC4D712CEA0ACF0010BA88 /* RateCheck.swift in Sources */,
 				C9666EA62CB7CDD000E722D3 /* TimeInputView.swift in Sources */,
 				C9780B732C9855A9002C0CA9 /* ErgDataView.swift in Sources */,
 				C937A1D62C9B31FA006692FC /* DataViewModel.swift in Sources */,
 				C9955EB62CAD8EB6008C1EE6 /* PairsMatrix.swift in Sources */,
 				C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */,
 				C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */,
+				C9BC4D732CEA0BBB0010BA88 /* RateCheckView.swift in Sources */,
 				C9A3F2022CC2C99700FF82DD /* AthleteSelectionView.swift in Sources */,
+				C9BC4D772CEA0E470010BA88 /* StopWatch.swift in Sources */,
 				C975716D2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift in Sources */,
 				C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */,
 			);

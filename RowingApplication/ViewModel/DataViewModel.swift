@@ -64,6 +64,6 @@ class DataViewModel: ObservableObject{
         athlete = ""
         submitEntry = "Submit Entry"
         newTraining = false
-        
+        ergTimes = []
     }
 }

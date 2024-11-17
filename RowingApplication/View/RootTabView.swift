@@ -21,6 +21,11 @@ struct RootTabView: View {
                           Image(systemName: "calendar")
                           Text("Calendar")
                       }
+            StopWatchView()
+                .tabItem {
+                    Image(systemName: "clock")
+                    Text("Stop Watch")
+                }
             RootDataView(single:false, singleAthlete: "")
                       .tabItem {
                           Image(systemName: "line.horizontal.3.decrease.circle.fill")

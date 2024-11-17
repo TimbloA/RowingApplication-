@@ -11,10 +11,9 @@ struct ErgDataView: View {
     let ErgData: SingleErgData
     var body: some View {
         VStack {
-            
-            Form{
+            Section{
                 Text("\(ErgData.displayData())")
-                        }
+            }.padding(.vertical)
             Spacer()
             ScrollView {
                 ForEach(0..<ErgData.ergDataPoints.count, id: \.self) { ergIndex in
@@ -22,8 +21,11 @@ struct ErgDataView: View {
                         
                         Text("Interval \(ergIndex + 1)").font(.headline).padding(.top)
                         VStack {
-                            Text("Time")
-                            Text("\(1.convertTenthsOfSeconds(Int(ErgData.ergDataPoints[ergIndex].split) ?? 1))")
+                            HStack {
+                                Text("Time:")
+                                
+                                Text("\(1.convertTenthsOfSeconds(Int(ErgData.ergDataPoints[ergIndex].split) ?? 1))")
+                            }
                             HStack{
                                 Text("Distance:")
                                 Text("\(ErgData.ergDataPoints[ergIndex].distance)")
@@ -42,5 +44,5 @@ struct ErgDataView: View {
 }
 
 #Preview {
-    ErgDataView(ErgData: SingleErgData(title: "2k", athlete:"Ed Slack",distance: 2000, time: 4121))
+    ErgDataView(ErgData: SingleErgData(title: "2k", athlete:"Ed Slack",distance: 2000, time: 3900,ergDataPoints: [ErgIntervalData(distance: "1000", split: "1900", rate: "28"),ErgIntervalData(distance: "1000", split: "2000", rate: "28")]))
 }
