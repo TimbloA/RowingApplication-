@@ -31,12 +31,18 @@ struct ErgDataListView: View {
         VStack {
             NavigationStack {
                 List {
-                    ForEach(searchResults, id: \.self.id) { erg in
-                        NavigationLink(destination: ErgDataView(ErgData: erg)) {
-                            Text("\(erg.title) (\(erg.athlete))")
+                    if searchResults.isEmpty {
+                        Text("No Erg Data Available")
+                            .foregroundColor(.gray)
+                            .italic()
+                    }else{
+                        ForEach(searchResults, id: \.self.id) { erg in
+                            NavigationLink(destination: ErgDataView(ErgData: erg)) {
+                                Text("\(erg.title) (\(erg.athlete))")
+                            }
                         }
+                        .onDelete(perform: deleteItems)
                     }
-                    .onDelete(perform: deleteItems)
 
                     Button("Add New Erg") {
                         dataViewModel.newErg.toggle()

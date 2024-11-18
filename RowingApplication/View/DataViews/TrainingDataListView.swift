@@ -25,12 +25,19 @@ struct TrainingDataListView: View {
         VStack {
             NavigationStack {
                 List {
-                    ForEach(searchResults, id: \.self.id) { training in
-                        NavigationLink(destination: TrainingDataView(TrainingData: training)) {
-                            Text("\(training.title) (\(training.crew))")
+                    if searchResults.isEmpty {
+                        Text("No Training Data Available")
+                            .foregroundColor(.gray)
+                            .italic()
+                    }else{
+                        ForEach(searchResults, id: \.self.id) { training in
+                            NavigationLink(destination: TrainingDataView(TrainingData: training)) {
+                                Text("\(training.title) (\(training.crew))")
+                            }
                         }
+                        
+                        .onDelete(perform: deleteItems)
                     }
-                    .onDelete(perform: deleteItems)
                     Button("Add New Entry") {
                         dataViewModel.newTraining.toggle()
                     }

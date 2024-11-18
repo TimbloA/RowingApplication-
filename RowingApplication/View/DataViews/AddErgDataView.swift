@@ -16,6 +16,8 @@ struct AddErgDataView: View {
             Text("Enter New Data").frame(maxWidth: .infinity,alignment:.center).font(.title2)
             TextField("Title",text: $dataViewModel.title)
             TextField("Athlete",text: $dataViewModel.athlete)
+     
+            
             DatePicker(
                 "Date:",
                 selection: $dataViewModel.dataDate,
