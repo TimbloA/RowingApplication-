@@ -16,7 +16,7 @@ enum athleteSide: String, CaseIterable, Identifiable, Codable { // Conform to Co
     var id: Self { self }
 }
 
-struct Athlete: Identifiable, Codable, Hashable {
+class Athlete: Identifiable, Codable, Hashable {
     var id = UUID() // Unique identifier
     let name: String
     var side: athleteSide
@@ -24,15 +24,31 @@ struct Athlete: Identifiable, Codable, Hashable {
     var weight: Int
     var height: Int
 
-    func displayAthlete()-> String {
-            return"""
-                  Name: \(name)
-                  Side: \(side)
-                  Weight: \(weight) kg
-                  Height: \(height) cm
-                  DOB: \(DOB.formatDate(date:DOB))
-                  """
-        }
+    init(name: String, side: athleteSide, DOB: Date, weight: Int, height: Int) {
+        self.name = name
+        self.side = side
+        self.DOB = DOB
+        self.weight = weight
+        self.height = height
+    }
+    
+    static func == (lhs: Athlete, rhs: Athlete) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    func displayAthlete() -> String {
+        return """
+               Name: \(name)
+               Side: \(side)
+               Weight: \(weight) kg
+               Height: \(height) cm
+               DOB: \(DOB.formatDate(date: DOB))
+               """
+    }
 }
 
 

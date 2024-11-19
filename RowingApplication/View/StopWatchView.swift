@@ -9,7 +9,8 @@ import SwiftUI
 
 struct StopWatchView: View {
     @StateObject private var stopwatchViewModel = StopwatchViewModel.shared
-    @State private var isStopped = false // Tracks if the stopwatch is stopped
+    @State private var isStopped = true // Tracks if the stopwatch is stoppeds
+    
     
     private var formattedTime: String {
         let minutes = Int(stopwatchViewModel.elapsedTime) / 60
@@ -28,40 +29,35 @@ struct StopWatchView: View {
             
             HStack(spacing: 20) {
                 Button(action: {
-                    stopwatchViewModel.start()
-                    isStopped = false // Ensure the state resets when the stopwatch starts
+                    if isStopped{
+                        stopwatchViewModel.start()
+                        isStopped = false // Ensure the state is reset
+                        
+                    }else{
+                        stopwatchViewModel.stop()
+                        isStopped = true
+                       
+                    }
                 }) {
-                    Text("Start")
+                    Text(isStopped ? "Start":"Stop")
                         .padding()
                         .foregroundColor(.white)
-                        .background(Color.green)
-                        .cornerRadius(10)
+                        .background(isStopped ? Color.green : Color.red)
+                       
                 }
-                
                 Button(action: {
                     if isStopped {
                         stopwatchViewModel.reset()
-                        isStopped = false // Reset state
+                        isStopped = true
                     } else {
-                        stopwatchViewModel.stop()
-                        isStopped = true // Indicate stopwatch has been stopped
+                        stopwatchViewModel.lap()
                     }
                 }) {
-                    Text(isStopped ? "Reset" : "Stop")
+                    Text(isStopped ? "Reset" : "Lap")
                         .padding()
                         .foregroundColor(.white)
-                        .background(isStopped ? Color.orange : Color.red)
-                        .cornerRadius(10)
-                }
-                
-                Button(action: {
-                    stopwatchViewModel.lap()
-                }) {
-                    Text("Lap")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                        .background(isStopped ? Color.gray : Color.orange)
+
                 }
             }
             
