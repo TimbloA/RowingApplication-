@@ -65,5 +65,6 @@ class DataViewModel: ObservableObject{
         submitEntry = "Submit Entry"
         newTraining = false
         ergTimes = []
+        noOfIntervals = 4
     }
 }

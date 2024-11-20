@@ -52,7 +52,7 @@ struct AthleteListView: View {
                     .navigationTitle("Athletes")
                     .sheet(isPresented: $athleteViewModel.newAthlete) {
                         NewAthleteView()
-                            .presentationDetents([.medium, .large])
+                            .presentationDetents([ .large])
                     }
                 }
             }
@@ -61,7 +61,6 @@ struct AthleteListView: View {
     }
     
     func deleteItems(at offsets: IndexSet) {
-        // Remove the selected athletes directly from DataManager
         DataManager.shared.athletes.remove(atOffsets: offsets)
         DataManager.shared.saveData() // Save the updated athletes data
     }

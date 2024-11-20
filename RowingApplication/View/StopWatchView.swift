@@ -40,10 +40,11 @@ struct StopWatchView: View {
                     }
                 }) {
                     Text(isStopped ? "Start":"Stop")
+                        .frame(minWidth: 40)
                         .padding()
                         .foregroundColor(.white)
                         .background(isStopped ? Color.green : Color.red)
-                       
+                        
                 }
                 Button(action: {
                     if isStopped {
@@ -54,6 +55,7 @@ struct StopWatchView: View {
                     }
                 }) {
                     Text(isStopped ? "Reset" : "Lap")
+                        .frame(minWidth: 40)
                         .padding()
                         .foregroundColor(.white)
                         .background(isStopped ? Color.gray : Color.orange)

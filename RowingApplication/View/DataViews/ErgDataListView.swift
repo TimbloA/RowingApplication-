@@ -52,7 +52,7 @@ struct ErgDataListView: View {
                 .searchable(text: $searchText)
                 .sheet(isPresented: $dataViewModel.newErg) {
                     AddErgDataView()
-                        .presentationDetents([.medium, .large])
+                        .presentationDetents([.large])
                 }
             }
             

@@ -46,7 +46,7 @@ struct TrainingDataListView: View {
                 .searchable(text: $searchText)
                 .sheet(isPresented: $dataViewModel.newTraining) {
                     AddTrainingDataView()
-                        .presentationDetents([.medium, .large])
+                        .presentationDetents([.large])
                 }
             }
             

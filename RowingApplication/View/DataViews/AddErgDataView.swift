@@ -32,7 +32,7 @@ struct AddErgDataView: View {
                         generateInputFields()
                     }
             }
-            Text("Intervals \(Int(dataViewModel.noOfIntervals))")
+            Text("Splits: \(Int(dataViewModel.noOfIntervals))")
             Slider(value:$dataViewModel.noOfIntervals,in:1...20,step:1)
                 .onChange(of: dataViewModel.noOfIntervals, initial: true) {
                     generateInputFields()
@@ -42,7 +42,7 @@ struct AddErgDataView: View {
                 ForEach(0..<$dataViewModel.ergTimes.count, id: \.self) { ergIndex in
                     VStack(alignment: .leading) {
                         
-                        Text("Interval \(ergIndex + 1)").font(.headline).padding(.top)
+                        Text("Split \(ergIndex + 1)").font(.headline).padding(.top)
                         VStack {
                             TimeInputView(timeTenths: $dataViewModel.ergTimes[ergIndex].split)
                             
