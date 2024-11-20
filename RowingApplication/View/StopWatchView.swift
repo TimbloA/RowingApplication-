@@ -40,7 +40,7 @@ struct StopWatchView: View {
                     }
                 }) {
                     Text(isStopped ? "Start":"Stop")
-                        .frame(minWidth: 40)
+                        .frame(minWidth: 50)
                         .padding()
                         .foregroundColor(.white)
                         .background(isStopped ? Color.green : Color.red)
@@ -55,7 +55,7 @@ struct StopWatchView: View {
                     }
                 }) {
                     Text(isStopped ? "Reset" : "Lap")
-                        .frame(minWidth: 40)
+                        .frame(minWidth: 50)
                         .padding()
                         .foregroundColor(.white)
                         .background(isStopped ? Color.gray : Color.orange)

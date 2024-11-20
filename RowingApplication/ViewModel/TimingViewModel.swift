@@ -23,7 +23,7 @@ class StopwatchViewModel: ObservableObject {
             lastUpdateTime = Date()
             isRunning = true
             
-            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] _ in
                 guard let self = self else { return }
                 let now = Date()
                 if let lastUpdate = self.lastUpdateTime {
@@ -40,8 +40,8 @@ class StopwatchViewModel: ObservableObject {
         if isRunning {
             if let lastUpdate = lastUpdateTime {
                 let now = Date()
-                let updateDelta = now.timeIntervalSince(lastUpdate)
-                cumulativeElapsedTime += updateDelta
+                let updateDiff = now.timeIntervalSince(lastUpdate)
+                cumulativeElapsedTime += updateDiff
                 elapsedTime = cumulativeElapsedTime
             }
             

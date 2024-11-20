@@ -7,7 +7,6 @@
 
 import Foundation
 
-import Foundation
 
 struct RateCheck {
     private var strokeTimestamps: [Date] = []
