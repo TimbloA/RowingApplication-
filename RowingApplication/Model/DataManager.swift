@@ -12,13 +12,14 @@ class DataManager: ObservableObject {
     @Published var ergData: [SingleErgData] = []
     @Published var trainingData: [TrainingData] = []
     @Published var pairsData: [PairsMatrix] = []
-    @Published var athletes: [Athlete] = [] 
+    @Published var athletes: [Athlete] = []
+    @Published var crews: [Crew] = []
     // New files
     private let ergDataFile = "ergData.json"
     private let trainingDataFile = "trainingData.json"
     private let pairsDataFile = "pairsData.json"
     private let athleteDataFile = "athletes.json"
-
+    private let crewDataFile = "athletes.json"
     private init() {
         loadData()
     }
@@ -28,6 +29,7 @@ class DataManager: ObservableObject {
         trainingData = load(from: trainingDataFile) ?? []
         pairsData = load(from: pairsDataFile) ?? []
         athletes = load(from: athleteDataFile) ?? []
+        crews = load(from: crewDataFile) ?? []
     }
 
     func saveData() {
@@ -35,6 +37,7 @@ class DataManager: ObservableObject {
         save(trainingData, to: trainingDataFile)
         save(pairsData, to: pairsDataFile)
         save(athletes, to: athleteDataFile)
+        save(crews, to: crewDataFile)
     }
 
     private func load<T: Codable>(from filename: String) -> [T]? {

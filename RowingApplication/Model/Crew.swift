@@ -2,30 +2,32 @@
 //  Crew.swift
 //  RowingApplication
 //
-//  Created by Timblo, Adi (WING) on 19/09/2024.
+//  Created by Adi Timblo on 22/12/2024.
 //
 
 import Foundation
 
-
-enum crews: String, CaseIterable, Identifiable {
-    case VIII = "The VIII"
-    case SecondVIII = "Second VIII"
-    case ThirdVIII = "Third VIII"
-    case ColtsA = "Colts A"
-    
-    var id: Self { self }
-}
-
-struct Crew{
-    var name: crews
-    var athletes: [String]
-    
-    mutating func addAthlete(athlete:String,currAthletes: [String]){
-        if !athletes.contains(athlete) {
-            athletes.append(athlete)
-        }
+class Crew: Identifiable, Codable, Hashable {
+    var id = UUID()
+    var name: String
+    var athletes: [Athlete]
+    init(name: String, athletes: [Athlete]) {
+        self.name = name
+        self.athletes = athletes
+    }
+    static func == (lhs: Crew, rhs: Crew) -> Bool {
+        return lhs.id == rhs.id
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    func addAthlete(_ athlete: Athlete) {
+        athletes.append(athlete)
     }
     
-   
+    func removeAthlete(_ athlete: Athlete) {
+        // Removes the athletes with the id we want
+        athletes.removeAll { $0.id == athlete.id }
+    }
+
 }

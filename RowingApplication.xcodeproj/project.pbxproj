@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470508F62D181A5700CBF861 /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470508F52D181A5700CBF861 /* Crew.swift */; };
+		470508F82D181BEF00CBF861 /* NewCrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470508F72D181BEF00CBF861 /* NewCrewView.swift */; };
+		470508FA2D181D0100CBF861 /* CrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470508F92D181D0100CBF861 /* CrewListView.swift */; };
+		470508FC2D181F0500CBF861 /* CrewRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470508FB2D181F0500CBF861 /* CrewRowView.swift */; };
 		C934A0B12CC1908100FEE009 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C934A0B02CC1908100FEE009 /* CalendarView.swift */; };
 		C937A1D42C9B31E5006692FC /* ErgDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1D32C9B31E5006692FC /* ErgDataListView.swift */; };
 		C937A1D62C9B31FA006692FC /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1D52C9B31FA006692FC /* DataViewModel.swift */; };
@@ -73,6 +77,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470508F52D181A5700CBF861 /* Crew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crew.swift; sourceTree = "<group>"; };
+		470508F72D181BEF00CBF861 /* NewCrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCrewView.swift; sourceTree = "<group>"; };
+		470508F92D181D0100CBF861 /* CrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewListView.swift; sourceTree = "<group>"; };
+		470508FB2D181F0500CBF861 /* CrewRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewRowView.swift; sourceTree = "<group>"; };
 		C934A0B02CC1908100FEE009 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C937A1D32C9B31E5006692FC /* ErgDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgDataListView.swift; sourceTree = "<group>"; };
 		C937A1D52C9B31FA006692FC /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 				C9BC4D702CEA0ACF0010BA88 /* RateCheck.swift */,
 				C9BC4D762CEA0E470010BA88 /* StopWatch.swift */,
 				C93995D02CED3E29001D069E /* SeatRacing.swift */,
+				470508F52D181A5700CBF861 /* Crew.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +215,9 @@
 				C94CA4662C92317B007FB662 /* NewAthleteView.swift */,
 				C96A550C2C92E65000EDC4DC /* AthleteListView.swift */,
 				C9A3F2012CC2C99700FF82DD /* AthleteSelectionView.swift */,
+				470508F72D181BEF00CBF861 /* NewCrewView.swift */,
+				470508F92D181D0100CBF861 /* CrewListView.swift */,
+				470508FB2D181F0500CBF861 /* CrewRowView.swift */,
 			);
 			path = AthleteViews;
 			sourceTree = "<group>";
@@ -425,8 +437,11 @@
 				C99C0FD02C9C2DBF0065B018 /* AthleteView.swift in Sources */,
 				C963D6D32CC1156C00B2E876 /* DataManager.swift in Sources */,
 				C940DF082C9B5BBF0016695D /* RootTabView.swift in Sources */,
+				470508F82D181BEF00CBF861 /* NewCrewView.swift in Sources */,
 				C937A1D42C9B31E5006692FC /* ErgDataListView.swift in Sources */,
+				470508FA2D181D0100CBF861 /* CrewListView.swift in Sources */,
 				C975716F2CB407AA00CE93D7 /* PairsMatrixListView.swift in Sources */,
+				470508FC2D181F0500CBF861 /* CrewRowView.swift in Sources */,
 				C9933AB92CAE926F007976CA /* SelectionDataViewModel.swift in Sources */,
 				C99C0FCB2C9C29700065B018 /* AddTrainingDataView.swift in Sources */,
 				C9780B6B2C98502E002C0CA9 /* SingleErgData.swift in Sources */,
@@ -460,6 +475,7 @@
 				C9BC4D732CEA0BBB0010BA88 /* RateCheckView.swift in Sources */,
 				C9A3F2022CC2C99700FF82DD /* AthleteSelectionView.swift in Sources */,
 				C9BC4D772CEA0E470010BA88 /* StopWatch.swift in Sources */,
+				470508F62D181A5700CBF861 /* Crew.swift in Sources */,
 				C93995D32CED3FD0001D069E /* SeatRacingView.swift in Sources */,
 				C975716D2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift in Sources */,
 				C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */,

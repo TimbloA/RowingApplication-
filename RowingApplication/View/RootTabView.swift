@@ -13,9 +13,14 @@ struct RootTabView: View {
         TabView {
               AthleteListView()
                       .tabItem {
-                          Image(systemName: "person.3")
+                          Image(systemName: "person.fill")
                           Text("Athletes")
                       }
+            CrewListView()
+                .tabItem {
+                    Image(systemName: "person.3")
+                    Text("Crews")
+                }
             CalendarView()
                       .tabItem {
                           Image(systemName: "calendar")
