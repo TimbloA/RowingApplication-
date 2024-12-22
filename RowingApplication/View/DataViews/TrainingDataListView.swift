@@ -16,7 +16,7 @@ struct TrainingDataListView: View {
             return DataManager.shared.trainingData // Directly use training data from DataManager
         } else {
             return DataManager.shared.trainingData.filter {
-                $0.crew.contains(searchText) || $0.title.contains(searchText)
+                $0.crew.name.contains(searchText) || $0.title.contains(searchText)
             }
         }
     }
@@ -32,7 +32,7 @@ struct TrainingDataListView: View {
                     }else{
                         ForEach(searchResults, id: \.self.id) { training in
                             NavigationLink(destination: TrainingDataView(TrainingData: training)) {
-                                Text("\(training.title) (\(training.crew))")
+                                Text("\(training.title) (\(training.crew.name))")
                             }
                         }
                         

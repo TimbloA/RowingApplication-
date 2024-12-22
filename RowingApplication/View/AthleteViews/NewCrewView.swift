@@ -4,19 +4,20 @@
 //
 //  Created by Adi Timblo on 22/12/2024.
 //
-
 import SwiftUI
 
 struct NewCrewView: View {
     @Environment(\.dismiss) var dismiss
-
+    
     @State private var crewName = ""
     @State private var selectedAthletes: [Athlete] = []
-
-    // Editing an existing crew
+    
     var existingCrew: Crew?
-
-    init(crew: Crew? = nil) {
+    var onSave: (Crew) -> Void
+    
+    init(crew: Crew? = nil, onSave: @escaping (Crew) -> Void) {
+        self.existingCrew = crew
+        self.onSave = onSave
         if let crew = crew {
             _crewName = State(initialValue: crew.name)
             _selectedAthletes = State(initialValue: crew.athletes)
@@ -29,12 +30,13 @@ struct NewCrewView: View {
                 Section(header: Text("Crew Details")) {
                     TextField("Crew Name", text: $crewName)
                 }
-
+                
                 Section(header: Text("Selected Athletes")) {
                     if selectedAthletes.isEmpty {
                         Text("No athletes selected")
                             .foregroundColor(.secondary)
                     } else {
+                        // List showing all the selected athletes
                         ForEach(selectedAthletes) { athlete in
                             AthleteRow(athlete: athlete, isSelected: true) {
                                 if let index = selectedAthletes.firstIndex(of: athlete) {
@@ -43,7 +45,7 @@ struct NewCrewView: View {
                             }
                         }
                     }
-
+                    
                     NavigationLink {
                         AthleteSelectionView(selectedAthletes: $selectedAthletes)
                     } label: {
@@ -57,30 +59,32 @@ struct NewCrewView: View {
                     Button("Save") {
                         saveCrew()
                     }
-                    .disabled(crewName.isEmpty) // Disable if crew name is empty
+                    .disabled(crewName.isEmpty) // Disabled if crew name is empty
                 }
             }
         }
+        .onAppear {
+            if let existingCrew = existingCrew {
+                crewName = existingCrew.name
+                selectedAthletes = existingCrew.athletes
+            }
+        }
     }
-
+    
+    //save the crew
     private func saveCrew() {
         let crew = Crew(name: crewName, athletes: selectedAthletes)
-
+        
         if let existingCrew = existingCrew {
-            // If editing an existing crew, find its index and replace it in the array
             if let index = DataManager.shared.crews.firstIndex(where: { $0.id == existingCrew.id }) {
                 DataManager.shared.crews[index] = crew
             }
         } else {
-            // If creating a new crew, append it to the shared list
             DataManager.shared.crews.append(crew)
+            DataManager.shared.saveData()
         }
-
-        dismiss() // Dismiss the view after saving
+        
+        onSave(crew)
+        dismiss() //remove the view after saving
     }
 }
-
-
-
-
-

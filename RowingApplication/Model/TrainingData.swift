@@ -11,7 +11,7 @@ struct TrainingData: Codable, Identifiable {
     var id = UUID() // Unique identifier
     var title: String
     var date = Date()
-    var crew: String
+    var crew: Crew 
     var distance: Int
     var time: Int = 0
     var notes: String = ""
@@ -19,7 +19,7 @@ struct TrainingData: Codable, Identifiable {
     func displayData()-> String {
          return"""
                Title: \(title)
-               Crew: \(crew)
+               Crew: \(crew.name)
                Distance: \(distance)m
                Time: \(time.convertTenthsOfSeconds(time))
                Date: \(date.formatDate(date:date))

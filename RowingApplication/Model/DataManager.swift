@@ -19,7 +19,7 @@ class DataManager: ObservableObject {
     private let trainingDataFile = "trainingData.json"
     private let pairsDataFile = "pairsData.json"
     private let athleteDataFile = "athletes.json"
-    private let crewDataFile = "athletes.json"
+    private let crewDataFile = "crews.json"
     private init() {
         loadData()
     }

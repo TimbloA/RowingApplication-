@@ -11,7 +11,7 @@ import Foundation
 class DataViewModel: ObservableObject{
     static let shared = DataViewModel()
     var newErg: Bool = false
-    var crew: String = ""
+    var crew: Crew? = nil
     var newTraining: Bool = false
     var title: String = ""
     var distance: String = ""
@@ -43,20 +43,28 @@ class DataViewModel: ObservableObject{
         DataManager.shared.saveData()
     }
     func addNewTraining() {
-        let intDistance = Int(distance) ?? 0
-        let time = 1.convertToTenths(hours: hours,minutes: minutes,  seconds: seconds, tenths: tenths)
-        DataManager.shared.trainingData.append(TrainingData(title: title, date: dataDate, crew: crew, distance: intDistance, time: time,notes: Notes))
-        submitEntry = "Submitted!"
-        resetDisplay()
-        
-        DataManager.shared.saveData()
-    }
+            guard let selectedCrew = crew else {
+                print("No crew selected.")
+                return
+            }
+            
+            let intDistance = Int(distance) ?? 0
+            let time = 1.convertToTenths(hours: hours, minutes: minutes, seconds: seconds, tenths: tenths)
+            
+            // Add training data to DataManager
+            DataManager.shared.trainingData.append(TrainingData(title: title, date: dataDate, crew: selectedCrew, distance: intDistance, time: time, notes: Notes))
+            
+            submitEntry = "Submitted!"
+            resetDisplay()
+            DataManager.shared.saveData()
+        }
+
     
     func resetDisplay() {
         title = ""
         distance = ""
         dataDate = Date()
-        crew = ""
+        crew = nil
         hours = ""
         minutes = ""
         seconds = ""

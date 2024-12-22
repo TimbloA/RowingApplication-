@@ -22,6 +22,6 @@ struct TrainingDataView: View {
     }
 }
 
-#Preview {
-    TrainingDataView(TrainingData: TrainingData(title: "12K UT2", crew: "2nd VIII", distance: 12000,time: 12033,notes:"Slight easterly breeze."))
-}
+//#Preview {
+//    TrainingDataView(TrainingData: TrainingData(title: "12K UT2", crew: "2nd VIII", distance: 12000,time: 12033,notes:"Slight easterly breeze."))
+//}

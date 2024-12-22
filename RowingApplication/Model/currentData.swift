@@ -16,11 +16,11 @@ struct currentData {
         ] : DataManager.shared.ergData
     }
     
-    static var trainingExamples: [TrainingData] {
-        return DataManager.shared.trainingData.isEmpty ? [
-            TrainingData(id: UUID(), title: "12K UT2", crew: "2nd VIII", distance: 12000, time: 12033, notes: "Slight easterly breeze.")
-        ] : DataManager.shared.trainingData
-    }
+//    static var trainingExamples: [TrainingData] {
+//        return DataManager.shared.trainingData.isEmpty ? [
+//            TrainingData(id: UUID(), title: "12K UT2", crew: "2nd VIII", distance: 12000, time: 12033, notes: "Slight easterly breeze.")
+//        ] : DataManager.shared.trainingData
+//    }
     
     static var pairsMatrixExamples: [PairsMatrix] {
         return DataManager.shared.pairsData.isEmpty ? [
