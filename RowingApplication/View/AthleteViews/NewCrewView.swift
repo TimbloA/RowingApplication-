@@ -36,7 +36,7 @@ struct NewCrewView: View {
                         Text("No athletes selected")
                             .foregroundColor(.secondary)
                     } else {
-                        // List showing all the selected athletes
+                        //liist showing all the selected athletes
                         ForEach(selectedAthletes) { athlete in
                             AthleteRow(athlete: athlete, isSelected: true) {
                                 if let index = selectedAthletes.firstIndex(of: athlete) {
@@ -59,7 +59,7 @@ struct NewCrewView: View {
                     Button("Save") {
                         saveCrew()
                     }
-                    .disabled(crewName.isEmpty) // Disabled if crew name is empty
+                    .disabled(crewName.isEmpty) //disabled if crew name is empty
                 }
             }
         }

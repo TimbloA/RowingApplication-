@@ -8,7 +8,7 @@ struct RootDataView: View {
         case training = "Training"
         case erg = "Erg"
         case pairsMatrix = "Pairs Matrix"
-        
+        case seatRacing = "Seat Racing"
         var id: Self { self }
     }
     
@@ -29,6 +29,8 @@ struct RootDataView: View {
                 ErgDataListView(Single: single, SingleAthlete: singleAthlete)
             } else if dataChoice == .pairsMatrix {
                 PairsMatrixListView(singleAthlete: singleAthlete, isSingle: single)
+            } else{
+                SeatRacingView()
             }
         }
         .padding() // Add padding for better layout
