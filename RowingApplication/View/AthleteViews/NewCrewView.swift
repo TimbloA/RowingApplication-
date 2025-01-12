@@ -38,7 +38,7 @@ struct NewCrewView: View {
                     } else {
                         //liist showing all the selected athletes
                         ForEach(selectedAthletes) { athlete in
-                            AthleteRow(athlete: athlete, isSelected: true) {
+                            AthleteSelectionRow(athlete: athlete, isSelected: true) {
                                 if let index = selectedAthletes.firstIndex(of: athlete) {
                                     selectedAthletes.remove(at: index)
                                 }
@@ -73,18 +73,9 @@ struct NewCrewView: View {
     
     //save the crew
     private func saveCrew() {
-        let crew = Crew(name: crewName, athletes: selectedAthletes)
-        
-        if let existingCrew = existingCrew {
-            if let index = DataManager.shared.crews.firstIndex(where: { $0.id == existingCrew.id }) {
-                DataManager.shared.crews[index] = crew
-            }
-        } else {
-            DataManager.shared.crews.append(crew)
-            DataManager.shared.saveData()
+            let crew = Crew(name: crewName, athletes: selectedAthletes)
+            onSave(crew)
+            dismiss()
         }
-        
-        onSave(crew)
-        dismiss() //remove the view after saving
-    }
 }
+

@@ -39,7 +39,7 @@ struct AthleteSelectionView: View {
             .padding()
             List {
                 ForEach(searchResults, id: \.self.id) { athlete in
-                    AthleteRow(athlete: athlete, isSelected: selectedAthletes.contains(athlete)) {
+                    AthleteSelectionRow(athlete: athlete, isSelected: selectedAthletes.contains(athlete)) {
                         toggleSelection(for: athlete)
                     }
                 }
@@ -71,26 +71,6 @@ struct AthleteSelectionView: View {
     
 }
 
-struct AthleteRow: View {
-    var athlete: Athlete
-    var isSelected: Bool
-    var action: () -> Void
-
-    var body: some View {
-        HStack {
-            Text(athlete.name)
-            Spacer()
-            if isSelected {
-                Image(systemName: "checkmark")
-                    .foregroundColor(.blue)
-            }
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            action() // Trigger selection or deselection
-        }
-    }
-}
 
 
 //#Preview {    )

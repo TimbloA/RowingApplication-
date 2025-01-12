@@ -30,7 +30,7 @@ struct RootDataView: View {
             } else if dataChoice == .pairsMatrix {
                 PairsMatrixListView(singleAthlete: singleAthlete, isSingle: single)
             } else{
-                SeatRacingView()
+                SeatRacingListView()
             }
         }
         .padding() // Add padding for better layout

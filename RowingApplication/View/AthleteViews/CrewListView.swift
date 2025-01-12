@@ -32,16 +32,20 @@ struct CrewListView: View {
                 }
             }
             .sheet(isPresented: $showingCrewForm) {
-                NewCrewView(onSave: { newCrew in
-                })
+                NewCrewView { newCrew in
+                    DataManager.shared.crews.append(newCrew)
+                    DataManager.shared.saveData()
+                }
             }
             .sheet(item: $selectedCrew) { crew in
                 NewCrewView(crew: crew, onSave: { updatedCrew in
                     // This will update the crew when edited
                     if let index = dataManager.crews.firstIndex(where: { $0.id == crew.id }) {
                         dataManager.crews[index] = updatedCrew
+                        DataManager.shared.saveData()
                     }
                 })
+                
             }
         }
     }
@@ -49,5 +53,6 @@ struct CrewListView: View {
 
     private func deleteCrew(at offsets: IndexSet) {
         dataManager.crews.remove(atOffsets: offsets)
+        DataManager.shared.saveData()
     }
 }

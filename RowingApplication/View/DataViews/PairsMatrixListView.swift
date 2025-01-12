@@ -72,4 +72,5 @@ struct PairsMatrixListView: View {
 
 #Preview {
     PairsMatrixListView(singleAthlete: "", isSingle: false)
+    
 }

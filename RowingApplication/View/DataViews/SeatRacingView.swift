@@ -12,6 +12,8 @@ struct SeatRacingView: View {
     @State private var showingNewCrewView = false
     @State private var raceResults: [String] = []
     @State private var creatingForFirstCrew = true
+    @State private var title: String = ""
+    @State private var dataDate: Date = Date()
     
     // for manual swapping
     @State private var selectedAthlete1Index: Int?
@@ -19,10 +21,14 @@ struct SeatRacingView: View {
     @State private var isSwapping = false
     
     // time for each crew
-    @State private var crew1StartTime = ""
-    @State private var crew1FinishTime = ""
-    @State private var crew2StartTime = ""
-    @State private var crew2FinishTime = ""
+    @State private var crew1FirstStartTime = ""
+    @State private var crew1FirstFinishTime = ""
+    @State private var crew1SecondStartTime = ""
+    @State private var crew1SecondFinishTime = ""
+    @State private var crew2FirstStartTime = ""
+    @State private var crew2FirstFinishTime = ""
+    @State private var crew2SecondStartTime = ""
+    @State private var crew2SecondFinishTime = ""
     
     //track if times have been entered
     @State private var hasEnteredPreSwapTimes = false
@@ -31,8 +37,16 @@ struct SeatRacingView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                VStack{
+                    TextField("Title",text:$title)
+                    DatePicker(
+                        "Date:",
+                        selection: $dataDate,
+                        displayedComponents: [.date]
+                    )
+                }
                 VStack(spacing: 20) {
-                    HStack(spacing: 20) {
+                    HStack(spacing: 10) {
                         CrewCardWithSelection(
                             title: "Crew 1",
                             crew: racingCrews.count > 0 ? racingCrews[0] : nil,
@@ -58,32 +72,39 @@ struct SeatRacingView: View {
                     if racingCrews.count == 2 {
                         //pre-swap time inputs
                         if !hasEnteredPreSwapTimes {
-                            VStack(spacing: 15) {
+                            VStack(spacing: 5) {
                                 Text("Pre-Swap Times")
                                     .font(.headline)
                                 
                                 GroupBox("Crew 1 Time") {
-                                    TimeInputView(timeTenths: $crew1StartTime)
-                                }
+                                    Text("Start Time:")
+                                    TimeInputView(timeTenths: $crew1FirstStartTime)
+                                    Text("Finish Time:")
+                                    TimeInputView(timeTenths: $crew1FirstFinishTime)
+                                }.padding()
                                 
                                 GroupBox("Crew 2 Time") {
-                                    TimeInputView(timeTenths: $crew2StartTime)
-                                }
+                                    Text("Start Time:")
+                                    TimeInputView(timeTenths: $crew2FirstStartTime)
+                                    Text("Finish Time:")
+                                    TimeInputView(timeTenths: $crew2FirstFinishTime)
+                                }.padding()
                                 
                                 Button("Confirm Pre-Swap Times") {
                                     hasEnteredPreSwapTimes = true
-                                    let difference = abs(Double(crew1StartTime)! - Double(crew2StartTime)!)
+                                    let difference = abs((Double(crew1FirstFinishTime)!-Double(crew1FirstStartTime)!) - (Double(crew2FirstFinishTime)!-Double(crew2FirstStartTime)!))
                                     raceResults.append("Initial time difference: \(String(format: "%.1f", difference/10)) seconds")
                                 }
                                 .buttonStyle(.borderedProminent)
-                                .disabled(crew1StartTime.isEmpty || crew2StartTime.isEmpty)
+                                .disabled(crew1FirstStartTime.isEmpty || crew2FirstStartTime.isEmpty)
                             }
                             .padding()
+                            
                         }
                         
                         //swap Controls
                         if hasEnteredPreSwapTimes && !hasEnteredPostSwapTimes {
-                            Button(action: performManualSwap) {
+                            Button(action: performSwap) {
                                 Text("Swap Selected Athletes")
                                     .foregroundColor(.white)
                                     .padding()
@@ -98,19 +119,24 @@ struct SeatRacingView: View {
                                     .font(.headline)
                                 
                                 GroupBox("Crew 1 Time") {
-                                    TimeInputView(timeTenths: $crew1FinishTime)
+                                    Text("Start Time:")
+                                    TimeInputView(timeTenths: $crew1SecondStartTime)
+                                    Text("Finish Time:")
+                                    TimeInputView(timeTenths: $crew1SecondFinishTime)
                                 }
                                 
                                 GroupBox("Crew 2 Time") {
-                                    TimeInputView(timeTenths: $crew2FinishTime)
-                                }
+                                    Text("Start Time:")
+                                    TimeInputView(timeTenths: $crew2SecondStartTime)
+                                    Text("Finish Time:")
+                                    TimeInputView(timeTenths: $crew2SecondFinishTime)                                }
                                 
                                 Button("Confirm Post-Swap Times") {
                                     hasEnteredPostSwapTimes = true
                                     calculateResults()
                                 }
                                 .buttonStyle(.borderedProminent)
-                                .disabled(crew1FinishTime.isEmpty || crew2FinishTime.isEmpty)
+                                .disabled(crew1SecondStartTime.isEmpty || crew2SecondStartTime.isEmpty)
                             }
                             .padding()
                         }
@@ -128,9 +154,11 @@ struct SeatRacingView: View {
                                     .padding(.horizontal)
                             }
                             
-                            if hasEnteredPostSwapTimes {
-                                Button("Reset Race") {
+                            if hasEnteredPostSwapTimes && title != "" {
+                                Button("Save Race") {
+                                    DataManager.shared.seatRaces.append( SeatRace(title: title, data: raceResults,  dataDate: dataDate))
                                     resetRace()
+                                    DataManager.shared.saveData()
                                 }
                                 .buttonStyle(.bordered)
                                 .padding()
@@ -171,22 +199,22 @@ struct SeatRacingView: View {
         !isSwapping
     }
     
-    private func performManualSwap() {
+    private func performSwap () {
            guard let index1 = selectedAthlete1Index,
                  let index2 = selectedAthlete2Index,
                  racingCrews.count == 2 else { return }
            
            isSwapping = true
            
-           // Store athlete names before swap for reference
+           //sore athlete names before swap for reference
            let athlete1Name = racingCrews[0].athletes[index1].name
            let athlete2Name = racingCrews[1].athletes[index2].name
            
            // Convert to SeatRaceCrew for the swap
-           var raceCrew1 = SeatRaceCrew(athletes: racingCrews[0].athletes, raceTime: Double(crew1StartTime)! / 10.0)
-           var raceCrew2 = SeatRaceCrew(athletes: racingCrews[1].athletes, raceTime: Double(crew2StartTime)! / 10.0)
+           var raceCrew1 = SeatRaceCrew(athletes: racingCrews[0].athletes, raceTime: Double(crew1FirstStartTime)! / 10.0)
+           var raceCrew2 = SeatRaceCrew(athletes: racingCrews[1].athletes, raceTime: Double(crew2FirstStartTime)! / 10.0)
            
-           // Perform the swap
+           // perform the swap
            swapAthletes(crew1: &raceCrew1, crew2: &raceCrew2, athlete1Index: index1, athlete2Index: index2)
            
            // Update the actual crews
@@ -204,13 +232,22 @@ struct SeatRacingView: View {
        }
        
        private func calculateResults() {
-           guard let crew1Start = Double(crew1StartTime),
-                 let crew2Start = Double(crew2StartTime),
-                 let crew1Finish = Double(crew1FinishTime),
-                 let crew2Finish = Double(crew2FinishTime) else { return }
+           guard let crew1FirstRunStart = Double(crew1FirstStartTime),
+                 let crew1FirstRunFinish = Double(crew1FirstFinishTime),
+                 let crew2FirstRunStart = Double(crew2FirstStartTime),
+                 let crew2FirstRunFinish = Double(crew2FirstFinishTime),
+                 let crew1SecondRunStart = Double(crew1SecondStartTime),
+                 let crew1SecondRunFinish = Double(crew1SecondFinishTime),
+                 let crew2SecondRunStart = Double(crew2SecondStartTime),
+                 let crew2SecondRunFinish = Double(crew2SecondFinishTime) else { return }
            
-           let crew1TimeChange = (crew1Finish - crew1Start) / 10.0  // Convert to seconds
-           let crew2TimeChange = (crew2Finish - crew2Start) / 10.0
+           let crew1FirstRun = crew1FirstRunFinish - crew1FirstRunStart
+           let crew2FirstRun = crew2FirstRunFinish - crew2FirstRunStart
+           let crew1SecondRun = crew1SecondRunFinish - crew1SecondRunStart
+           let crew2SecondRun = crew2SecondRunFinish - crew2SecondRunStart
+           
+           let crew1TimeChange = (crew1SecondRun - crew1FirstRun) / 10.0  // Convert to seconds
+           let crew2TimeChange = (crew2SecondRun - crew2FirstRun) / 10.0
            
            raceResults.append("\nTime Changes After Swap:")
            raceResults.append("Crew 1: \(String(format: "%.1f", crew1TimeChange)) seconds")
@@ -232,14 +269,24 @@ struct SeatRacingView: View {
        }
     
     private func resetRace() {
-        crew1StartTime = ""
-        crew1FinishTime = ""
-        crew2StartTime = ""
-        crew2FinishTime = ""
+        // Reset times
+        crew1FirstStartTime = ""
+        crew1FirstFinishTime = ""
+        crew1SecondStartTime = ""
+        crew1SecondFinishTime = ""
+        crew2FirstStartTime = ""
+        crew2FirstFinishTime = ""
+        crew2SecondStartTime = ""
+        crew2SecondFinishTime = ""
+        
+        // Reset states
         hasEnteredPreSwapTimes = false
         hasEnteredPostSwapTimes = false
         raceResults.removeAll()
         selectedAthlete1Index = nil
         selectedAthlete2Index = nil
+        
+        // Reset crews
+        racingCrews.removeAll()
     }
 }

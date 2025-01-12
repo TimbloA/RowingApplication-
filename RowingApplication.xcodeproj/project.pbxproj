@@ -13,6 +13,8 @@
 		470508FC2D181F0500CBF861 /* CrewRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470508FB2D181F0500CBF861 /* CrewRowView.swift */; };
 		477A1B462D2ADF5800493FE6 /* AthleteSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A1B452D2ADF5800493FE6 /* AthleteSelectionRow.swift */; };
 		477A1B482D2ADF8400493FE6 /* CrewCardWithSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A1B472D2ADF8400493FE6 /* CrewCardWithSelection.swift */; };
+		477A1B4A2D33E92200493FE6 /* SeatRaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A1B492D33E92200493FE6 /* SeatRaceResult.swift */; };
+		477A1B4C2D33EA5300493FE6 /* SeatRacingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A1B4B2D33EA5300493FE6 /* SeatRacingListView.swift */; };
 		C934A0B12CC1908100FEE009 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C934A0B02CC1908100FEE009 /* CalendarView.swift */; };
 		C937A1D42C9B31E5006692FC /* ErgDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1D32C9B31E5006692FC /* ErgDataListView.swift */; };
 		C937A1D62C9B31FA006692FC /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A1D52C9B31FA006692FC /* DataViewModel.swift */; };
@@ -85,6 +87,8 @@
 		470508FB2D181F0500CBF861 /* CrewRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewRowView.swift; sourceTree = "<group>"; };
 		477A1B452D2ADF5800493FE6 /* AthleteSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteSelectionRow.swift; sourceTree = "<group>"; };
 		477A1B472D2ADF8400493FE6 /* CrewCardWithSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCardWithSelection.swift; sourceTree = "<group>"; };
+		477A1B492D33E92200493FE6 /* SeatRaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatRaceResult.swift; sourceTree = "<group>"; };
+		477A1B4B2D33EA5300493FE6 /* SeatRacingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatRacingListView.swift; sourceTree = "<group>"; };
 		C934A0B02CC1908100FEE009 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C937A1D32C9B31E5006692FC /* ErgDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgDataListView.swift; sourceTree = "<group>"; };
 		C937A1D52C9B31FA006692FC /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				C93995D22CED3FD0001D069E /* SeatRacingView.swift */,
 				477A1B452D2ADF5800493FE6 /* AthleteSelectionRow.swift */,
 				477A1B472D2ADF8400493FE6 /* CrewCardWithSelection.swift */,
+				477A1B492D33E92200493FE6 /* SeatRaceResult.swift */,
+				477A1B4B2D33EA5300493FE6 /* SeatRacingListView.swift */,
 			);
 			path = DataViews;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				C937A1D62C9B31FA006692FC /* DataViewModel.swift in Sources */,
 				C9955EB62CAD8EB6008C1EE6 /* PairsMatrix.swift in Sources */,
 				C94CA4622C922EE0007FB662 /* AthletesViewModel.swift in Sources */,
+				477A1B4A2D33E92200493FE6 /* SeatRaceResult.swift in Sources */,
 				C9BC729B2C91DD4400E1256A /* RowingApplicationApp.swift in Sources */,
 				C9BC4D732CEA0BBB0010BA88 /* RateCheckView.swift in Sources */,
 				C9A3F2022CC2C99700FF82DD /* AthleteSelectionView.swift in Sources */,
@@ -486,6 +493,7 @@
 				470508F62D181A5700CBF861 /* Crew.swift in Sources */,
 				C93995D32CED3FD0001D069E /* SeatRacingView.swift in Sources */,
 				C975716D2CB400A300CE93D7 /* RankedAthletesPairsMatrixView.swift in Sources */,
+				477A1B4C2D33EA5300493FE6 /* SeatRacingListView.swift in Sources */,
 				C96A550D2C92E65000EDC4DC /* AthleteListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@
 //  AthleteSelectionRow.swift
 //  RowingApplication
 //
-//  Created by Adi Timblo on 05/01/2025.
+//  Created by Adi Timblo on 18/10/2024.
 //
 
 import SwiftUI
