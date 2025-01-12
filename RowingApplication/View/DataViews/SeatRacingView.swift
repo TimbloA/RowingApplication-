@@ -45,6 +45,7 @@ struct SeatRacingView: View {
                         displayedComponents: [.date]
                     )
                 }
+                .padding()
                 VStack(spacing: 20) {
                     HStack(spacing: 10) {
                         CrewCardWithSelection(
@@ -153,19 +154,19 @@ struct SeatRacingView: View {
                                 Text(result)
                                     .padding(.horizontal)
                             }
-                            
-                            if hasEnteredPostSwapTimes && title != "" {
+                            if title != ""{
+                                
                                 Button("Save Race") {
-                                    DataManager.shared.seatRaces.append( SeatRace(title: title, data: raceResults,  dataDate: dataDate))
+                                    DataManager.shared.seatRaces.append(
+                                        SeatRace(title: title, data: raceResults, date: dataDate)
+                                    )
                                     resetRace()
                                     DataManager.shared.saveData()
-                                }
-                                .buttonStyle(.bordered)
-                                .padding()
+                                }.padding()
                             }
+                            
                         }
                         .padding()
-                        .background(Color.gray.opacity(0.1))
                         .cornerRadius(10)
                     }
                 }

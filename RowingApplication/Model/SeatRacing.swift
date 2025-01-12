@@ -25,13 +25,14 @@ func swapAthletes(crew1: inout SeatRaceCrew, crew2: inout SeatRaceCrew, athlete1
 struct SeatRace: Codable, Identifiable  {
     let id: UUID
     let title: String
-    let data: [String] // Use CrewData instead of tuples
+    let data: [String]
     let dataDate:Date
 
     init(title: String, data: [String],date: Date) {
-        self.id = UUID()  // Generate a new UUID for the matrix
+        self.id = UUID()  // crete a new UUID for the matrix
         self.title = title
         self.data = data
         self.dataDate = date
     }
 }
+

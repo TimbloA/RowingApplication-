@@ -24,6 +24,9 @@ struct CalendarView: View {
     var filteredPairsData: [PairsMatrix] {
         dataManager.pairsData.filter { Calendar.current.isDate($0.date, inSameDayAs: selectedDate) }
     }
+    var filteredSeatRaceData: [SeatRace] {
+        dataManager.seatRaces.filter { Calendar.current.isDate($0.dataDate, inSameDayAs: selectedDate) }
+    }
     
     var body: some View {
         NavigationStack {
@@ -71,6 +74,17 @@ struct CalendarView: View {
                             ForEach(filteredPairsData) { pairsMatrix in
                                 NavigationLink(destination: RankedAthletesPairsMatrixView(PairsData: pairsMatrix)) {
                                     Text("\(pairsMatrix.title)")
+                                }
+                            }
+                        }
+                    }
+                    Section(header: Text("Seat Race Data")) {
+                        if filteredSeatRaceData.isEmpty {
+                            Text("No Seat Race Data for this day.")
+                        } else {
+                            ForEach(filteredSeatRaceData) { seatRace in
+                                NavigationLink(destination: SeatRaceResult(SeatRaceData: seatRace)) {
+                                    Text("\(seatRace.title)")
                                 }
                             }
                         }
