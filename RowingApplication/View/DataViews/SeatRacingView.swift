@@ -45,6 +45,7 @@ struct SeatRacingView: View {
                         displayedComponents: [.date]
                     )
                 }
+                .padding()
                 VStack(spacing: 20) {
                     HStack(spacing: 10) {
                         CrewCardWithSelection(
@@ -143,7 +144,7 @@ struct SeatRacingView: View {
                     }
                     
                     // Results Display
-                    if !raceResults.isEmpty {
+                    if !raceResults.isEmpty && title != ""{
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Results")
                                 .font(.headline)
@@ -154,18 +155,16 @@ struct SeatRacingView: View {
                                     .padding(.horizontal)
                             }
                             
-                            if hasEnteredPostSwapTimes && title != "" {
-                                Button("Save Race") {
-                                    DataManager.shared.seatRaces.append( SeatRace(title: title, data: raceResults,  dataDate: dataDate))
-                                    resetRace()
-                                    DataManager.shared.saveData()
-                                }
-                                .buttonStyle(.bordered)
-                                .padding()
-                            }
+                            Button("Save Race") {
+                                DataManager.shared.seatRaces.append(
+                                    SeatRace(title: title, data: raceResults, date: dataDate)
+                                )
+                                resetRace()
+                                DataManager.shared.saveData()
+                            }.padding()
+                            
                         }
                         .padding()
-                        .background(Color.gray.opacity(0.1))
                         .cornerRadius(10)
                     }
                 }

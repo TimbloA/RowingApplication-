@@ -31,7 +31,7 @@ struct SeatRacingListView: View {
                     }else{
                         ForEach(searchResults, id: \.self.id) { seatRace in
                             NavigationLink(destination: SeatRaceResult(SeatRaceData: seatRace)) {
-                                Text("\(seatRace.title) (\(seatRace.athlete))")
+                                Text("\(seatRace.title)")
                             }
                         }
                         .onDelete(perform: deleteItems)

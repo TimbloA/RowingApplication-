@@ -29,7 +29,7 @@ struct RootDataView: View {
                 ErgDataListView(Single: single, SingleAthlete: singleAthlete)
             } else if dataChoice == .pairsMatrix {
                 PairsMatrixListView(singleAthlete: singleAthlete, isSingle: single)
-            } else{
+            } else if dataChoice == .seatRacing{
                 SeatRacingListView()
             }
         }
